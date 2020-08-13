@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}新增模块{% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class=" admin-content">
+
+        <div class="admin-biaogelist">
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on"> 新增模块</ul>
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 模块管理 > <a href="#">新增模块</a></dl>
+            </div>
+            <div class="fbneirong">
+                <form class="form-horizontal" id="add_module">
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="module_name">模块名称：</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="module_name"
+                                   aria-describedby="inputSuccess3Status" name="module_name" placeholder="请输入模块名称"
+                                   value="">
+                            <span class="glyphicon glyphicon-th-list form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-1 text-primary" for="belong_project">所属项目：</label>
+                        <div class="col-md-5">
+                            <select name="belong_project" class="form-control">
+                                <option value="请选择">请选择</option>
+                                {% for foo in  data %}
+                                    <option value="{{ foo.project_name }}">{{ foo.project_name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="test_user">测试人员：</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="test_user" name="test_user"
+                                   aria-describedby="inputSuccess3Status" placeholder="请输入参与的测试人员" value="">
+                            <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="simple_desc">简要描述：</label>
+                        <div class="col-md-5">
+                            <textarea type="text" rows="3" class="form-control" id="simple_desc" name="simple_desc"
+                                      aria-describedby="inputSuccess3Status" placeholder="模块简单概述"></textarea>
+                            <span class="glyphicon glyphicon-paperclip form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="other_desc">其他信息：</label>
+                        <div class="col-md-5">
+                            <textarea type="text" rows="3" class="form-control" id="other_desc" name="other_desc"
+                                      aria-describedby="inputSuccess3Status" placeholder="模块其他相关信息描述"></textarea>
+                            <span class="glyphicon glyphicon-paperclip form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="you" style="margin-left: 8%;">
+                            <button type="button" class="am-btn am-btn-success am-radius"
+                                    onclick="info_ajax('#add_module', '/api/add_module/')">点 击 提 交
+                            </button>&nbsp;
+                            &raquo; &nbsp;
+                            <a type="submit" href="/api/add_case/" class="am-btn am-btn-secondary am-radius">新 增 用 例</a>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

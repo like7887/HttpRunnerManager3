@@ -1,0 +1,9 @@
+Django == 2.2.12
+PyYAML == 5.3.1
+eventlet == 0.22.1
+requests == 2.24.0
+mysqlclient == 1.4.6
+django-celery == 3.3.1
+flower == 0.9.5
+dwebsocket == 0.5.12
+paramiko == 2.7.1

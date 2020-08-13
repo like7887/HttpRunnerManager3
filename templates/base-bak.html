@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    {% load staticfiles %}
+    <meta name="apple-mobile-web-app-title" content="HttpRunnerManager"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/css/fileinput.css"/>
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/js/fileinput.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/js/fileinput.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.8/css/fileinput.min.css"/>
+
+    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="{% static 'assets/css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/common.css' %}">
+
+    <script src="https://cdn.bootcss.com/amazeui/2.7.2/js/amazeui.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-language_tools.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <script src="{% static 'assets/js/app.js' %}"></script>
+    <script src="{% static 'assets/js/commons.js' %}"></script>
+
+
+</head>
+<body class="modal-open">
+<form enctype="multipart/form-data" id="upload_project_info">
+    <div class="modal fade" id="bulk_uploadcase" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">HttpRunnerManager</h4>
+                </div>
+                <div class="modal-body">
+                    <input name="upload" id="uploadfile" type="file" class="file" multiple/>
+                    <div id="kartik-file-errors"></div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group col-md-8" style="margin-left: 15px">
+                        <div class="input-group-addon" style="color: #0a628f">所属项目</div>
+                        <select id='project' name="project" class="form-control"
+                                onchange="auto_load('#upload_project_info', '/api/get_project_info/', '#upload_belong_module_id', 'module')">
+                            <option value="请选择">请选择</option>
+                            {% for foo in project %}
+                                <option value="{{ foo.project_name }}">{{ foo.project_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group col-md-8" style="margin-left: 15px">
+                        <div class="input-group-addon" style="color: #0a628f">所属模块</div>
+                        <select id="upload_belong_module_id" name="module" class="form-control">
+                        </select>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</form>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">HttpRunnerManager</div>
+        <div class="am-modal-bd" id="my-alert_print">
+            Sorry，服务器可能开小差啦, 请重试!
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+<div class="am-cf admin-main">
+
+    <div class="nav-navicon admin-main admin-sidebar">
+
+
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎您：{{ account }} &nbsp;&nbsp;<a
+                href='/api/log_out/'>注 销</a></div>
+        <div class="sideMenu">
+            <h3 class="am-icon-folder"><em></em> <a href="#">项目管理</a></h3>
+            <ul>
+                <li><a href="/api/project_list/1/">项 目 列 表</a></li>
+                <li><a href="/api/add_project/">新 增 项 目</a></li>
+                <li><a href="/api/debugtalk_list/1/">debugtalk.py</a></li>
+            </ul>
+            <h3 class="am-icon-th-list"><em></em> <a href="#"> 模块管理</a></h3>
+            <ul>
+                <li><a href="/api/module_list/1/">模 块 列 表</a></li>
+                <li><a href="/api/add_module/">新 增 模 块</a></li>
+            </ul>
+            <h3 class="am-icon-bug"><em></em> <a href="#">用例管理</a></h3>
+            <ul>
+                <li><a href="/api/add_case/">新 增 用 例</a></li>
+                <li><a href="/api/test_list/1/">用 例 列 表</a></li>
+            </ul>
+
+            <h3 class="am-icon-tags"><em></em> <a href="#">配置管理</a></h3>
+            <ul>
+                <li><a href="/api/add_config/">新 增 配 置</a></li>
+                <li><a href="/api/config_list/1/">配 置 列 表</a></li>
+            </ul>
+
+            <h3 class="am-icon-soundcloud"><em></em> <a href="#">测试计划</a></h3>
+            <ul>
+                <li><a href="/api/suite_list/1/">测 试 套 件</a></li>
+                <li><a href="/api/periodictask/1/">定 时 任 务</a></li>
+            </ul>
+
+
+            <h3 class="am-icon-jsfiddle"><em></em> <a href="#">报告管理</a></h3>
+            <ul>
+                <li><a href="/api/report_list/1/">查看报告</a></li>
+            </ul>
+            <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
+            <ul>
+                <li><a href="/api/env_list/1/">运 行 环 境</a></li>
+                <li><a href="http://192.168.91.45:5555/dashboard">任 务 监 控</a></li>
+              {% comment %}  <li><a href="/api/echo/">实验室</a></li>{% endcomment %}
+            </ul>
+        </div>
+        <!-- sideMenu End -->
+    </div>
+
+    <div class="daohang">
+        <ul>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/index/'">返回首页
+                    <a href="/api/index/" class="am-close am-close-spin">~</a></button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/project_list/1/'">项目列表<a
+                        href="/api/project_list/1/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/module_list/1/'">模块列表<a
+                        href="/api/module_list/1/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/test_list/1/'">用例列表<a
+                        href="/api/test_list/1/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/add_config/'">新增配置<a
+                        href="/api/add_config/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/add_case/'">新增用例<a
+                        href="/api/add_case/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/add_suite/'">新增Suite<a
+                        href="/api/add_suite/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="am-btn am-btn-default am-radius am-btn-xs"
+                        onclick="location='/api/add_task/'">新增任务<a
+                        href="/api/add_task/" class="am-close am-close-spin">~</a>
+                </button>
+            </li>
+
+        </ul>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script type="text/javascript">
+        jQuery(".sideMenu").slide({
+            titCell: "h3", //鼠标触发对象
+            targetCell: "ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+            effect: "slideDown", //targetCell下拉效果
+            delayTime: 300, //效果时间
+            triggerTime: 150, //鼠标延迟触发时间（默认150）
+            defaultPlay: true,//默认是否执行效果（默认true）
+            returnDefault: false //鼠标从.sideMen移走后返回默认状态（默认false）
+        });
+
+        function initFileInput(ctrlName) {
+            var control = $('#' + ctrlName);
+            control.fileinput({
+                resizeImage: true,
+                resizePreference: 'width',
+                uploadAsync: false,                             //采用同步上传
+                language: 'zh', //设置语言
+                uploadUrl: '/api/upload_file/',
+                allowedFileExtensions: ['yml', 'yaml', 'json'],//接收的文件后缀
+                showUpload: true, //是否显示上传按钮
+                showRemove: false,
+                showCaption: true,//是否显示标题
+                browseClass: "btn btn-primary", //按钮样式
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                maxFileCount: 10,
+                msgFilesTooMany: "选择文件超过了最大数量",
+                maxFileSize: 2000,
+                uploadExtraData:
+                    function () {     //上传时要传输的其他参数
+                        project_name = $('#project option:selected').val();//选中的文本
+                        module_name = $('#upload_belong_module_id option:selected').val();//选中的文本
+                        return {"project": project_name, "module": module_name};
+                    },
+                showClose: false,//显示右上角X关闭
+                overwriteInitial: false, //是否显示预览
+                dropZoneEnabled: false,//是否显示拖拽区域
+            });
+            control.on('fileerror', function (event, data, msg) {
+                myAlert(msg)
+            });
+            control.on("filebatchuploadsuccess", function (event, data) {
+                var obj = data.response;
+                $("#bulk_uploadcase").trigger('click');
+                if (obj.status.indexOf('/api/') !== -1) {
+                    window.location.href = obj.status;
+                } else {
+                    myAlert(obj.status);
+                }
+            });
+        }
+
+        initFileInput("uploadfile");
+    </script>
+</div>
+
+</body>
+</html>
