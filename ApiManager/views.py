@@ -805,6 +805,7 @@ def edit_suite(request, id=None):
 @login_check
 @accept_websocket
 def echo(request):
+    logger.info("提交测试")
     if not request.is_websocket():
         return render_to_response('echo.html')
     else:
