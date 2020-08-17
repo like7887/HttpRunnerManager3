@@ -144,7 +144,7 @@ class TestCaseInfoManager(models.Manager):
             return self.filter(id=index,user_account=user_account).all()
         else:
             return self.get(id=index,user_account=user_account).name
-    def get_case_by_moduleId(self,user_account,module_id,type=1,is_all=True):
+    def get_case_by_moduleId(self,module_id,user_account,type=1,is_all=True):
         if is_all:
             return self.filter(belong_module=module_id,user_account=user_account).filter(type=type).all()
         else:
