@@ -2,15 +2,15 @@ import json
 import logging
 import os
 import shutil
-import sys
 
 import paramiko
+from django.contrib.sessions.models import Session
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, StreamingHttpResponse
 from django.shortcuts import render_to_response
+from django.utils import timezone
 from django.utils.safestring import mark_safe
 from djcelery.models import PeriodicTask
 from dwebsocket import accept_websocket
-from httprunner.exceptions import ValidationFailure
 
 from ApiManager import separator
 from ApiManager.models import ProjectInfo, ModuleInfo, TestCaseInfo, UserInfo, EnvInfo, TestReports, DebugTalk, \
@@ -56,6 +56,13 @@ def login(request):
             logger.info('{username} 登录成功'.format(username=username))
             request.session["login_status"] = True
             request.session["now_account"] = username
+            #获取登陆后最新的session_key
+            session_key = request.session.session_key
+            #删除非当前用户产生的session_key
+            for session in Session.objects.exclude(session_key=session_key).filter(expire_date__gte=timezone.now()):
+                data = session.get_decoded()
+                if data.get('now_account',None) == username:
+                    session.delete()
             return HttpResponseRedirect('/api/index/')
         else:
             logger.info('{username} 登录失败, 请检查用户名或者密码'.format(username=username))
@@ -104,12 +111,13 @@ def index(request):
     :param request:
     :return:
     """
-    project_length = ProjectInfo.objects.count()
-    module_length = ModuleInfo.objects.count()
-    test_length = TestCaseInfo.objects.filter(type__exact=1).count()
-    suite_length = TestSuite.objects.count()
+    user_account = request.session['now_account']
+    project_length = ProjectInfo.objects.filter(user_account=user_account).count()
+    module_length = ModuleInfo.objects.filter(user_account=user_account).count()
+    test_length = TestCaseInfo.objects.filter(user_account=user_account).filter(type__exact=1).count()
+    suite_length = TestSuite.objects.filter(user_account=user_account).count()
 
-    total = get_total_values()
+    total = get_total_values(user_account)
     manage_info = {
         'project_length': project_length,
         'module_length': module_length,
@@ -133,6 +141,7 @@ def add_project(request):
     account = request.session["now_account"]
     if request.is_ajax():
         project_info = json.loads(request.body.decode('utf-8'))
+        project_info['user_account'] = account
         msg = project_info_logic(**project_info)
         return HttpResponse(get_ajax_msg(msg, '/api/project_list/1/'))
 
@@ -153,6 +162,7 @@ def add_module(request):
     account = request.session["now_account"]
     if request.is_ajax():
         module_info = json.loads(request.body.decode('utf-8'))
+        module_info['user_account'] = account
         msg = module_info_logic(**module_info)
         return HttpResponse(get_ajax_msg(msg, '/api/module_list/1/'))
     elif request.method == 'GET':
@@ -173,6 +183,7 @@ def add_case(request):
     account = request.session["now_account"]
     if request.is_ajax():
         testcase_info = json.loads(request.body.decode('utf-8'))
+        testcase_info['user_account'] = account
         msg = case_info_logic(**testcase_info)
         return HttpResponse(get_ajax_msg(msg, '/api/test_list/1/'))
     elif request.method == 'GET':
@@ -193,6 +204,7 @@ def add_config(request):
     account = request.session["now_account"]
     if request.is_ajax():
         testconfig_info = json.loads(request.body.decode('utf-8'))
+        testconfig_info['user_account'] = account
         msg = config_info_logic(**testconfig_info)
         return HttpResponse(get_ajax_msg(msg, '/api/config_list/1/'))
     elif request.method == 'GET':
@@ -291,15 +303,17 @@ def project_list(request, id):
     account = request.session["now_account"]
     if request.is_ajax():
         project_info = json.loads(request.body.decode('utf-8'))
+        project_info['user_account'] = account
         if 'mode' in project_info.keys():
-            msg = del_project_data(project_info.pop('id'))
+            msg = del_project_data(project_info.pop('id'),account)
         else:
             msg = project_info_logic(type=False, **project_info)
         return HttpResponse(get_ajax_msg(msg, 'ok'))
     else:
         filter_query = set_filter_session(request)
+
         pro_list = get_pager_info(
-            ProjectInfo, filter_query, '/api/project_list/', id)
+            ProjectInfo, filter_query, '/api/project_list/', id,account)
         manage_info = {
             'account': account,
             'project': pro_list[1],
@@ -323,15 +337,16 @@ def module_list(request, id):
     account = request.session["now_account"]
     if request.is_ajax():
         module_info = json.loads(request.body.decode('utf-8'))
+        module_info['user_account'] = account
         if 'mode' in module_info.keys():  # del module
-            msg = del_module_data(module_info.pop('id'))
+            msg = del_module_data(module_info.pop('id'),account)
         else:
             msg = module_info_logic(type=False, **module_info)
         return HttpResponse(get_ajax_msg(msg, 'ok'))
     else:
         filter_query = set_filter_session(request)
         module_list = get_pager_info(
-            ModuleInfo, filter_query, '/api/module_list/', id)
+            ModuleInfo, filter_query, '/api/module_list/', id,account)
         manage_info = {
             'account': account,
             'module': module_list[1],
@@ -366,7 +381,7 @@ def test_list(request, id):
     else:
         filter_query = set_filter_session(request)
         test_list = get_pager_info(
-            TestCaseInfo, filter_query, '/api/test_list/', id)
+            TestCaseInfo, filter_query, '/api/test_list/', id,account)
         manage_info = {
             'account': account,
             'test': test_list[1],
@@ -398,7 +413,7 @@ def config_list(request, id):
     else:
         filter_query = set_filter_session(request)
         test_list = get_pager_info(
-            TestCaseInfo, filter_query, '/api/config_list/', id)
+            TestCaseInfo, filter_query, '/api/config_list/', id,account)
         manage_info = {
             'account': account,
             'test': test_list[1],
@@ -419,17 +434,19 @@ def edit_case(request, id=None):
     """
 
     account = request.session["now_account"]
+    logger.info("当前登录账号为：{}".format(account))
     if request.is_ajax():
         testcase_lists = json.loads(request.body.decode('utf-8'))
+        testcase_lists['user_account'] = account
         msg = case_info_logic(type=False, **testcase_lists)
         return HttpResponse(get_ajax_msg(msg, '/api/test_list/1/'))
-    test_info = TestCaseInfo.objects.get_case_by_id(id)
+    test_info = TestCaseInfo.objects.get_case_by_id(id,account)
     request = eval(test_info[0].request)
     include = eval(test_info[0].include)
     info = test_info[0].__dict__
-    module_name = ModuleInfo.objects.get_module_by_id(info['belong_module_id'])[0].module_name
-    config_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'],type=2)
-    all_case_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'])
+    module_name = ModuleInfo.objects.get_module_by_id(info['belong_module_id'],account)[0].module_name
+    config_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'],account,type=2)
+    all_case_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'],account)
     logger.info("config_info : {}".format(config_info[1].name))
     manage_info = {
         'account': account,
@@ -457,10 +474,11 @@ def edit_config(request, id=None):
     account = request.session["now_account"]
     if request.is_ajax():
         testconfig_lists = json.loads(request.body.decode('utf-8'))
+        testconfig_lists['user_account'] = account
         msg = config_info_logic(type=False, **testconfig_lists)
         return HttpResponse(get_ajax_msg(msg, '/api/config_list/1/'))
 
-    config_info = TestCaseInfo.objects.get_case_by_id(id)
+    config_info = TestCaseInfo.objects.get_case_by_id(id,account)
     request = eval(config_info[0].request)
     manage_info = {
         'account': account,
@@ -484,6 +502,7 @@ def env_set(request):
     account = request.session["now_account"]
     if request.is_ajax():
         env_lists = json.loads(request.body.decode('utf-8'))
+        env_lists['user_account'] = account
         msg = env_data_logic(**env_lists)
         return HttpResponse(get_ajax_msg(msg, 'ok'))
 
@@ -503,7 +522,7 @@ def env_list(request, id):
     account = request.session["now_account"]
     if request.method == 'GET':
         env_lists = get_pager_info(
-            EnvInfo, None, '/api/env_list/', id)
+            EnvInfo, None, '/api/env_list/', id,account)
         manage_info = {
             'account': account,
             'env': env_lists[1],
@@ -520,7 +539,7 @@ def report_list(request, id):
     :param id: str or int：当前页
     :return:
     """
-
+    account = request.session['now_account']
     if request.is_ajax():
         report_info = json.loads(request.body.decode('utf-8'))
 
@@ -530,7 +549,7 @@ def report_list(request, id):
     else:
         filter_query = set_filter_session(request)
         report_list = get_pager_info(
-            TestReports, filter_query, '/api/report_list/', id)
+            TestReports, filter_query, '/api/report_list/', id,account)
         manage_info = {
             'account': request.session["now_account"],
             'report': report_list[1],
@@ -735,7 +754,7 @@ def suite_list(request, id):
     else:
         filter_query = set_filter_session(request)
         pro_list = get_pager_info(
-            TestSuite, filter_query, '/api/suite_list/', id)
+            TestSuite, filter_query, '/api/suite_list/', id,account)
         manage_info = {
             'account': account,
             'suite': pro_list[1],

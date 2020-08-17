@@ -52,6 +52,7 @@ class ProjectInfo(BaseTable):
     publish_app = models.CharField('发布应用', max_length=100, null=False)
     simple_desc = models.CharField('简要描述', max_length=100, null=True)
     other_desc = models.CharField('其他信息', max_length=100, null=True)
+    user_account = models.CharField('用户账号', max_length=20)
     objects = ProjectInfoManager()
 
 
@@ -65,6 +66,7 @@ class ModuleInfo(BaseTable):
     test_user = models.CharField('测试负责人', max_length=50, null=False)
     simple_desc = models.CharField('简要描述', max_length=100, null=True)
     other_desc = models.CharField('其他信息', max_length=100, null=True)
+    user_account = models.CharField('用户账号', max_length=20)
     objects = ModuleInfoManager()
 
 
@@ -79,6 +81,7 @@ class TestCaseInfo(BaseTable):
     belong_module = models.ForeignKey(ModuleInfo, on_delete=models.CASCADE)
     include = models.CharField('前置config/test', max_length=1024, null=True)
     author = models.CharField('编写人员', max_length=20, null=False)
+    user_account = models.CharField('用户账号', max_length=20)
     request = models.TextField('请求信息', null=False)
 
     objects = TestCaseInfoManager()
@@ -91,6 +94,7 @@ class TestReports(BaseTable):
 
     report_name = models.CharField(max_length=40, null=False)
     start_at = models.CharField(max_length=40, null=True)
+    user_account = models.CharField('用户账号', max_length=20)
     status = models.BooleanField()
     testsRun = models.IntegerField()
     successes = models.IntegerField()
@@ -105,6 +109,7 @@ class EnvInfo(BaseTable):
     env_name = models.CharField(max_length=40, null=False, unique=True)
     base_url = models.CharField(max_length=40, null=False)
     simple_desc = models.CharField(max_length=50, null=False)
+    user_account = models.CharField('用户账号', max_length=20)
     objects = EnvInfoManager()
 
 
@@ -115,6 +120,7 @@ class DebugTalk(BaseTable):
 
     belong_project = models.ForeignKey(ProjectInfo, on_delete=models.CASCADE)
     debugtalk = models.TextField(null=True, default='#debugtalk.py')
+    user_account = models.CharField('用户账号', max_length=20)
 
 
 class TestSuite(BaseTable):
@@ -125,3 +131,4 @@ class TestSuite(BaseTable):
     belong_project = models.ForeignKey(ProjectInfo, on_delete=models.CASCADE)
     suite_name = models.CharField(max_length=100, null=False)
     include = models.TextField(null=False)
+    user_account = models.CharField('用户账号', max_length=20)

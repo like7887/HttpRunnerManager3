@@ -54,8 +54,9 @@ def add_project_data(type, **kwargs):
     """
     project_opt = ProjectInfo.objects
     project_name = kwargs.get('project_name')
+    user_account = kwargs.get('user_account')
     if type:
-        if project_opt.get_pro_name(project_name) < 1:
+        if project_opt.get_pro_name(project_name,user_account) < 1:
             try:
                 project_opt.insert_project(**kwargs)
                 belong_project = project_opt.get(project_name=project_name)
@@ -69,8 +70,8 @@ def add_project_data(type, **kwargs):
         else:
             return '该项目已存在，请重新编辑'
     else:
-        if project_name != project_opt.get_pro_name('', type=False, id=kwargs.get(
-                'index')) and project_opt.get_pro_name(project_name) > 0:
+        if project_name != project_opt.get_pro_name('',user_account, type=False, id=kwargs.get(
+                'index')) and project_opt.get_pro_name(project_name,user_account) > 0:
             return '该项目已存在， 请重新命名'
         try:
             project_opt.update_project(kwargs.pop('index'), **kwargs)  # testcaseinfo的belong_project也得更新，这个字段设计的有点坑了
@@ -97,11 +98,12 @@ def add_module_data(type, **kwargs):
     module_opt = ModuleInfo.objects
     belong_project = kwargs.pop('belong_project')
     module_name = kwargs.get('module_name')
+    user_account = kwargs.get('user_account')
     if type:
         if module_opt.filter(belong_project__project_name__exact=belong_project) \
                 .filter(module_name__exact=module_name).count() < 1:
             try:
-                belong_project = ProjectInfo.objects.get_pro_name(belong_project, type=False)
+                belong_project = ProjectInfo.objects.get_pro_name(belong_project,user_account, type=False)
             except ObjectDoesNotExist:
                 logging.error('项目信息读取失败：{belong_project}'.format(belong_project=belong_project))
                 return '项目信息读取失败，请重试'
@@ -117,7 +119,7 @@ def add_module_data(type, **kwargs):
         else:
             return '该模块已在项目中存在，请重新编辑'
     else:
-        if module_name != module_opt.get_module_name('', type=False, id=kwargs.get('index')) \
+        if module_name != module_opt.get_module_name('',user_account, type=False, id=kwargs.get('index')) \
                 and module_opt.filter(belong_project__project_name__exact=belong_project) \
                 .filter(module_name__exact=module_name).count() > 0:
             return '该模块已存在，请重新命名'
@@ -147,7 +149,8 @@ def add_case_data(type, **kwargs):
     name = kwargs.get('test').get('name')
     module = case_info.get('module')
     project = case_info.get('project')
-    belong_module = ModuleInfo.objects.get_module_name(module, type=False)
+    user_account = kwargs.get('user_account')
+    belong_module = ModuleInfo.objects.get_module_name(module,user_account, type=False)
     config = case_info.get('config', '')
     if config != '':
         case_info.get('include')[0] = eval(config)
@@ -155,15 +158,15 @@ def add_case_data(type, **kwargs):
     try:
         if type:
 
-            if case_opt.get_case_name(name, module, project) < 1:
+            if case_opt.get_case_name(name, module, project,user_account) < 1:
                 case_opt.insert_case(belong_module, **kwargs)
                 logger.info('{name}用例添加成功: {kwargs}'.format(name=name, kwargs=kwargs))
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
             index = case_info.get('test_index')
-            if name != case_opt.get_case_by_id(index, type=False) \
-                    and case_opt.get_case_name(name, module, project) > 0:
+            if name != case_opt.get_case_by_id(index,user_account, type=False) \
+                    and case_opt.get_case_name(name, module, project,user_account) > 0:
                 return '用例或配置已在该模块中存在，请重新命名'
             case_opt.update_case(belong_module, **kwargs)
             logger.info('{name}用例更新成功: {kwargs}'.format(name=name, kwargs=kwargs))
@@ -189,19 +192,20 @@ def add_config_data(type, **kwargs):
     name = kwargs.get('config').get('name')
     module = config_info.get('module')
     project = config_info.get('project')
-    belong_module = ModuleInfo.objects.get_module_name(module, type=False)
+    user_account = kwargs.get('user_account')
+    belong_module = ModuleInfo.objects.get_module_name(module,user_account, type=False)
 
     try:
         if type:
-            if case_opt.get_case_name(name, module, project) < 1:
+            if case_opt.get_case_name(name, module, project,user_account) < 1:
                 case_opt.insert_config(belong_module, **kwargs)
                 logger.info('{name}配置添加成功: {kwargs}'.format(name=name, kwargs=kwargs))
             else:
                 return '用例或配置已存在，请重新编辑'
         else:
             index = config_info.get('test_index')
-            if name != case_opt.get_case_by_id(index, type=False) \
-                    and case_opt.get_case_name(name, module, project) > 0:
+            if name != case_opt.get_case_by_id(index,user_account, type=False) \
+                    and case_opt.get_case_name(name, module, project,user_account) > 0:
                 return '用例或配置已在该模块中存在，请重新命名'
             case_opt.update_config(belong_module, **kwargs)
             logger.info('{name}配置更新成功: {kwargs}'.format(name=name, kwargs=kwargs))
@@ -258,9 +262,10 @@ def env_data_logic(**kwargs):
     :return: ok or tips
     """
     id = kwargs.get('id', None)
+    user_account = kwargs.get('user_account')
     if id:
         try:
-            EnvInfo.objects.delete_env(id)
+            EnvInfo.objects.delete_env(id,user_account)
         except ObjectDoesNotExist:
             return '删除异常，请重试'
         return 'ok'
@@ -288,7 +293,7 @@ def env_data_logic(**kwargs):
             return '环境信息添加异常，请重试'
     else:
         try:
-            if EnvInfo.objects.get_env_name(index) != env_name and EnvInfo.objects.filter(
+            if EnvInfo.objects.get_env_name(index,user_account) != env_name and EnvInfo.objects.filter(
                     env_name=env_name).count() > 0:
                 return '环境名称已存在'
             else:
@@ -302,14 +307,14 @@ def env_data_logic(**kwargs):
             return '更新失败，请重试'
 
 
-def del_module_data(id):
+def del_module_data(id,user_account):
     """
     根据模块索引删除模块数据，强制删除其下所有用例及配置
     :param id: str or int:模块索引
     :return: ok or tips
     """
     try:
-        module_name = ModuleInfo.objects.get_module_name('', type=False, id=id)
+        module_name = ModuleInfo.objects.get_module_name('',user_account, type=False, id=id)
         TestCaseInfo.objects.filter(belong_module__module_name=module_name).delete()
         ModuleInfo.objects.get(id=id).delete()
     except ObjectDoesNotExist:
@@ -318,14 +323,14 @@ def del_module_data(id):
     return 'ok'
 
 
-def del_project_data(id):
+def del_project_data(id,user_account):
     """
     根据项目索引删除项目数据，强制删除其下所有用例、配置、模块、Suite
     :param id: str or int: 项目索引
     :return: ok or tips
     """
     try:
-        project_name = ProjectInfo.objects.get_pro_name('', type=False, id=id)
+        project_name = ProjectInfo.objects.get_pro_name('',user_account, type=False, id=id)
 
         belong_modules = ModuleInfo.objects.filter(belong_project__project_name=project_name).values_list('module_name')
         for obj in belong_modules:

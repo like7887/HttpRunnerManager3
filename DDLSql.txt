@@ -1,0 +1,7 @@
+alter table envinfo add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table moduleinfo add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table projectinfo add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table testcaseinfo add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table testreports add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table testsuite add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;
+alter table debugtalk add COLUMN user_account varchar(20) NULL COMMENT '用户账号' ;

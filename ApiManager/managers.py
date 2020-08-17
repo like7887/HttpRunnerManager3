@@ -35,8 +35,8 @@ class ProjectInfoManager(models.Manager):
     def insert_project(self, **kwargs):
         self.create(**kwargs)
 
-    def update_project(self, id, **kwargs):  # 如此update_time才会自动更新！！
-        obj = self.get(id=id)
+    def update_project(self, id,user_account, **kwargs):  # 如此update_time才会自动更新！！
+        obj = self.get(id=id,user_account=user_account)
         obj.project_name = kwargs.get('project_name')
         obj.responsible_name = kwargs.get('responsible_name')
         obj.test_user = kwargs.get('test_user')
@@ -44,21 +44,22 @@ class ProjectInfoManager(models.Manager):
         obj.publish_app = kwargs.get('publish_app')
         obj.simple_desc = kwargs.get('simple_desc')
         obj.other_desc = kwargs.get('other_desc')
+        obj.user_account = user_account
         obj.save()
 
-    def get_pro_name(self, pro_name, type=True, id=None):
+    def get_pro_name(self, pro_name,user_account, type=True, id=None):
         if type:
-            return self.filter(project_name__exact=pro_name).count()
+            return self.filter(project_name__exact=pro_name,user_account=user_account).count()
         else:
             if id is not None:
-                return self.get(id=id).project_name
-            return self.get(project_name__exact=pro_name)
+                return self.get(id=id,user_account=user_account).project_name
+            return self.get(project_name__exact=pro_name,user_account=user_account)
 
-    def get_pro_info(self, type=True):
+    def get_pro_info(self,user_account, type=True):
         if type:
-            return self.all().values('project_name')
+            return self.filter(user_account=user_account).all().values('project_name')
         else:
-            return self.all()
+            return self.filter(user_account=user_account).all()
 
 
 '''模块信息表操作'''
@@ -68,29 +69,29 @@ class ModuleInfoManager(models.Manager):
     def insert_module(self, **kwargs):
         self.create(**kwargs)
 
-    def update_module(self, id, **kwargs):
-        obj = self.get(id=id)
+    def update_module(self,id, **kwargs):
+        obj = self.get(id=id,user_account=kwargs.get('user_account'))
         obj.module_name = kwargs.get('module_name')
         obj.test_user = kwargs.get('test_user')
         obj.simple_desc = kwargs.get('simple_desc')
         obj.other_desc = kwargs.get('other_desc')
-
+        obj.user_account = kwargs.get('user_account')
         obj.save()
 
-    def get_module_name(self, module_name, type=True, id=None):
+    def get_module_name(self, module_name,user_account, type=True, id=None):
         if type:
-            return self.filter(module_name__exact=module_name).count()
+            return self.filter(module_name__exact=module_name,user_account=user_account).count()
         else:
             if id is not None:
-                return self.get(id=id).module_name
+                return self.get(id=id,user_account=user_account).module_name
             else:
-                return self.get(id=module_name)
+                return self.get(id=module_name,user_account=user_account)
 
-    def get_module_by_id(self, index, type=True):
+    def get_module_by_id(self, index,user_account, type=True):
         if type:
-            return self.filter(id=index).all()
+            return self.filter(id=index,user_account=user_account).all()
         else:
-            return self.get(id=index).name
+            return self.get(id=index,user_account=user_account).name
 
 
 
@@ -102,49 +103,52 @@ class TestCaseInfoManager(models.Manager):
         case_info = kwargs.get('test').pop('case_info')
         self.create(name=kwargs.get('test').get('name'), belong_project=case_info.pop('project'),
                     belong_module=belong_module,
-                    author=case_info.pop('author'), include=case_info.pop('include'), request=kwargs.get('test'))
+                    author=case_info.pop('author'), include=case_info.pop('include'), request=kwargs.get('test'),
+                    user_account=kwargs.get('user_account'))
 
-    def update_case(self, belong_module, **kwargs):
+    def update_case(self,belong_module, **kwargs):
         case_info = kwargs.get('test').pop('case_info')
-        obj = self.get(id=case_info.pop('test_index'))
+        obj = self.get(id=case_info.pop('test_index'),user_account=kwargs.get('user_account'))
         obj.belong_project = case_info.pop('project')
         obj.belong_module = belong_module
         obj.name = kwargs.get('test').get('name')
         obj.author = case_info.pop('author')
         obj.include = case_info.pop('include')
         obj.request = kwargs.get('test')
+        obj.user_account = kwargs.get('user_account')
         obj.save()
 
-    def insert_config(self, belong_module, **kwargs):
+    def insert_config(self,belong_module, **kwargs):
         config_info = kwargs.get('config').pop('config_info')
         self.create(name=kwargs.get('config').get('name'), belong_project=config_info.pop('project'),
                     belong_module=belong_module,
-                    author=config_info.pop('author'), type=2, request=kwargs)
+                    author=config_info.pop('author'), type=2, request=kwargs,user_account=kwargs.get('user_account'))
 
-    def update_config(self, belong_module, **kwargs):
+    def update_config(self,belong_module, **kwargs):
         config_info = kwargs.get('config').pop('config_info')
-        obj = self.get(id=config_info.pop('test_index'))
+        obj = self.get(id=config_info.pop('test_index'),user_account=kwargs.get('user_account'))
         obj.belong_module = belong_module
         obj.belong_project = config_info.pop('project')
         obj.name = kwargs.get('config').get('name')
         obj.author = config_info.pop('author')
         obj.request = kwargs
+        obj.user_account = kwargs.get('user_account')
         obj.save()
 
-    def get_case_name(self, name, module_name, belong_project):
+    def get_case_name(self, name, module_name, belong_project,user_account):
         return self.filter(belong_module__id=module_name).filter(name__exact=name).filter(
-            belong_project__exact=belong_project).count()
+            belong_project__exact=belong_project).filter(user_account=user_account).count()
 
-    def get_case_by_id(self, index, type=True):
+    def get_case_by_id(self,index,user_account, type=True):
         if type:
-            return self.filter(id=index).all()
+            return self.filter(id=index,user_account=user_account).all()
         else:
-            return self.get(id=index).name
-    def get_case_by_moduleId(self,module_id,type=1,is_all=True):
+            return self.get(id=index,user_account=user_account).name
+    def get_case_by_moduleId(self,user_account,module_id,type=1,is_all=True):
         if is_all:
-            return self.filter(belong_module=module_id).filter(type=type).all()
+            return self.filter(belong_module=module_id,user_account=user_account).filter(type=type).all()
         else:
-            return self.filter(belong_module=module_id).name
+            return self.filter(belong_module=module_id,user_account=user_account).name
 
 
 
@@ -156,14 +160,15 @@ class EnvInfoManager(models.Manager):
         self.create(**kwargs)
 
     def update_env(self, index, **kwargs):
-        obj = self.get(id=index)
+        obj = self.get(id=index,user_account=kwargs.get('user_account'))
         obj.env_name = kwargs.pop('env_name')
         obj.base_url = kwargs.pop('base_url')
         obj.simple_desc = kwargs.pop('simple_desc')
+        obj.user_account = kwargs.get('user_account')
         obj.save()
 
-    def get_env_name(self, index):
-        return self.get(id=index).env_name
+    def get_env_name(self,index,user_account):
+        return self.get(id=index,user_account=user_account).env_name
 
-    def delete_env(self, index):
-        self.get(id=index).delete()
+    def delete_env(self,index,user_account):
+        self.get(id=index,user_account=user_account).delete()

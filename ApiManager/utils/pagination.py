@@ -1,7 +1,10 @@
+import logging
+
 from django.utils.safestring import mark_safe
 
 from ApiManager.models import ModuleInfo, TestCaseInfo, TestSuite
 
+logger = logging.getLogger('HttpRunnerManager')
 
 class PageInfo(object):
     """
@@ -87,7 +90,7 @@ def customer_pager(base_url, current_page, total_page):
     return mark_safe(result)  # 把字符串转成html语言
 
 
-def get_pager_info(Model, filter_query, url, id, per_items=12):
+def get_pager_info(Model, filter_query, url, id,user_account, per_items=12):
     """
     筛选列表信息
     :param Model: Models实体类
@@ -98,6 +101,7 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
     :return:
     """
     id = int(id)
+
     if filter_query:
         belong_project = filter_query.get('belong_project')
         belong_module = filter_query.get('belong_module')
@@ -105,9 +109,9 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
         user = filter_query.get('user')
 
     obj = Model.objects
+    obj = obj.filter(user_account=user_account)
 
     if url == '/api/project_list/':
-
         obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \
             else obj.filter(responsible_name__contains=user)
 
@@ -125,7 +129,7 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
 
     elif url == '/api/periodictask/':
         obj = obj.filter(name__contains=name).values('id', 'name', 'kwargs', 'enabled', 'date_changed') \
-            if name is not '' else obj.all().values('id', 'name', 'kwargs', 'enabled', 'date_changed', 'description')
+            if name is not '' else obj.values('id', 'name', 'kwargs', 'enabled', 'date_changed', 'description')
 
     elif url == '/api/suite_list/':
         if belong_project != 'All':
@@ -137,8 +141,7 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
         obj = obj.filter(type__exact=1) if url == '/api/test_list/' else obj.filter(type__exact=2)
 
         if belong_project != 'All' and belong_module != '请选择':
-            obj = obj.filter(belong_project__contains=belong_project).filter(
-                belong_module__module_name__contains=belong_module)
+            obj = obj.filter(belong_project__contains=belong_project).filter(belong_module__module_name__contains=belong_module)
             if name is not '':
                 obj = obj.filter(name__contains=name)
 
@@ -152,7 +155,6 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
 
     if url != '/api/periodictask/':
         obj = obj.order_by('-update_time')
-
     else:
         obj = obj.order_by('-date_changed')
 
@@ -167,10 +169,10 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
         if url == '/api/project_list/':
             for model in info:
                 pro_name = model.project_name
-                module_count = str(ModuleInfo.objects.filter(belong_project__project_name__exact=pro_name).count())
-                suite_count = str(TestSuite.objects.filter(belong_project__project_name__exact=pro_name).count())
-                test_count = str(TestCaseInfo.objects.filter(belong_project__exact=pro_name, type__exact=1).count())
-                config_count = str(TestCaseInfo.objects.filter(belong_project__exact=pro_name, type__exact=2).count())
+                module_count = str(ModuleInfo.objects.filter(belong_project__project_name__exact=pro_name,user_account=user_account).count())
+                suite_count = str(TestSuite.objects.filter(belong_project__project_name__exact=pro_name,user_account=user_account).count())
+                test_count = str(TestCaseInfo.objects.filter(belong_project__exact=pro_name, type__exact=1,user_account=user_account).count())
+                config_count = str(TestCaseInfo.objects.filter(belong_project__exact=pro_name, type__exact=2,user_account=user_account).count())
                 sum.setdefault(model.id, module_count + '/ ' + suite_count + '/' + test_count + '/ ' + config_count)
 
         elif url == '/api/module_list/':
@@ -178,9 +180,9 @@ def get_pager_info(Model, filter_query, url, id, per_items=12):
                 module_name = model.module_name
                 project_name = model.belong_project.project_name
                 test_count = str(TestCaseInfo.objects.filter(belong_module__module_name=module_name,
-                                                             type__exact=1, belong_project=project_name).count())
+                                                             type__exact=1, belong_project=project_name,user_account=user_account).count())
                 config_count = str(TestCaseInfo.objects.filter(belong_module__module_name=module_name,
-                                                               type__exact=2, belong_project=project_name).count())
+                                                               type__exact=2, belong_project=project_name,user_account=user_account).count())
                 sum.setdefault(model.id, test_count + '/ ' + config_count)
 
         elif url == '/api/suite_list/':
