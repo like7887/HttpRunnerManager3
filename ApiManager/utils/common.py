@@ -561,6 +561,7 @@ def upload_file_logic(files, project, module, account):
             }
             if 'config' in test_case.keys():
                 test_case.get('config')['config_info'] = test_dict
+                test_case['user_account'] = account
                 add_config_data(type=True, **test_case)
 
             if 'test' in test_case.keys():  # 忽略config
@@ -576,11 +577,11 @@ def upload_file_logic(files, project, module, account):
                                 new_validate.append(tmp_check)
 
                     test_case.get('test')['validate'] = new_validate
-
+                test_case['user_account'] = account
                 add_case_data(type=True, **test_case)
 
 
-def get_total_values():
+def get_total_values(user_account):
     total = {
         'pass': [],
         'fail': [],
@@ -591,9 +592,9 @@ def get_total_values():
         begin = today + datetime.timedelta(days=i)
         end = begin + datetime.timedelta(days=1)
 
-        total_run = TestReports.objects.filter(create_time__range=(begin, end)).aggregate(testRun=Sum('testsRun'))[
+        total_run = TestReports.objects.filter(user_account=user_account).filter(create_time__range=(begin, end)).aggregate(testRun=Sum('testsRun'))[
             'testRun']
-        total_success = TestReports.objects.filter(create_time__range=(begin, end)).aggregate(success=Sum('successes'))[
+        total_success = TestReports.objects.filter(user_account=user_account).filter(create_time__range=(begin, end)).aggregate(success=Sum('successes'))[
             'success']
 
         if not total_run:
