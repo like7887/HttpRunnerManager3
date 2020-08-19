@@ -41,7 +41,7 @@ def run_by_single(index, base_url, path):
     project = obj.belong_project
     module = obj.belong_module.module_name
     #替换当前用例的端口
-    if request['request']['base_url']:
+    if 'base_url' in request['request'] and request['request']['base_url']:
         testcase_list['config']['base_url'] = request['request']['base_url']
     testcase_list['config']['name'] = name
     testcase_dir_path = os.path.join(path, project)
