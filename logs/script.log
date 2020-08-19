@@ -4680,3 +4680,206 @@ KeyError: 'validate_extractor'
 2020-08-19 10:33:28,614 [HttpRunnerManager:202] [runner:main_run_cases] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\suite\2020-08-19-10-33-27-561\轻舟测试项目1\出入口\验证基础url设置.yml 文件执行完之后生成的结果为：[{'success': True, 'name': '验证码配置', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.POST: 'POST'>, 'url': 'http://10.128.138.240:81/cwos-portal/portal/account/captcha', 'headers': {'Content-Length': '0'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 0, 'headers': {}, 'cookies': {}, 'encoding': None, 'content_type': '', 'body': ''}}], 'stat': {'content_size': 0, 'response_time_ms': 1018.54, 'elapsed_ms': 0.0}, 'address': {'client_ip': 'N/A', 'client_port': 0, 'server_ip': 'N/A', 'server_port': 0}, 'validators': {'validate_extractor': [{'comparator': 'equal', 'check': 'body.code', 'check_value': None, 'expect': '00000000', 'expect_value': '00000000', 'message': '', 'check_result': 'fail'}]}}, 'export_vars': {'captchaKey': None}}]
 2020-08-19 10:33:28,615 [HttpRunnerManager:213] [runner:main_run_cases] [INFO]- 生成报告前的summary：{'name': '出入口', 'success': True, 'time': {'start_at': 1597804407.5718243, 'start_at_iso_format': 1597804407.5718243, 'end_time': 1597804408.6150386, 'duration': 1.0432143211364746}, 'step_datas': [{'success': True, 'name': '验证码配置', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.POST: 'POST'>, 'url': 'http://10.128.138.240:81/cwos-portal/portal/account/captcha', 'headers': {'Content-Length': '0'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 0, 'headers': {}, 'cookies': {}, 'encoding': None, 'content_type': '', 'body': ''}}], 'stat': {'content_size': 0, 'response_time_ms': 1018.54, 'elapsed_ms': 0.0}, 'address': {'client_ip': 'N/A', 'client_port': 0, 'server_ip': 'N/A', 'server_port': 0}, 'validators': {'validate_extractor': [{'comparator': 'equal', 'check': 'body.code', 'check_value': None, 'expect': '00000000', 'expect_value': '00000000', 'message': '', 'check_result': 'fail'}]}}, 'export_vars': {'captchaKey': None}}]}
 2020-08-19 10:35:53,035 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 14:36:10,246 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:36:11,861 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:36:15,825 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:36:17,842 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:36:31,710 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:38:36,341 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:42:51,184 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:42:51,547 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 71, in login
+    return render_to_response("login.html","账号或者密码错误，请重新输入")
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 59, in render
+    context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\context.py", line 270, in make_context
+    raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
+TypeError: context must be a dict rather than str.
+2020-08-19 14:43:40,698 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:51:19,008 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:51:22,504 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:51:35,583 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 14:53:38,637 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 14:53:41,044 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 14:55:09,761 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1'}, 'type': 'module'}
+2020-08-19 14:55:11,209 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '1'}, 'type': 'case'}
+2020-08-19 14:55:11,210 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '1'}, 'type': 'config'}
+2020-08-19 14:55:25,264 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'author': 'like', 'config': '', 'case_name': '获取验证码', 'project': '2504-B像机测试'}, 'type': 'module'}
+2020-08-19 14:55:27,566 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'author': 'like', 'config': '', 'case_name': '获取验证码', 'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
+2020-08-19 15:00:18,920 [HttpRunnerManager:99] [views:log_out] [INFO]- like退出
+2020-08-19 15:00:21,385 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:00:27,853 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:01:12,172 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:01:16,370 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 15:01:18,695 [HttpRunnerManager:99] [views:log_out] [INFO]- like退出
+2020-08-19 15:01:21,376 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:01:42,608 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:01:42,805 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:02:40,979 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:02:41,071 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:02:57,482 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:02:57,508 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:07:08,494 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:07:08,607 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response({"response":"账号或者密码错误，请重新输入"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'dict'
+2020-08-19 15:07:42,705 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:07:42,810 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response(request,{"response":"账号或者密码错误，请重新输入"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'WSGIRequest'
+2020-08-19 15:07:56,194 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:07:56,233 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response(request,{"response":"账号或者密码错误，请重新输入"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'WSGIRequest'
+2020-08-19 15:08:25,874 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:09:03,461 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:12:48,293 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:13:10,958 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:13:53,393 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 15:13:55,655 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 15:15:39,825 [HttpRunnerManager:99] [views:log_out] [INFO]- like退出
+2020-08-19 15:15:42,231 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:16:30,961 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:17:14,104 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:25:20,340 [HttpRunnerManager:68] [views:login] [INFO]- like 登录失败, 请检查用户名或者密码
+2020-08-19 15:25:23,787 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 15:25:27,747 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 15:30:50,538 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 17:20:57,041 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 17:20:59,805 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-19 17:47:59,231 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 17:48:17,578 [HttpRunnerManager:69] [operation:add_project_data] [INFO]- 项目添加成功：{'project_name': '轻舟2', 'responsible_name': 'like', 'test_user': 'like', 'dev_user': 'like', 'publish_app': '出入口', 'simple_desc': '', 'other_desc': '', 'user_account': 'like'}
+2020-08-19 17:51:29,498 [HttpRunnerManager:56] [views:login] [INFO]- liketest 登录成功
+2020-08-19 17:51:43,895 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2'}, 'type': 'module'}
+2020-08-19 17:55:08,185 [HttpRunnerManager:97] [views:log_out] [INFO]- liketest退出
+2020-08-19 17:55:10,475 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-19 17:55:16,409 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2'}, 'type': 'module'}
+2020-08-19 17:55:19,703 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
+2020-08-19 17:55:20,726 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '1'}, 'type': 'case'}

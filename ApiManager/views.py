@@ -15,17 +15,17 @@ from dwebsocket import accept_websocket
 from ApiManager import separator
 from ApiManager.models import ProjectInfo, ModuleInfo, TestCaseInfo, UserInfo, EnvInfo, TestReports, DebugTalk, \
     TestSuite
-from ApiManager.tasks import main_hrun,project_hrun,suite_hrun,module_hrun
+from ApiManager.tasks import main_hrun
 from ApiManager.utils.common import module_info_logic, project_info_logic, case_info_logic, config_info_logic, \
     set_filter_session, get_ajax_msg, register_info_logic, task_logic, load_modules, upload_file_logic, \
-    init_filter_session, get_total_values, timestamp_to_datetime,getAllYml
+    init_filter_session, get_total_values
 from ApiManager.utils.operation import env_data_logic, del_module_data, del_project_data, del_test_data, copy_test_data, \
-    del_report_data, add_suite_data, copy_suite_data, del_suite_data, edit_suite_data, add_test_reports
+    del_report_data, add_suite_data, copy_suite_data, del_suite_data, edit_suite_data
 from ApiManager.utils.pagination import get_pager_info
 from ApiManager.utils.runner import run_by_batch, run_test_by_type, main_run_cases
 from ApiManager.utils.task_opt import delete_task, change_task_status
-from ApiManager.utils.testcase import get_time_stamp,dump_yaml_to_dict,fail_request_handle
-from httprunner import HttpRunner
+from ApiManager.utils.testcase import get_time_stamp
+from django.contrib import messages
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -67,7 +67,7 @@ def login(request):
         else:
             logger.info('{username} 登录失败, 请检查用户名或者密码'.format(username=username))
             request.session["login_status"] = False
-            return render_to_response("login.html")
+            return render_to_response("login.html",{"error_info":"账号或者密码错误，请重新输入"})
     elif request.method == 'GET':
         return render_to_response("login.html")
 
@@ -771,6 +771,7 @@ def add_suite(request):
     account = request.session["now_account"]
     if request.is_ajax():
         kwargs = json.loads(request.body.decode('utf-8'))
+        kwargs['user_account'] = account
         msg = add_suite_data(**kwargs)
         return HttpResponse(get_ajax_msg(msg, '/api/suite_list/1/'))
 

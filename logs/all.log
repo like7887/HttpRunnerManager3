@@ -4587,3 +4587,293 @@ KeyError: 'validate_extractor'
 2020-08-19 10:50:50,428 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3877
 2020-08-19 11:12:18,868 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
 2020-08-19 11:12:19,868 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 14:36:10,460 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:36:10,509 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/main_bg.png HTTP/1.1" 304 0
+2020-08-19 14:36:10,509 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/bg.jpg HTTP/1.1" 304 0
+2020-08-19 14:36:10,510 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/style.css HTTP/1.1" 304 0
+2020-08-19 14:36:10,517 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/fonts/icomoon.ttf?u4m6fy HTTP/1.1" 304 0
+2020-08-19 14:36:11,869 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:36:15,834 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:36:15,858 [django.server:154] [basehttp:log_message] [INFO]- "GET /favicon.ico HTTP/1.1" 302 0
+2020-08-19 14:36:15,878 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 200 67646
+2020-08-19 14:36:17,850 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:36:31,718 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:38:24,129 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 14:38:27,986 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 14:38:36,350 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 42
+2020-08-19 14:42:44,150 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 14:42:49,618 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 14:42:51,547 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 71, in login
+    return render_to_response("login.html","’À∫≈ªÚ’ﬂ√‹¬Î¥ÌŒÛ£¨«Î÷ÿ–¬ ‰»Î")
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 59, in render
+    context = make_context(context, request, autoescape=self.backend.engine.autoescape)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\context.py", line 270, in make_context
+    raise TypeError('context must be a dict rather than %s.' % context.__class__.__name__)
+TypeError: context must be a dict rather than str.
+2020-08-19 14:42:51,570 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 95108
+2020-08-19 14:43:37,466 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 14:43:38,414 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 14:43:40,723 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3877
+2020-08-19 14:51:19,016 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4027
+2020-08-19 14:51:22,513 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4027
+2020-08-19 14:51:35,599 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4027
+2020-08-19 14:53:38,687 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 14:53:38,811 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 14:53:38,865 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/common.css HTTP/1.1" 304 0
+2020-08-19 14:53:38,865 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-08-19 14:53:38,865 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/ext-language_tools.js HTTP/1.1" 304 0
+2020-08-19 14:53:38,865 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-19 14:53:38,866 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/app.js HTTP/1.1" 304 0
+2020-08-19 14:53:40,837 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46395
+2020-08-19 14:53:41,048 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 14:55:04,908 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 36631
+2020-08-19 14:55:09,765 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-19 14:55:11,213 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 114
+2020-08-19 14:55:11,217 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 202
+2020-08-19 14:55:25,267 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 14:55:27,569 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-19 14:58:06,122 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 14:58:09,986 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:00:18,978 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-19 15:00:19,005 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:00:21,401 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:00:27,862 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:01:12,182 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:01:12,215 [django.server:154] [basehttp:log_message] [INFO]- "GET /favicon.ico HTTP/1.1" 302 0
+2020-08-19 15:01:12,232 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 200 67646
+2020-08-19 15:01:16,382 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 15:01:16,475 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 15:01:18,702 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-19 15:01:18,706 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:01:21,385 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:01:32,106 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:01:33,014 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:01:42,805 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:01:42,807 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 66547
+2020-08-19 15:02:32,093 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:02:32,932 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:02:41,071 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:02:41,073 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 66890
+2020-08-19 15:02:41,207 [django.server:154] [basehttp:log_message] [INFO]- "GET /favicon.ico HTTP/1.1" 302 0
+2020-08-19 15:02:41,214 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 200 67646
+2020-08-19 15:02:55,459 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:02:57,508 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 126, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view HttpRunnerManager.activator.process didn't return an HttpResponse object. It returned None instead.
+2020-08-19 15:02:57,510 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 67230
+2020-08-19 15:06:42,714 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:06:43,642 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:07:08,607 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response({"response":"’À∫≈ªÚ’ﬂ√‹¬Î¥ÌŒÛ£¨«Î÷ÿ–¬ ‰»Î"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'dict'
+2020-08-19 15:07:08,611 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 133036
+2020-08-19 15:07:36,012 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:07:36,843 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:07:42,810 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response(request,{"response":"’À∫≈ªÚ’ﬂ√‹¬Î¥ÌŒÛ£¨«Î÷ÿ–¬ ‰»Î"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'WSGIRequest'
+2020-08-19 15:07:42,814 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 132883
+2020-08-19 15:07:56,233 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 72, in login
+    return render_to_response(request,{"response":"’À∫≈ªÚ’ﬂ√‹¬Î¥ÌŒÛ£¨«Î÷ÿ–¬ ‰»Î"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 18, in get_template
+    for origin in self.get_template_sources(template_name):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\filesystem.py", line 36, in get_template_sources
+    name = safe_join(template_dir, template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\utils\_os.py", line 32, in safe_join
+    final_path = abspath(join(base, *paths))
+  File "D:\Python\Python36\lib\ntpath.py", line 115, in join
+    genericpath._check_arg_types('join', path, *paths)
+  File "D:\Python\Python36\lib\genericpath.py", line 149, in _check_arg_types
+    (funcname, s.__class__.__name__)) from None
+TypeError: join() argument must be str or bytes, not 'WSGIRequest'
+2020-08-19 15:07:56,237 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/login/ HTTP/1.1" 500 132883
+2020-08-19 15:08:22,184 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:08:24,174 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:08:25,883 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 29
+2020-08-19 15:08:59,626 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:09:00,738 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:09:03,471 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 8
+2020-08-19 15:09:11,198 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:09:41,835 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:09:43,389 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:12:48,308 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4513
+2020-08-19 15:13:10,967 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4287
+2020-08-19 15:13:53,402 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 15:13:53,468 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 15:13:55,453 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46395
+2020-08-19 15:13:55,658 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 15:15:39,831 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-19 15:15:39,835 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 15:15:42,239 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4288
+2020-08-19 15:16:30,969 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4045
+2020-08-19 15:17:14,113 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4017
+2020-08-19 15:17:26,498 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 15:17:27,737 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 15:25:20,621 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 200 4017
+2020-08-19 15:25:23,806 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 15:25:23,920 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 15:25:24,009 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-19 15:25:27,566 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46957
+2020-08-19 15:25:27,750 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 15:25:29,197 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 37309
+2020-08-19 15:30:50,372 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/config_list/1/ HTTP/1.1" 200 25282
+2020-08-19 15:30:50,541 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 15:30:52,817 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_config/ HTTP/1.1" 200 29583
+2020-08-19 17:20:55,078 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 302 0
+2020-08-19 17:20:55,100 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 17:20:57,063 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 17:20:57,148 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 17:20:57,179 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-19 17:20:59,596 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46383
+2020-08-19 17:20:59,809 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 17:47:57,912 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_project/ HTTP/1.1" 302 0
+2020-08-19 17:47:57,918 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 17:47:59,243 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 17:47:59,303 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 17:48:03,818 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/project_list/1/ HTTP/1.1" 200 29856
+2020-08-19 17:48:05,323 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/project_list/1/ HTTP/1.1" 200 29856
+2020-08-19 17:48:06,665 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_project/ HTTP/1.1" 200 17481
+2020-08-19 17:48:17,582 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_project/ HTTP/1.1" 200 20
+2020-08-19 17:48:17,621 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/project_list/1/ HTTP/1.1" 200 32804
+2020-08-19 17:48:19,694 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk_list/1/ HTTP/1.1" 200 13713
+2020-08-19 17:48:30,805 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/project_list/1/ HTTP/1.1" 200 32804
+2020-08-19 17:48:45,043 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk_list/1/ HTTP/1.1" 200 13713
+2020-08-19 17:51:13,826 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 302 0
+2020-08-19 17:51:13,832 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 17:51:29,507 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 17:51:29,566 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18316
+2020-08-19 17:51:38,786 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 24084
+2020-08-19 17:51:39,986 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_suite/ HTTP/1.1" 200 18529
+2020-08-19 17:51:43,898 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 17:54:47,005 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-19 17:54:50,593 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-19 17:55:08,260 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-19 17:55:08,314 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-19 17:55:10,486 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-19 17:55:10,571 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-19 17:55:13,921 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 28342
+2020-08-19 17:55:14,965 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_suite/ HTTP/1.1" 200 18525
+2020-08-19 17:55:16,412 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 17:55:19,705 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-19 17:55:20,729 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 202
+2020-08-19 17:55:38,877 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_suite/ HTTP/1.1" 200 18
+2020-08-19 17:55:38,910 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 28342
+2020-08-19 17:55:48,393 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 28342
+2020-08-19 17:57:02,582 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 17:57:04,119 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader

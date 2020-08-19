@@ -60,7 +60,7 @@ def add_project_data(type, **kwargs):
             try:
                 project_opt.insert_project(**kwargs)
                 belong_project = project_opt.get(project_name=project_name)
-                DebugTalk.objects.create(belong_project=belong_project, debugtalk='# debugtalk.py')
+                DebugTalk.objects.create(belong_project=belong_project, debugtalk='# debugtalk.py',user_account=user_account)
             except DataError:
                 return '项目信息过长'
             except Exception:
