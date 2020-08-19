@@ -4583,3 +4583,7 @@ KeyError: 'validate_extractor'
 2020-08-19 10:33:47,724 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
 2020-08-19 10:35:52,818 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46076
 2020-08-19 10:35:53,038 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-19 10:50:50,421 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_case/29/ HTTP/1.1" 302 0
+2020-08-19 10:50:50,428 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3877
+2020-08-19 11:12:18,868 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-19 11:12:19,868 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader

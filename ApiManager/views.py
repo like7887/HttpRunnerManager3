@@ -730,7 +730,7 @@ def debugtalk_list(request, id):
 
     account = request.session["now_account"]
     debugtalk = get_pager_info(
-        DebugTalk, None, '/api/debugtalk_list/', id)
+        DebugTalk, None, '/api/debugtalk_list/', id,account)
     manage_info = {
         'account': account,
         'debugtalk': debugtalk[1],
