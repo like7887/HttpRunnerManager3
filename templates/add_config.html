@@ -15,9 +15,9 @@
         <div class="am-tabs am-margin">
             <ul class="am-tabs-nav am-nav am-nav-tabs" id="tab-test">
                 <li><a href="javascript:;" data-target="#tab1">messages</a></li>
-                <li><a href="javascript:;" data-target="#tab2">variables/parameters/hooks</a></li>
-                <li><a href="javascript:;" data-target="#tab3">request</a></li>
-                <li><a href="javascript:;" data-target="#tab4">extract/validate</a></li>
+                <!--<li><a href="javascript:;" data-target="#tab2">variables</a></li>-->
+                <li><a href="javascript:;" data-target="#tab2">request</a></li>
+                <li><a href="javascript:;" data-target="#tab3">extract/validate/variables</a></li>
             </ul>
 
             <div class="am-tabs-bd">
@@ -60,7 +60,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="am-tab-panel" id="tab2">
+                <!--<div class="am-tab-panel" id="tab2">
                     <button class="btn btn-info" value="添 加" onclick="add_row('variables')">add variables</button>
                     <button class="btn btn-danger" value="删 除" onclick="del_row('variables')">del variables</button>
                     <button class="btn btn-info" value="添 加" onclick="add_params('params')">add param</button>
@@ -112,8 +112,8 @@
                             </tbody>
                         </table>
                     </form>
-                </div>
-                <div class="am-tab-panel" id="tab3">
+                </div>-->
+                <div class="am-tab-panel" id="tab2">
                     <div class="form-inline">
                         <div class="form-group">
                             <div class="input-group">
@@ -181,13 +181,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="am-tab-panel" id="tab4">
-                    <button class="btn btn-info" value="添 加" onclick="add_row('extract')">add extract
-                    </button>
-                    <button class="btn btn-danger" value="删 除" onclick="del_row('extract')">del extract
-                    </button>
+                <div class="am-tab-panel" id="tab3">
+                    <button class="btn btn-info" value="添 加" onclick="add_row('extract')">add extract</button>
+                    <button class="btn btn-danger" value="删 除" onclick="del_row('extract')">del extract</button>
                     <button class="btn btn-info" value="添 加" onclick="add_row('validate')">add validate</button>
                     <button class="btn btn-danger" value="删 除" onclick="del_row('validate')">del validate</button>
+                    <button class="btn btn-info" value="添 加" onclick="add_row('variables')">add variables</button>
+                    <button class="btn btn-danger" value="删 除" onclick="del_row('variables')">del variables</button>
                     <form id="form_extract">
                         <table class="table table-hover table-condensed table-bordered table-striped" id="extract">
                             <caption>extract:</caption>
@@ -213,6 +213,21 @@
                                 <th width="10%" align="center">Comparator</th>
                                 <th width="8%" align="center">Type</th>
                                 <th width="48%" align="center">Expected</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </form>
+                    <form id="config_variables">
+                        <table class="table table-hover table-condensed table-bordered table-striped" id="variables">
+                            <caption>Variables:</caption>
+                            <thead>
+                            <tr class="active text-success">
+                                <th width="5%" align="center">Option</th>
+                                <th width="30%" align="center">Key</th>
+                                <th width="8%" align="center">Type</th>
+                                <th width="57%" align="center">Value</th>
                             </tr>
                             </thead>
                             <tbody>

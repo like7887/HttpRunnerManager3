@@ -38,7 +38,7 @@
 
 <nav>
     <div class="nav-wrapper">
-        <a href="#!" class="brand-logo blue darken-3">Extent</a>
+        <a href="http://127.0.0.1:8000/api/test_list/1/" class="brand-logo blue darken-3">Extent</a>
 
         <!-- slideout menu -->
         <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
@@ -236,11 +236,11 @@
                                 <span class='label start-time'>{{ test_suite_summary.data.stat.response_time_ms }} ms</span>
                                 <span class='label end-time'>{{ test_suite_summary.data.stat.elapsed_ms }} ms</span>
                             </div>
-                            <div class='test-desc'>Pass: {{ test_suite_summary.count.successes }} ;
+                            <!--<div class='test-desc'>Pass: {{ test_suite_summary.count.successes }} ;
                                 Fail: {{ test_suite_summary.count.failures }} ;
                                 Error: {{ test_suite_summary.count.errors }}
                                 Skip: {{ test_suite_summary.count.skipped }} ;
-                            </div>
+                            </div> -->
                             <div class='test-attributes'>
                                 <div class='category-list'>
                                     <span class='category label white-text'>{{ test_suite_summary.name }}</span>

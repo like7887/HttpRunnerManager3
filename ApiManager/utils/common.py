@@ -232,6 +232,7 @@ def case_info_logic(type=True, **kwargs):
     :return: str: ok or tips
     """
     test = kwargs.pop('test')
+    logger.info("common 中的 test:{}".format(test))
     '''
         动态展示模块
     '''
@@ -648,11 +649,13 @@ def timestamp_to_datetime(summary, type=True):
         summary["html_report_name"] = summary["time"]["start_at_iso_format"]
         successes, failures, errors, skipped = 0, 0, 0, 0
         for step_data in summary["step_datas"]:
-            if 'validators' not in step_data['data']:
-                if step_data["success"]:
+            if 'validate_extractor' not in step_data['data']['validators']:
+                if step_data["success"] and step_data['data']['req_resps'][0]['response']['status_code'] == 200:
                     successes += 1
                 else:
                     failures += 1
+                    step_data['success'] = False
+                    summary['success'] = False
             else:
                 failure = False
                 for validator in step_data['data']['validators']['validate_extractor']:
@@ -672,7 +675,7 @@ def timestamp_to_datetime(summary, type=True):
             result.append(summary['step_datas'][0])
         else:
             for summ in summary['step_datas']:
-                summ['name'] = summary['name'] + ":" + summ['name']
+                summ['name'] = summary['name'] + " : " + summ['name']
                 result.append(summ)
         return result
     return summary

@@ -2,9 +2,6 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
-import shutil
-import sys
-import time
 
 from celery import shared_task
 from django.core.exceptions import ObjectDoesNotExist

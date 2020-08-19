@@ -223,10 +223,6 @@ def run_test(request):
     :return:
     """
 
-    kwargs = {
-        "failfast": False,
-    }
-    runner = HttpRunner()
 
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
     testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
@@ -236,9 +232,6 @@ def run_test(request):
         id = kwargs.pop('id')
         base_url = kwargs.pop('env_name')
         type = kwargs.pop('type')
-        logger.info("当前运行的用例类型为：{}".format(type))
-        logger.info("当前运行试用的类为：run_test")
-        logger.info(">>" * 30)
         run_test_by_type(id, base_url, testcase_dir_path, type)
         report_name = kwargs.get('report_name', None)
         main_hrun.delay(testcase_dir_path, report_name)
@@ -247,10 +240,13 @@ def run_test(request):
         id = request.POST.get('id')
         base_url = request.POST.get('env_name')
         type = request.POST.get('type', 'test')
-
-        run_test_by_type(id, base_url, testcase_dir_path, type)
-        #获取文件夹下所有的yml测试文件
-        summary = main_run_cases(testcase_dir_path)
+        try:
+            run_test_by_type(id, base_url, testcase_dir_path, type)
+            #获取文件夹下所有的yml测试文件
+            summary = main_run_cases(testcase_dir_path)
+        except Exception as e:
+            logger.info("用例--{}--执行异常：{}".format(testcase_dir_path,str(e)))
+            return HttpResponse('用例执行异常，请检查用例配置')
         return render_to_response('report_template.html', summary)
 
 
@@ -282,12 +278,16 @@ def run_batch_test(request):
         type = request.POST.get('type', None)
         base_url = request.POST.get('env_name')
         test_list = request.body.decode('utf-8').split('&')
-        if type:
-            run_by_batch(test_list, base_url, testcase_dir_path, type=type, mode=True)
-        else:
-            run_by_batch(test_list, base_url, testcase_dir_path)
+        try:
+            if type:
+                run_by_batch(test_list, base_url, testcase_dir_path, type=type, mode=True)
+            else:
+                run_by_batch(test_list, base_url, testcase_dir_path)
 
-        summary = main_run_cases(testcase_dir_path)
+            summary = main_run_cases(testcase_dir_path)
+        except Exception as e:
+            logger.info("批量用例--{}--执行异常：{}".format(test_list,str(e)))
+            return HttpResponse('用例执行异常，请检查测试用例配置')
         return render_to_response('report_template.html', summary)
 
 
@@ -447,7 +447,6 @@ def edit_case(request, id=None):
     module_name = ModuleInfo.objects.get_module_by_id(info['belong_module_id'],account)[0].module_name
     config_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'],account,type=2)
     all_case_info = TestCaseInfo.objects.get_case_by_moduleId(info['belong_module_id'],account)
-    logger.info("config_info : {}".format(config_info[1].name))
     manage_info = {
         'account': account,
         'info': info,

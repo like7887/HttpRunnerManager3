@@ -30,7 +30,6 @@ def run_by_single(index, base_url, path):
     }
     testcase_list['teststeps'] = []
 
-
     try:
         obj = TestCaseInfo.objects.get(id=index)
     except ObjectDoesNotExist:
@@ -41,16 +40,16 @@ def run_by_single(index, base_url, path):
     name = obj.name
     project = obj.belong_project
     module = obj.belong_module.module_name
-
+    #替换当前用例的端口
+    if request['request']['base_url']:
+        testcase_list['config']['base_url'] = request['request']['base_url']
     testcase_list['config']['name'] = name
-
     testcase_dir_path = os.path.join(path, project)
     #加载全局变量
     if request['request']['url'] == '' and "variables" in request.keys():
         testcase_list['config']['variables'] = request['variables']
     if not os.path.exists(testcase_dir_path):
         os.makedirs(testcase_dir_path)
-
         try:
             debugtalk = DebugTalk.objects.get(belong_project__project_name=project).debugtalk
         except ObjectDoesNotExist:

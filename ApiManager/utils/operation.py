@@ -145,15 +145,21 @@ def add_case_data(type, **kwargs):
     :return: ok or tips
     """
     case_info = kwargs.get('test').get('case_info')
+    logger.info("test:{}".format(kwargs.get('test')))
     case_opt = TestCaseInfo.objects
     name = kwargs.get('test').get('name')
     module = case_info.get('module')
     project = case_info.get('project')
     user_account = kwargs.get('user_account')
     belong_module = ModuleInfo.objects.get_module_name(module,user_account, type=False)
-    config = case_info.get('config', '')
-    if config != '':
-        case_info.get('include')[0] = eval(config)
+    #config = case_info.get('config', '')
+    #将config列表进行替换修改
+    for idx,inc in enumerate(case_info.get('include')):
+        caseInfo = TestCaseInfo.objects.get_case_by_id(inc[0],user_account)
+        if int(caseInfo[0].type) == 2:
+            case_info.get('include')[idx] = eval("{'config' : " + str(inc) +"}")
+    #if config != '':
+    #    case_info.get('include')[0] = eval(config)
 
     try:
         if type:
