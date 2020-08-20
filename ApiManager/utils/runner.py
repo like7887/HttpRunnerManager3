@@ -10,6 +10,7 @@ from ApiManager.models import TestCaseInfo, ModuleInfo, ProjectInfo, DebugTalk, 
 from ApiManager.utils.common import getAllYml, timestamp_to_datetime
 from ApiManager.utils.testcase import dump_python_file, dump_yaml_file, modify_validate, dump_yaml_to_dict, \
     fail_request_handle
+from ApiManager import separator
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -180,7 +181,7 @@ def main_run_cases(testset_path):
     """
     runner = HttpRunner()
     test_dic, error_requests, sum_temps = [], [], []
-    account_list = testset_path.split('\\')[-1].split('&')
+    account_list = testset_path.split(separator)[-1].split('&')
     user_account = account_list[0] if len(account_list) > 1 else ""
     getAllYml(testset_path, test_dic)
     start_time = time.time()
