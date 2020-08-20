@@ -4932,3 +4932,5 @@ Traceback (most recent call last):
 django.core.exceptions.FieldError: Cannot resolve keyword 'user_account' into field. Choices are: args, crontab, crontab_id, date_changed, description, enabled, exchange, expires, id, interval, interval_id, kwargs, last_run_at, name, queue, routing_key, task, total_run_count
 2020-08-20 14:58:52,505 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
 2020-08-20 15:02:23,778 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-20 15:22:58,873 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-20 15:23:03,140 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}

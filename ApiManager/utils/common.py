@@ -649,7 +649,7 @@ def timestamp_to_datetime(summary, type=True):
         summary["html_report_name"] = summary["time"]["start_at_iso_format"]
         successes, failures, errors, skipped = 0, 0, 0, 0
         for step_data in summary["step_datas"]:
-            if 'validate_extractor' not in step_data['data']['validators']:
+            if 'validators' not in step_data['data'] and 'validate_extractor' not in step_data['data']['validators']:
                 if step_data["success"] and step_data['data']['req_resps'][0]['response']['status_code'] == 200:
                     successes += 1
                 else:

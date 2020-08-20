@@ -208,11 +208,11 @@ def main_run_cases(testset_path):
     summary['step_datas'] += sum_temps
     summary['step_datas'] += error_requests
 
-    logger.info("生成报告前的summary：{}".format(summary))
     summary = timestamp_to_datetime(summary, type=False)
     summary['case_id'] = str(len(summary['step_datas']))
     hrun_version = __version__
     python_version = str(version_info.major) + "." + str(version_info.minor) + "." + str(version_info.micro)
     summary['platform'] = {'httprunner_version': hrun_version, 'python_version': python_version}
     summary['user_account'] = user_account
+    logger.info("生成报告前的summary：{}".format(summary))
     return summary
