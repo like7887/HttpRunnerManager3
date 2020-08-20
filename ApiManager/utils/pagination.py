@@ -109,7 +109,7 @@ def get_pager_info(Model, filter_query, url, id,user_account, per_items=12):
         user = filter_query.get('user')
 
     obj = Model.objects
-    obj = obj.filter(user_account=user_account)
+    obj = obj if url == '/api/periodictask/' else obj.filter(user_account=user_account)
 
     if url == '/api/project_list/':
         obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \

@@ -4883,3 +4883,52 @@ TypeError: join() argument must be str or bytes, not 'WSGIRequest'
 2020-08-19 17:55:16,409 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2'}, 'type': 'module'}
 2020-08-19 17:55:19,703 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
 2020-08-19 17:55:20,726 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '1'}, 'type': 'case'}
+2020-08-20 10:52:29,638 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-20 10:52:52,804 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟137环境', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 10:52:54,738 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟平台', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 10:52:58,794 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 10:53:01,578 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 11:00:48,615 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-20 11:12:34,396 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2'}, 'type': 'module'}
+2020-08-20 11:12:36,528 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 11:12:38,576 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '请选择', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 11:12:53,146 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1'}, 'type': 'module'}
+2020-08-20 11:12:55,192 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 11:12:56,169 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择'}, 'type': 'module'}
+2020-08-20 14:56:49,272 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-20 14:56:53,005 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-20 14:56:54,714 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/periodictask/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 591, in periodictask
+    PeriodicTask, filter_query, '/api/periodictask/', id,account)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\pagination.py", line 112, in get_pager_info
+    obj = obj.filter(user_account=user_account)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1318, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1190, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1049, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1420, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'user_account' into field. Choices are: args, crontab, crontab_id, date_changed, description, enabled, exchange, expires, id, interval, interval_id, kwargs, last_run_at, name, queue, routing_key, task, total_run_count
+2020-08-20 14:58:52,505 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-20 15:02:23,778 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}

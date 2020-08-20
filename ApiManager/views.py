@@ -168,7 +168,7 @@ def add_module(request):
     elif request.method == 'GET':
         manage_info = {
             'account': account,
-            'data': ProjectInfo.objects.all().values('project_name')
+            'data': ProjectInfo.objects.get_pro_info(account).order_by('-create_time')
         }
         return render_to_response('add_module.html', manage_info)
 
@@ -189,7 +189,7 @@ def add_case(request):
     elif request.method == 'GET':
         manage_info = {
             'account': account,
-            'project': ProjectInfo.objects.all().values('project_name').order_by('-create_time')
+            'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time')
         }
         return render_to_response('add_case.html', manage_info)
 
@@ -210,7 +210,7 @@ def add_config(request):
     elif request.method == 'GET':
         manage_info = {
             'account': account,
-            'project': ProjectInfo.objects.all().values('project_name').order_by('-create_time')
+            'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time')
         }
         return render_to_response('add_config.html', manage_info)
 
@@ -223,9 +223,9 @@ def run_test(request):
     :return:
     """
 
-
+    account = request.session["now_account"]
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
-    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
+    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=account))
 
     if request.is_ajax():
         kwargs = json.loads(request.body.decode('utf-8'))
@@ -258,9 +258,9 @@ def run_batch_test(request):
     :return:
     """
 
-
+    account = request.session["now_account"]
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
-    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
+    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=account))
 
     if request.is_ajax():
         kwargs = json.loads(request.body.decode('utf-8'))
@@ -320,8 +320,8 @@ def project_list(request, id):
             'page_list': pro_list[0],
             'info': filter_query,
             'sum': pro_list[2],
-            'env': EnvInfo.objects.all().order_by('-create_time'),
-            'project_all': ProjectInfo.objects.all().order_by('-update_time')
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project_all': ProjectInfo.objects.get_pro_info(account,type=False).order_by('-update_time')
         }
         return render_to_response('project_list.html', manage_info)
 
@@ -353,8 +353,8 @@ def module_list(request, id):
             'page_list': module_list[0],
             'info': filter_query,
             'sum': module_list[2],
-            'env': EnvInfo.objects.all().order_by('-create_time'),
-            'project': ProjectInfo.objects.all().order_by('-update_time')
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project': ProjectInfo.objects.get_pro_info(account,type=False).order_by('-update_time')
         }
         return render_to_response('module_list.html', manage_info)
 
@@ -387,8 +387,8 @@ def test_list(request, id):
             'test': test_list[1],
             'page_list': test_list[0],
             'info': filter_query,
-            'env': EnvInfo.objects.all().order_by('-create_time'),
-            'project': ProjectInfo.objects.all().order_by('-update_time')
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project': ProjectInfo.objects.get_pro_info(account,type=False).order_by('-update_time')
         }
         return render_to_response('test_list.html', manage_info)
 
@@ -419,7 +419,7 @@ def config_list(request, id):
             'test': test_list[1],
             'page_list': test_list[0],
             'info': filter_query,
-            'project': ProjectInfo.objects.all().order_by('-update_time')
+            'project': ProjectInfo.objects.get_pro_info(account,type=False).order_by('-update_time')
         }
         return render_to_response('config_list.html', manage_info)
 
@@ -452,7 +452,7 @@ def edit_case(request, id=None):
         'info': info,
         'request': request,
         'include': include,
-        'project': ProjectInfo.objects.all().values('project_name').order_by('-create_time'),
+        'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
         'module' : ModuleInfo.objects.all().values().order_by('-create_time'),
         'config_info' : config_info,
         'all_case' : all_case_info,
@@ -483,8 +483,7 @@ def edit_config(request, id=None):
         'account': account,
         'info': config_info[0],
         'request': request['config'],
-        'project': ProjectInfo.objects.all().values(
-            'project_name').order_by('-create_time'),
+        'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
         'module' : ModuleInfo.objects.all().values().order_by('-create_time')
     }
     return render_to_response('edit_config.html', manage_info)
@@ -589,7 +588,7 @@ def periodictask(request, id):
     else:
         filter_query = set_filter_session(request)
         task_list = get_pager_info(
-            PeriodicTask, filter_query, '/api/periodictask/', id)
+            PeriodicTask, filter_query, '/api/periodictask/', id,account)
         manage_info = {
             'account': account,
             'task': task_list[1],
@@ -610,13 +609,14 @@ def add_task(request):
     account = request.session["now_account"]
     if request.is_ajax():
         kwargs = json.loads(request.body.decode('utf-8'))
+        kwargs['create_user'] = account
         msg = task_logic(**kwargs)
         return HttpResponse(get_ajax_msg(msg, '/api/periodictask/1/'))
     elif request.method == 'GET':
         info = {
             'account': account,
-            'env': EnvInfo.objects.all().order_by('-create_time'),
-            'project': ProjectInfo.objects.all().order_by('-create_time')
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project': ProjectInfo.objects.get_pro_info(account).order_by('-update_time')
         }
         return render_to_response('add_task.html', info)
 
@@ -760,8 +760,8 @@ def suite_list(request, id):
             'page_list': pro_list[0],
             'info': filter_query,
             'sum': pro_list[2],
-            'env': EnvInfo.objects.all().order_by('-create_time'),
-            'project': ProjectInfo.objects.all().order_by('-update_time')
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project': ProjectInfo.objects.get_pro_info(account,type=False).order_by('-update_time')
         }
         return render_to_response('suite_list.html', manage_info)
 
@@ -778,7 +778,7 @@ def add_suite(request):
     elif request.method == 'GET':
         manage_info = {
             'account': account,
-            'project': ProjectInfo.objects.all().values('project_name').order_by('-create_time')
+            'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time')
         }
         return render_to_response('add_suite.html', manage_info)
 
@@ -795,8 +795,7 @@ def edit_suite(request, id=None):
     manage_info = {
         'account': account,
         'info': suite_info,
-        'project': ProjectInfo.objects.all().values(
-            'project_name').order_by('-create_time'),
+        'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
         'module' : ModuleInfo.objects.all().values().order_by('-create_time')
     }
     return render_to_response('edit_suite.html', manage_info)
@@ -805,7 +804,6 @@ def edit_suite(request, id=None):
 @login_check
 @accept_websocket
 def echo(request):
-    logger.info("提交测试第二次")
     if not request.is_websocket():
         return render_to_response('echo.html')
     else:

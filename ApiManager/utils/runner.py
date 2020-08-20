@@ -67,8 +67,6 @@ def run_by_single(index, base_url, path):
             if isinstance(test_info, dict):
                 config_id = test_info.pop('config')[0]
                 config_request = eval(TestCaseInfo.objects.get(id=config_id).request)['config']
-                #config_request.get('config').get('request').setdefault('base_url', base_url)
-                #config_request['config']['name'] = name
                 testcase_list['teststeps'].append(modify_validate(config_request))
             else:
                 id = test_info[0]
@@ -182,6 +180,8 @@ def main_run_cases(testset_path):
     """
     runner = HttpRunner()
     test_dic, error_requests, sum_temps = [], [], []
+    account_list = testset_path.split('\\')[-1].split('&')
+    user_account = account_list[0] if len(account_list) > 1 else ""
     getAllYml(testset_path, test_dic)
     start_time = time.time()
     for test_case_dir in test_dic:
@@ -214,4 +214,5 @@ def main_run_cases(testset_path):
     hrun_version = __version__
     python_version = str(version_info.major) + "." + str(version_info.minor) + "." + str(version_info.micro)
     summary['platform'] = {'httprunner_version': hrun_version, 'python_version': python_version}
+    summary['user_account'] = user_account
     return summary

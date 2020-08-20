@@ -4877,3 +4877,119 @@ TypeError: join() argument must be str or bytes, not 'WSGIRequest'
 2020-08-19 17:55:48,393 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 28342
 2020-08-19 17:57:02,582 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
 2020-08-19 17:57:04,119 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 10:52:14,999 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 10:52:28,118 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-20 10:52:28,201 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/bg.jpg HTTP/1.1" 304 0
+2020-08-20 10:52:28,201 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/style.css HTTP/1.1" 304 0
+2020-08-20 10:52:28,201 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/main_bg.png HTTP/1.1" 304 0
+2020-08-20 10:52:28,237 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/fonts/icomoon.ttf?u4m6fy HTTP/1.1" 304 0
+2020-08-20 10:52:29,661 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-20 10:52:29,748 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-20 10:52:29,787 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-20 10:52:29,787 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-08-20 10:52:29,788 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/ext-language_tools.js HTTP/1.1" 304 0
+2020-08-20 10:52:29,790 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/app.js HTTP/1.1" 304 0
+2020-08-20 10:52:29,790 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/common.css HTTP/1.1" 304 0
+2020-08-20 10:52:34,792 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/env_list/1/ HTTP/1.1" 200 19729
+2020-08-20 10:52:46,477 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 28466
+2020-08-20 10:52:48,469 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_suite/1/ HTTP/1.1" 200 20589
+2020-08-20 10:52:52,807 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 15
+2020-08-20 10:52:54,741 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-20 10:52:58,796 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 10:53:01,581 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-20 10:53:04,303 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/project_list/1/ HTTP/1.1" 200 32928
+2020-08-20 10:53:07,469 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 28466
+2020-08-20 10:53:13,042 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_config/ HTTP/1.1" 200 29579
+2020-08-20 11:00:48,453 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/config_list/1/ HTTP/1.1" 200 25278
+2020-08-20 11:00:48,618 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 11:04:11,918 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-20 11:04:12,713 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 11:12:26,877 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 36565
+2020-08-20 11:12:31,010 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 27864
+2020-08-20 11:12:31,947 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_suite/ HTTP/1.1" 200 18033
+2020-08-20 11:12:34,410 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 11:12:36,535 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-20 11:12:38,578 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 11:12:42,663 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_module/ HTTP/1.1" 200 16280
+2020-08-20 11:12:51,409 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 36565
+2020-08-20 11:12:53,149 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-20 11:12:55,195 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 11:12:56,171 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-20 11:13:48,453 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-20 11:13:49,410 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 11:40:18,511 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 36565
+2020-08-20 14:26:57,513 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\testcase.py changed, reloading.
+2020-08-20 14:26:58,624 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 14:55:52,147 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-20 14:55:53,716 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 14:55:56,319 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-20 14:55:57,073 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 14:56:47,998 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 302 0
+2020-08-20 14:56:48,006 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-20 14:56:49,282 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-20 14:56:49,340 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18324
+2020-08-20 14:56:49,360 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-20 14:56:52,807 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46592
+2020-08-20 14:56:53,008 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 14:56:54,714 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/periodictask/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 591, in periodictask
+    PeriodicTask, filter_query, '/api/periodictask/', id,account)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\pagination.py", line 112, in get_pager_info
+    obj = obj.filter(user_account=user_account)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 892, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 910, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1290, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1318, in _add_q
+    split_subq=split_subq, simple_col=simple_col,
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1190, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1049, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\sql\query.py", line 1420, in names_to_path
+    "Choices are: %s" % (name, ", ".join(available)))
+django.core.exceptions.FieldError: Cannot resolve keyword 'user_account' into field. Choices are: args, crontab, crontab_id, date_changed, description, enabled, exchange, expires, id, interval, interval_id, kwargs, last_run_at, name, queue, routing_key, task, total_run_count
+2020-08-20 14:56:54,720 [django.server:154] [basehttp:log_message] [ERROR]- "GET /api/periodictask/1/ HTTP/1.1" 500 128315
+2020-08-20 14:58:48,925 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\pagination.py changed, reloading.
+2020-08-20 14:58:49,731 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 14:58:52,510 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 14:58:54,841 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21630
+2020-08-20 14:59:03,338 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19629
+2020-08-20 14:59:16,886 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/env_list/1/ HTTP/1.1" 200 19729
+2020-08-20 15:00:47,345 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\managers.py changed, reloading.
+2020-08-20 15:00:48,395 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 15:01:07,304 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\managers.py changed, reloading.
+2020-08-20 15:01:08,087 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 15:02:21,234 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_case/ HTTP/1.1" 200 36565
+2020-08-20 15:02:23,579 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-20 15:02:23,783 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 15:02:31,665 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21630
+2020-08-20 15:02:33,038 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19375
+2020-08-20 15:04:07,749 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21630
+2020-08-20 15:06:21,205 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-20 15:06:22,354 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 15:15:19,913 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19375
+2020-08-20 15:15:32,731 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 17
+2020-08-20 15:15:42,176 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 20
+2020-08-20 15:15:42,254 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 24262
+2020-08-20 15:17:11,142 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-20 15:17:11,990 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 15:17:37,838 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/periodictask/1/ HTTP/1.1" 200 2
+2020-08-20 15:17:37,962 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21630
+2020-08-20 15:19:20,340 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-20 15:19:21,155 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader

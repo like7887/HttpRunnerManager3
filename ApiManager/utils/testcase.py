@@ -5,12 +5,12 @@ import time
 import yaml
 
 
-def get_time_stamp():
+def get_time_stamp(user_account=None):
     ct = time.time()
     local_time = time.localtime(ct)
     data_head = time.strftime("%Y-%m-%d-%H-%M-%S", local_time)
     data_secs = (ct - int(ct)) * 1000
-    time_stamp = "%s-%03d" % (data_head, data_secs)
+    time_stamp = "%s-%03d" % (data_head, data_secs) if user_account is None else "%s&%s-%03d" % (user_account,data_head, data_secs)
     return time_stamp
 
 

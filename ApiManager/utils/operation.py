@@ -470,7 +470,8 @@ def add_test_reports(summaryDict, report_name=None):
         'successes': summaryDict["count"]["successes"],
         'testsRun': summaryDict["case_id"],
         'start_at': summaryDict["time"]["start_at_iso_format"],
-        'reports': reports
+        'reports': reports,
+            'user_account': summaryDict['user_account']
     }
 
     TestReports.objects.create(**test_reports)

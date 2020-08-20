@@ -172,3 +172,10 @@ class EnvInfoManager(models.Manager):
 
     def delete_env(self,index,user_account):
         self.get(id=index,user_account=user_account).delete()
+
+    def get_env_info(self,user_account,type=True):
+        if type:
+            return self.filter(user_account=user_account).all()
+        else:
+            return self.filter(user_account=user_account).all().values('env_name')
+
