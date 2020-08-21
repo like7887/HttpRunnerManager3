@@ -92,6 +92,11 @@ class ModuleInfoManager(models.Manager):
             return self.filter(id=index,user_account=user_account).all()
         else:
             return self.get(id=index,user_account=user_account).name
+    def get_mod_info(self,user_account,type=True):
+        if type:
+            return self.filter(user_account=user_account).all()
+        else:
+            return self.filter(user_account=user_account).all().values('module_name')
 
 
 

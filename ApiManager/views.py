@@ -183,6 +183,7 @@ def add_case(request):
     account = request.session["now_account"]
     if request.is_ajax():
         testcase_info = json.loads(request.body.decode('utf-8'))
+        logger.info("testcase_info:{}".format(testcase_info))
         testcase_info['user_account'] = account
         msg = case_info_logic(**testcase_info)
         return HttpResponse(get_ajax_msg(msg, '/api/test_list/1/'))
@@ -371,7 +372,7 @@ def test_list(request, id):
     account = request.session["now_account"]
     if request.is_ajax():
         test_info = json.loads(request.body.decode('utf-8'))
-
+        logger.info("test_info:{}".format(test_info))
         if test_info.get('mode') == 'del':
             msg = del_test_data(test_info.pop('id'))
         elif test_info.get('mode') == 'copy':
@@ -453,7 +454,7 @@ def edit_case(request, id=None):
         'request': request,
         'include': include,
         'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
-        'module' : ModuleInfo.objects.all().values().order_by('-create_time'),
+        'module' : ModuleInfo.objects.get_mod_info(account).order_by('-create_time'),
         'config_info' : config_info,
         'all_case' : all_case_info,
         'module_name' : str(module_name)
@@ -484,7 +485,7 @@ def edit_config(request, id=None):
         'info': config_info[0],
         'request': request['config'],
         'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
-        'module' : ModuleInfo.objects.all().values().order_by('-create_time')
+        'module' : ModuleInfo.objects.get_mod_info(account).values().order_by('-create_time')
     }
     return render_to_response('edit_config.html', manage_info)
 
@@ -796,7 +797,7 @@ def edit_suite(request, id=None):
         'account': account,
         'info': suite_info,
         'project': ProjectInfo.objects.get_pro_info(account).order_by('-create_time'),
-        'module' : ModuleInfo.objects.all().values().order_by('-create_time')
+        'module' : ModuleInfo.objects.get_mod_info(account).values().order_by('-create_time')
     }
     return render_to_response('edit_suite.html', manage_info)
 

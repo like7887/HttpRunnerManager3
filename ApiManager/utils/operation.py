@@ -404,6 +404,8 @@ def copy_test_data(id, name):
     :param name: str：新用例名称
     :return: ok or tips
     """
+    if name is '':
+        return '用例/配置名称不能为空'
     try:
         test = TestCaseInfo.objects.get(id=id)
         belong_module = test.belong_module
@@ -414,8 +416,8 @@ def copy_test_data(id, name):
     test.id = None
     test.name = name
     request = eval(test.request)
-    if 'test' in request.keys():
-        request.get('test')['name'] = name
+    if 'request' in request.keys():
+        request['name'] = name
     else:
         request.get('config')['name'] = name
     test.request = request
@@ -431,6 +433,8 @@ def copy_suite_data(id, name):
     :param name: str：新用例名称
     :return: ok or tips
     """
+    if name is '':
+        return '测试套件名称不能为空'
     try:
         suite = TestSuite.objects.get(id=id)
         belong_project = suite.belong_project

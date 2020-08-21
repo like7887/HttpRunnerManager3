@@ -192,13 +192,13 @@ def main_run_cases(testset_path):
         except Exception as e:
             fail_request_datas = dump_yaml_to_dict(test_case_dir)
             fail_data = fail_request_handle(fail_request_datas, str(e))
-            error_requests += fail_data
             logger.info("%s 接口处理报错: %s" % (fail_request_datas['config']['name'], str(e)))
         sum_temp = runner.get_summary()
         if sum_temp.success:
             sum_temp = timestamp_to_datetime(sum_temp)
             sum_temps += sum_temp
         logger.info("{} 文件执行完之后生成的结果为：{}".format(test_case_dir, sum_temp))
+        error_requests += fail_data
     end_time = time.time()
     duration = end_time - start_time
     shutil.rmtree(testset_path)

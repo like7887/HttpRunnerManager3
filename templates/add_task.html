@@ -7,7 +7,7 @@
 
         <div class="admin-biaogelist">
             <div class="listbiaoti am-cf">
-                <ul class="am-icon-flag on"> 系统设置</ul>
+                <ul class="am-icon-flag on"> 新增定时任务</ul>
                 <dl class="am-icon-home" style="float: right;"> 当前位置： 定时任务 > <a href="#">新增任务</a></dl>
             </div>
             <div class="fbneirong">
@@ -145,8 +145,13 @@
             if ($('#belong_module_id').val() !== '请选择') {
                 module_id = $('#belong_module_id').val();
                 module_name = $('#belong_module_id option:selected').text();
-                var href = "<li id=" + module_id + "><a href='/api/edit_case/" + module_id + "/' id = " + module_id + ">" + module_name + "" +
+                if($('#mode').val() === '1'){
+                    var href = "<li id=" + module_id + "><a href='/api/module_list/" + module_id + "/' id = " + module_id + ">" + module_name + "" +
                     "</a><i class=\"js-remove\" onclick=remove_self('#" + module_id + "')>✖</i></li>";
+                }else {
+                    var href = "<li id=" + module_id + "><a href='/api/edit_suite/" + module_id + "/' id = " + module_id + ">" + module_name + "" +
+                    "</a><i class=\"js-remove\" onclick=remove_self('#" + module_id + "')>✖</i></li>";
+                }
                 $("#pre_case").append(href);
             }
         });

@@ -5020,3 +5020,308 @@ django.core.exceptions.FieldError: Cannot resolve keyword 'user_account' into fi
 2020-08-20 15:55:20,753 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
 2020-08-20 16:05:11,151 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\common.py changed, reloading.
 2020-08-20 16:05:12,616 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-20 17:40:08,378 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 302 0
+2020-08-20 17:40:08,385 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-20 17:40:08,403 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/main_bg.png HTTP/1.1" 304 0
+2020-08-20 17:40:08,404 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/style.css HTTP/1.1" 304 0
+2020-08-20 17:40:08,404 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/bg.jpg HTTP/1.1" 304 0
+2020-08-20 17:40:08,425 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/fonts/icomoon.ttf?u4m6fy HTTP/1.1" 304 0
+2020-08-20 17:40:09,812 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-20 17:40:09,874 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18326
+2020-08-20 17:40:09,897 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-08-20 17:40:09,898 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/common.css HTTP/1.1" 304 0
+2020-08-20 17:40:09,898 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/ext-language_tools.js HTTP/1.1" 304 0
+2020-08-20 17:40:09,899 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/app.js HTTP/1.1" 304 0
+2020-08-20 17:40:11,889 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/module_list/1/ HTTP/1.1" 200 28566
+2020-08-20 17:40:13,970 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-20 17:40:14,175 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 17:40:14,887 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_case/5/ HTTP/1.1" 200 44651
+2020-08-20 17:40:19,294 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/edit_case/ HTTP/1.1" 200 0
+2020-08-20 17:40:20,260 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/edit_case/ HTTP/1.1" 200 58
+2020-08-20 17:40:22,114 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/edit_case/ HTTP/1.1" 200 0
+2020-08-20 17:40:23,916 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/edit_case/ HTTP/1.1" 200 58
+2020-08-20 17:40:28,254 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-20 17:40:28,451 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-20 17:40:29,281 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_case/29/ HTTP/1.1" 200 43480
+2020-08-20 17:42:51,678 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\managers.py changed, reloading.
+2020-08-20 17:42:52,625 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 11:02:25,496 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_case/29/ HTTP/1.1" 302 0
+2020-08-21 11:02:25,513 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-21 11:02:25,534 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/style.css HTTP/1.1" 304 0
+2020-08-21 11:02:25,540 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/main_bg.png HTTP/1.1" 304 0
+2020-08-21 11:02:25,540 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/bg.jpg HTTP/1.1" 304 0
+2020-08-21 11:02:25,547 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/fonts/icomoon.ttf?u4m6fy HTTP/1.1" 304 0
+2020-08-21 11:02:25,558 [django.server:154] [basehttp:log_message] [INFO]- "GET /favicon.ico HTTP/1.1" 302 0
+2020-08-21 11:02:25,564 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 304 0
+2020-08-21 11:02:26,601 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-21 11:02:26,667 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18326
+2020-08-21 11:02:26,687 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-08-21 11:02:26,691 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/common.css HTTP/1.1" 304 0
+2020-08-21 11:02:26,692 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/ext-language_tools.js HTTP/1.1" 304 0
+2020-08-21 11:02:26,692 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/app.js HTTP/1.1" 304 0
+2020-08-21 11:02:26,693 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-08-21 11:02:29,036 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/module_list/1/ HTTP/1.1" 200 28566
+2020-08-21 11:02:29,266 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-21 11:02:29,440 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 11:02:34,515 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:02:36,063 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19375
+2020-08-21 11:02:43,657 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:02:46,315 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19375
+2020-08-21 11:03:29,945 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19381
+2020-08-21 11:03:30,109 [django.server:154] [basehttp:log_message] [INFO]- "GET /favicon.ico HTTP/1.1" 302 0
+2020-08-21 11:03:30,124 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 200 67646
+2020-08-21 11:04:44,979 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:05:09,325 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19381
+2020-08-21 11:05:17,943 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:05:23,093 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/edit_case/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 444, in edit_case
+    request = eval(test_info[0].request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 309, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+2020-08-21 11:05:23,096 [django.server:154] [basehttp:log_message] [ERROR]- "GET /api/edit_case/1/ HTTP/1.1" 500 85968
+2020-08-21 11:05:25,912 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19381
+2020-08-21 11:05:36,991 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 0
+2020-08-21 11:05:37,955 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:05:59,615 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 0
+2020-08-21 11:06:00,588 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 17
+2020-08-21 11:06:03,043 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/edit_case/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 444, in edit_case
+    request = eval(test_info[0].request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\db\models\query.py", line 309, in __getitem__
+    return qs._result_cache[0]
+IndexError: list index out of range
+2020-08-21 11:06:03,045 [django.server:154] [basehttp:log_message] [ERROR]- "GET /api/edit_case/1/ HTTP/1.1" 500 85968
+2020-08-21 11:06:04,782 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19381
+2020-08-21 11:18:08,450 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/module_list/1/ HTTP/1.1" 200 28566
+2020-08-21 11:18:11,757 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:18:13,174 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19381
+2020-08-21 11:18:18,787 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:20:15,681 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:20:16,757 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:20:21,349 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:20:23,508 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/edit_module/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 12, in process
+    fun = getattr(view, fun)
+AttributeError: module 'ApiManager.views' has no attribute 'edit_module'
+2020-08-21 11:20:23,510 [django.server:154] [basehttp:log_message] [ERROR]- "GET /api/edit_module/1/ HTTP/1.1" 500 74157
+2020-08-21 11:21:51,937 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:21:54,329 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/module_list/1/ HTTP/1.1" 200 28566
+2020-08-21 11:22:09,286 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 27743
+2020-08-21 11:22:10,478 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_suite/1/ HTTP/1.1" 200 19236
+2020-08-21 11:22:15,890 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:22:17,030 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:22:23,659 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 17
+2020-08-21 11:22:25,806 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_suite/1/ HTTP/1.1" 200 19236
+2020-08-21 11:22:27,358 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:22:55,033 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/periodictask/1/ HTTP/1.1" 200 21649
+2020-08-21 11:22:56,271 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:23:00,462 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:23:02,369 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/module_list/1/ HTTP/1.1" 200 28566
+2020-08-21 11:23:08,381 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/add_task/ HTTP/1.1" 200 19728
+2020-08-21 11:23:13,053 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 0
+2020-08-21 11:23:14,170 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_task/ HTTP/1.1" 200 58
+2020-08-21 11:23:17,154 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-21 11:23:17,353 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 11:23:19,467 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 11:23:21,860 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 11:30:29,636 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:30:29,636 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2362
+2020-08-21 11:30:29,642 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:30:29,643 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2362
+2020-08-21 11:30:29,761 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:30:29,761 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2367
+2020-08-21 11:30:29,925 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:30:29,926 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2367
+2020-08-21 11:30:30,438 [django.request:228] [log:log_response] [WARNING]- Not Found: /en-US/account/login
+2020-08-21 11:30:30,439 [django.server:154] [basehttp:log_message] [WARNING]- "GET /en-US/account/login HTTP/1.1" 404 2442
+2020-08-21 11:30:31,627 [django.request:228] [log:log_response] [WARNING]- Not Found: /portal/
+2020-08-21 11:30:31,628 [django.server:154] [basehttp:log_message] [WARNING]- "GET /portal/ HTTP/1.1" 404 2406
+2020-08-21 11:32:09,539 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:32:09,539 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2367
+2020-08-21 11:32:09,618 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:32:09,619 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2367
+2020-08-21 11:32:09,646 [django.request:228] [log:log_response] [WARNING]- Not Found: /./WEB-INF/
+2020-08-21 11:32:09,646 [django.server:154] [basehttp:log_message] [WARNING]- "GET /./WEB-INF/ HTTP/1.1" 404 2413
+2020-08-21 11:32:27,646 [django.request:228] [log:log_response] [WARNING]- Not Found: /
+2020-08-21 11:32:27,647 [django.server:154] [basehttp:log_message] [WARNING]- "GET / HTTP/1.1" 404 2367
+2020-08-21 11:32:42,698 [django.request:228] [log:log_response] [WARNING]- Not Found: /AAAAAAAAAAAAAAAAAAAAA
+2020-08-21 11:32:42,699 [django.server:154] [basehttp:log_message] [WARNING]- "POST /AAAAAAAAAAAAAAAAAAAAA HTTP/1.1" 404 2444
+2020-08-21 11:32:42,706 [django.request:228] [log:log_response] [WARNING]- Not Found: /ov-upload-test-A83DP.txt
+2020-08-21 11:32:42,706 [django.server:154] [basehttp:log_message] [WARNING]- "GET /ov-upload-test-A83DP.txt HTTP/1.1" 404 2457
+2020-08-21 14:09:45,493 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-21 14:09:45,497 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-21 14:09:51,366 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-21 14:09:51,423 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18315
+2020-08-21 14:09:53,344 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:09:53,528 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:09:57,839 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/report_list/1/ HTTP/1.1" 200 17962
+2020-08-21 14:10:01,243 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/view_report/45 HTTP/1.1" 301 0
+2020-08-21 14:10:01,269 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/view_report/45/ HTTP/1.1" 200 188463
+2020-08-21 14:10:07,209 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:10:07,588 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:10:24,170 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/report_list/1/ HTTP/1.1" 200 17962
+2020-08-21 14:10:25,750 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/view_report/46 HTTP/1.1" 301 0
+2020-08-21 14:10:25,768 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/view_report/46/ HTTP/1.1" 200 97358
+2020-08-21 14:10:33,532 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:10:33,693 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:11:13,704 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/run_test/ HTTP/1.1" 500 59
+2020-08-21 14:11:18,046 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:11:20,541 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/run_test/ HTTP/1.1" 200 98113
+2020-08-21 14:12:04,475 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:12:06,381 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/config_list/1/ HTTP/1.1" 200 27614
+2020-08-21 14:12:06,552 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:12:11,105 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:12:11,260 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:12:21,014 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_config/39/ HTTP/1.1" 200 36882
+2020-08-21 14:12:28,173 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:12:28,335 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:12:29,511 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_case/63/ HTTP/1.1" 200 42823
+2020-08-21 14:12:45,123 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:12:45,297 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:13:10,038 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py changed, reloading.
+2020-08-21 14:13:11,398 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 14:13:16,165 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/run_test/ HTTP/1.1" 500 59
+2020-08-21 14:13:34,355 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:13:35,882 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk_list/1/ HTTP/1.1" 200 13709
+2020-08-21 14:13:37,368 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk/6/ HTTP/1.1" 200 4781
+2020-08-21 14:15:00,332 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:15:00,507 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:15:04,034 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/run_test/ HTTP/1.1" 200 98096
+2020-08-21 14:24:00,614 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-21 14:24:14,006 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-21 14:24:14,064 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18315
+2020-08-21 14:24:16,411 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 36337
+2020-08-21 14:24:16,589 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:24:19,547 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk_list/1/ HTTP/1.1" 200 13709
+2020-08-21 14:24:20,817 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/debugtalk/6/ HTTP/1.1" 200 4781
+2020-08-21 14:28:55,264 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py changed, reloading.
+2020-08-21 14:28:56,562 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 14:34:08,687 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/log_out/ HTTP/1.1" 302 0
+2020-08-21 14:34:08,696 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-08-21 14:34:10,810 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-08-21 14:34:10,879 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18326
+2020-08-21 14:34:17,375 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46354
+2020-08-21 14:34:17,573 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:34:27,318 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:34:30,544 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 22362
+2020-08-21 14:34:30,698 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:34:33,954 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 46346
+2020-08-21 14:34:34,139 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:34:43,198 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 46349
+2020-08-21 14:34:43,399 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:34:53,020 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 46352
+2020-08-21 14:34:53,220 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:35:56,231 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py changed, reloading.
+2020-08-21 14:35:57,238 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 14:47:43,023 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 46350
+2020-08-21 14:47:43,228 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:50:35,864 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:50:36,769 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 22362
+2020-08-21 14:50:36,913 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:50:39,175 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-08-21 14:50:40,103 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:50:41,005 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 46346
+2020-08-21 14:50:41,203 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 14:55:09,473 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/test_list/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 379, in test_list
+    msg = copy_test_data(test_info.get('data').pop('index'), test_info.get('data').pop('name'))
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py", line 420, in copy_test_data
+    request.get('config')['name'] = name
+TypeError: 'NoneType' object does not support item assignment
+2020-08-21 14:55:09,475 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/test_list/1/ HTTP/1.1" 500 18493
+2020-08-21 14:57:28,007 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-21 14:57:29,288 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 14:57:55,761 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-21 14:57:56,751 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 14:58:05,404 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/test_list/1/ HTTP/1.1" 200 31
+2020-08-21 14:58:11,776 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/suite_list/1/ HTTP/1.1" 200 27735
+2020-08-21 14:58:14,495 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 30
+2020-08-21 14:58:50,502 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 27738
+2020-08-21 14:58:53,415 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 23476
+2020-08-21 14:58:55,333 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 23473
+2020-08-21 14:58:59,053 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/suite_list/1/ HTTP/1.1" 200 27735
+2020-08-21 14:59:05,895 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/config_list/1/ HTTP/1.1" 200 24670
+2020-08-21 14:59:06,048 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 15:05:07,335 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 46346
+2020-08-21 15:05:07,523 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 58
+2020-08-21 15:05:15,577 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/test_list/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 379, in test_list
+    msg = copy_test_data(test_info.get('data').pop('index'), test_info.get('data').pop('name'))
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py", line 422, in copy_test_data
+    request.get('config')['name'] = name
+TypeError: 'NoneType' object does not support item assignment
+2020-08-21 15:05:15,580 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/test_list/1/ HTTP/1.1" 500 18493
+2020-08-21 15:07:00,382 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-08-21 15:07:01,324 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-08-21 15:07:11,029 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/test_list/1/
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 379, in test_list
+    msg = copy_test_data(test_info.get('data').pop('index'), test_info.get('data').pop('name'))
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py", line 422, in copy_test_data
+    request.get('config')['name'] = name
+TypeError: 'NoneType' object does not support item assignment
+2020-08-21 15:07:11,031 [django.server:154] [basehttp:log_message] [ERROR]- "POST /api/test_list/1/ HTTP/1.1" 500 18493
+2020-08-21 15:10:13,256 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-08-21 15:10:14,228 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
