@@ -372,7 +372,6 @@ def test_list(request, id):
     account = request.session["now_account"]
     if request.is_ajax():
         test_info = json.loads(request.body.decode('utf-8'))
-        logger.info("test_info:{}".format(test_info))
         if test_info.get('mode') == 'del':
             msg = del_test_data(test_info.pop('id'))
         elif test_info.get('mode') == 'copy':
@@ -381,6 +380,7 @@ def test_list(request, id):
 
     else:
         filter_query = set_filter_session(request)
+        logger.info("filter_query:{}".format(filter_query))
         test_list = get_pager_info(
             TestCaseInfo, filter_query, '/api/test_list/', id,account)
         manage_info = {

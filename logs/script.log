@@ -5113,3 +5113,127 @@ Traceback (most recent call last):
   File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py", line 422, in copy_test_data
     request.get('config')['name'] = name
 TypeError: 'NoneType' object does not support item assignment
+2020-08-21 15:11:08,656 [HttpRunnerManager:375] [views:test_list] [INFO]- test_info:{'data': {'index': '10', 'name': '复制的'}, 'mode': 'copy'}
+2020-08-21 15:11:09,700 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:11:09,701 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:11:15,246 [HttpRunnerManager:375] [views:test_list] [INFO]- test_info:{'id': '72', 'mode': 'del'}
+2020-08-21 15:11:15,473 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:11:15,474 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:11:24,263 [HttpRunnerManager:375] [views:test_list] [INFO]- test_info:{'data': {'index': '29', 'name': '复制验证基础url'}, 'mode': 'copy'}
+2020-08-21 15:11:24,526 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:11:24,527 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:11:30,693 [HttpRunnerManager:375] [views:test_list] [INFO]- test_info:{'id': '73', 'mode': 'del'}
+2020-08-21 15:11:30,914 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:11:30,916 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:24:03,487 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '111', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:24:03,766 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:24:03,766 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:25:56,999 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '111', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:25:57,000 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:25:57,256 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:25:57,257 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:26:41,338 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '111', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:26:41,338 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:26:41,588 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:26:41,589 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:27:20,418 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '111', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:27:20,419 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:27:20,660 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:27:20,661 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:28:48,186 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟2', 'module': '请选择', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:28:48,187 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟2', 'module': '请选择', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:28:51,297 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'module': '请选择', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:28:51,297 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'module': '请选择', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:28:52,516 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '111', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:28:52,517 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:28:52,687 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '111', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:28:52,687 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '111', 'user': ''}, 'type': 'module'}
+2020-08-21 15:28:57,270 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '创建', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:28:57,271 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:28:57,442 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '创建', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:28:57,442 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '创建', 'user': ''}, 'type': 'module'}
+2020-08-21 15:28:58,582 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:28:58,583 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:28:58,797 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:28:58,798 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:29:03,759 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:29:03,760 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:29:03,962 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:29:03,962 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:31:14,743 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'module': '请选择', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:31:14,743 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:31:17,578 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:31:17,578 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:31:17,827 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:31:17,827 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:31:20,278 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:31:20,278 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:31:20,511 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:31:20,511 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:31:47,760 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:31:47,760 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:31:48,032 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:31:48,032 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:31:58,776 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:31:58,776 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:31:58,777 [HttpRunnerManager:145] [pagination:get_pager_info] [INFO]- 看看进来不:查询
+2020-08-21 15:31:58,962 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:31:58,963 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:32:09,897 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:32:09,897 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:32:09,898 [HttpRunnerManager:145] [pagination:get_pager_info] [INFO]- 看看进来不:
+2020-08-21 15:32:10,146 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:32:10,146 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:32:13,120 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:32:13,121 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:32:13,121 [HttpRunnerManager:145] [pagination:get_pager_info] [INFO]- 看看进来不:查询
+2020-08-21 15:32:13,302 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:32:13,303 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:35:26,937 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'module': '请选择', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:35:26,937 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'module': '请选择', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:43:11,980 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-21 15:43:20,257 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:43:20,258 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:43:20,479 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:43:20,480 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:43:26,691 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'module': '请选择', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:43:26,691 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'module': '请选择', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:43:30,192 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '查询', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:43:30,192 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:43:30,193 [HttpRunnerManager:144] [pagination:get_pager_info] [INFO]- 看看进来不:查询
+2020-08-21 15:43:30,381 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:43:30,382 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '查询', 'user': ''}, 'type': 'module'}
+2020-08-21 15:43:32,733 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:43:32,734 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:43:32,957 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:43:32,957 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:43:37,311 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': 'admin', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:43:37,312 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:43:37,312 [HttpRunnerManager:144] [pagination:get_pager_info] [INFO]- 看看进来不:
+2020-08-21 15:43:37,538 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}}
+2020-08-21 15:43:37,538 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}
+2020-08-21 15:44:51,047 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': 'admin', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:44:51,047 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:44:51,224 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}}
+2020-08-21 15:44:51,225 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}
+2020-08-21 15:44:53,983 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': 'admin', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '出入口', 'report_name': ''}
+2020-08-21 15:44:53,983 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:44:53,984 [HttpRunnerManager:144] [pagination:get_pager_info] [INFO]- 看看进来不:
+2020-08-21 15:44:54,205 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}}
+2020-08-21 15:44:54,206 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}
+2020-08-21 15:44:55,910 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': 'admin', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:44:55,911 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:44:56,071 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}}
+2020-08-21 15:44:56,071 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': 'admin'}, 'type': 'module'}
+2020-08-21 15:44:58,190 [HttpRunnerManager:383] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 15:44:58,191 [HttpRunnerManager:141] [pagination:get_pager_info] [INFO]- 看看进来不
+2020-08-21 15:44:58,404 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:44:58,404 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:45:24,685 [HttpRunnerManager:438] [views:edit_case] [INFO]- 当前登录账号为：like
+2020-08-21 15:45:33,660 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:45:33,660 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:45:40,634 [HttpRunnerManager:189] [runner:main_run_cases] [INFO]- 当前运行的用例文件为：D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-45-40-616\轻舟测试项目1\出入口\验证基础url设置.yml
+2020-08-21 15:45:41,750 [HttpRunnerManager:200] [runner:main_run_cases] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-45-40-616\轻舟测试项目1\出入口\验证基础url设置.yml 文件执行完之后生成的结果为：[{'success': True, 'name': '验证码配置', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.POST: 'POST'>, 'url': 'http://10.128.138.240:81/cwos-portal/portal/account/captcha', 'headers': {'Content-Length': '0'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 0, 'headers': {}, 'cookies': {}, 'encoding': None, 'content_type': '', 'body': ''}}], 'stat': {'content_size': 0, 'response_time_ms': 1019.28, 'elapsed_ms': 0.0}, 'address': {'client_ip': 'N/A', 'client_port': 0, 'server_ip': 'N/A', 'server_port': 0}, 'validators': {'validate_extractor': [{'comparator': 'equal', 'check': 'body.code', 'check_value': None, 'expect': '00000000', 'expect_value': '00000000', 'message': '', 'check_result': 'fail'}]}}, 'export_vars': {'captchaKey': None}}]
+2020-08-21 15:45:41,751 [HttpRunnerManager:249] [views:run_test] [INFO]- 用例--D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-45-40-616--执行异常：local variable 'fail_data' referenced before assignment
+2020-08-21 15:45:43,255 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:45:43,256 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
