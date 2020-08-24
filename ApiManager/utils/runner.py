@@ -1,16 +1,20 @@
 import logging
 import os
 import shutil
+import sys
 import time
 from sys import version_info
 
 from django.core.exceptions import ObjectDoesNotExist
 from httprunner import HttpRunner, __version__
+from pyflakes.reporter import Reporter
+
 from ApiManager.models import TestCaseInfo, ModuleInfo, ProjectInfo, DebugTalk, TestSuite
 from ApiManager.utils.common import getAllYml, timestamp_to_datetime
 from ApiManager.utils.testcase import dump_python_file, dump_yaml_file, modify_validate, dump_yaml_to_dict, \
     fail_request_handle
 from ApiManager import separator
+from pyflakes.api import checkPath
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -58,8 +62,17 @@ def run_by_single(index, base_url, path):
 
         dump_python_file(os.path.join(testcase_dir_path, 'debugtalk.py'), debugtalk)
 
-    testcase_dir_path = os.path.join(testcase_dir_path, module)
+    #检查debugtakl.py 代码是否有异常，如果有抛出异常
+    debugtalk_dir = os.path.join(testcase_dir_path, 'debugtalk.py')
+    msg,error_info = checkPath(debugtalk_dir)
+    if msg > 0:
+        errors = []
+        for err in error_info:
+            errors.append(str(err.split(separator)[-1]) + "\n")
+        shutil.rmtree(testcase_dir_path)
+        raise SyntaxError(errors)
 
+    testcase_dir_path = os.path.join(testcase_dir_path, module)
     if not os.path.exists(testcase_dir_path):
         os.mkdir(testcase_dir_path)
 

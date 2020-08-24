@@ -5237,3 +5237,489 @@ TypeError: 'NoneType' object does not support item assignment
 2020-08-21 15:45:41,751 [HttpRunnerManager:249] [views:run_test] [INFO]- 用例--D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-45-40-616--执行异常：local variable 'fail_data' referenced before assignment
 2020-08-21 15:45:43,255 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
 2020-08-21 15:45:43,256 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 15:46:39,630 [HttpRunnerManager:189] [runner:main_run_cases] [INFO]- 当前运行的用例文件为：D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-46-39-620\轻舟测试项目1\出入口\验证基础url设置.yml
+2020-08-21 15:46:40,675 [HttpRunnerManager:201] [runner:main_run_cases] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-21-15-46-39-620\轻舟测试项目1\出入口\验证基础url设置.yml 文件执行完之后生成的结果为：[{'success': True, 'name': '验证码配置', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.POST: 'POST'>, 'url': 'http://10.128.138.240:81/cwos-portal/portal/account/captcha', 'headers': {'Content-Length': '0'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 0, 'headers': {}, 'cookies': {}, 'encoding': None, 'content_type': '', 'body': ''}}], 'stat': {'content_size': 0, 'response_time_ms': 1018.29, 'elapsed_ms': 0.0}, 'address': {'client_ip': 'N/A', 'client_port': 0, 'server_ip': 'N/A', 'server_port': 0}, 'validators': {'validate_extractor': [{'comparator': 'equal', 'check': 'body.code', 'check_value': None, 'expect': '00000000', 'expect_value': '00000000', 'message': '', 'check_result': 'fail'}]}}, 'export_vars': {'captchaKey': None}}]
+2020-08-21 15:46:40,678 [HttpRunnerManager:218] [runner:main_run_cases] [INFO]- 生成报告前的summary：{'name': '出入口', 'success': False, 'time': {'start_at': 1597995999.630254, 'start_at_iso_format': '2020-08-21 15:46:39', 'end_time': 1597996000.6764662, 'duration': 1.0462121963500977}, 'step_datas': [{'success': False, 'name': '验证码配置', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.POST: 'POST'>, 'url': 'http://10.128.138.240:81/cwos-portal/portal/account/captcha', 'headers': {'Content-Length': '0'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 0, 'headers': {}, 'cookies': {}, 'encoding': None, 'content_type': '', 'body': ''}}], 'stat': {'content_size': 0, 'response_time_ms': 1018.29, 'elapsed_ms': 0.0}, 'address': {'client_ip': 'N/A', 'client_port': 0, 'server_ip': 'N/A', 'server_port': 0}, 'validators': {'validate_extractor': [{'comparator': 'equal', 'check': 'body.code', 'check_value': None, 'expect': '00000000', 'expect_value': '00000000', 'message': '', 'check_result': 'fail'}]}}, 'export_vars': {'captchaKey': None}}], 'html_report_name': '2020-08-21 15:46:39', 'count': {'successes': 0, 'failures': 1, 'errors': 0, 'skipped': 0}, 'case_id': '1', 'platform': {'httprunner_version': '3.1.4', 'python_version': '3.6.8'}, 'user_account': 'like'}
+2020-08-21 15:50:45,337 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 15:50:45,337 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:41:19,836 [HttpRunnerManager:385] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 17:41:20,064 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:41:20,064 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:41:42,373 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:41:42,374 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:41:47,260 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:41:47,261 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:43:50,564 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:43:50,564 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:44:26,009 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:44:26,009 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:48:05,000 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:48:05,000 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:48:25,747 [HttpRunnerManager:249] [views:run_test] [INFO]- [<pyflakes.messages.UndefinedName object at 0x000001D00A0FD470>, <pyflakes.messages.UndefinedName object at 0x000001D00A0FDA58>, <pyflakes.messages.UndefinedName object at 0x000001D00A0FDB00>, <pyflakes.messages.UndefinedName object at 0x000001D00A0FDBE0>, <pyflakes.messages.UndefinedName object at 0x000001D00A0FDC88>]
+2020-08-21 17:48:57,790 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:48:57,791 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:49:00,242 [HttpRunnerManager:249] [views:run_test] [INFO]- ["D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-21-17-49-00-227\\轻舟测试项目1\\debugtalk.py:19:1 undefined name 'aa'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-21-17-49-00-227\\轻舟测试项目1\\debugtalk.py:59:12 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-21-17-49-00-227\\轻舟测试项目1\\debugtalk.py:61:15 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-21-17-49-00-227\\轻舟测试项目1\\debugtalk.py:65:14 undefined name 'b2a_hex'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-21-17-49-00-227\\轻舟测试项目1\\debugtalk.py:77:18 undefined name 'base64'"]
+2020-08-21 17:49:20,741 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:49:20,741 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:52:41,939 [HttpRunnerManager:386] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': '轻舟测试项目1', 'belong_module': '请选择', 'report_name': ''}
+2020-08-21 17:52:42,179 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-21 17:52:42,180 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '轻舟测试项目1', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-21 17:52:44,983 [HttpRunnerManager:249] [views:run_test] [INFO]- debugtalk.py:19:1 undefined name 'aa'
+debugtalk.py:59:12 undefined name 'AES'
+debugtalk.py:61:15 undefined name 'AES'
+debugtalk.py:65:14 undefined name 'b2a_hex'
+debugtalk.py:77:18 undefined name 'base64'
+
+2020-08-24 14:27:03,996 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-24 14:27:06,245 [HttpRunnerManager:386] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 14:27:06,475 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:27:06,475 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:27:14,058 [HttpRunnerManager:386] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 14:27:14,264 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:27:14,266 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:30:14,181 [HttpRunnerManager:386] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 14:30:14,402 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:30:14,403 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:31:08,665 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:<django.contrib.sessions.backends.db.SessionStore object at 0x00000223774B68D0>
+2020-08-24 14:31:08,686 [HttpRunnerManager:250] [views:run_test] [INFO]- debugtalk.py:19:1 undefined name 'aa'
+debugtalk.py:59:12 undefined name 'AES'
+debugtalk.py:61:15 undefined name 'AES'
+debugtalk.py:65:14 undefined name 'b2a_hex'
+debugtalk.py:77:18 undefined name 'base64'
+
+2020-08-24 14:33:50,560 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:33:50,560 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:33:52,513 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:None
+2020-08-24 14:33:52,529 [HttpRunnerManager:250] [views:run_test] [INFO]- debugtalk.py:19:1 undefined name 'aa'
+debugtalk.py:59:12 undefined name 'AES'
+debugtalk.py:61:15 undefined name 'AES'
+debugtalk.py:65:14 undefined name 'b2a_hex'
+debugtalk.py:77:18 undefined name 'base64'
+
+2020-08-24 14:34:47,619 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:34:47,619 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:34:49,648 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'login_status': True, 'now_account': 'like', 'user': '', 'name': '', 'project': 'All', 'module': '请选择', 'report_name': ''}
+2020-08-24 14:34:49,664 [HttpRunnerManager:250] [views:run_test] [INFO]- debugtalk.py:19:1 undefined name 'aa'
+debugtalk.py:59:12 undefined name 'AES'
+debugtalk.py:61:15 undefined name 'AES'
+debugtalk.py:65:14 undefined name 'b2a_hex'
+debugtalk.py:77:18 undefined name 'base64'
+
+2020-08-24 14:35:29,060 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:35:29,060 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:35:31,056 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 14:35:31,071 [HttpRunnerManager:250] [views:run_test] [INFO]- debugtalk.py:19:1 undefined name 'aa'
+debugtalk.py:59:12 undefined name 'AES'
+debugtalk.py:61:15 undefined name 'AES'
+debugtalk.py:65:14 undefined name 'b2a_hex'
+debugtalk.py:77:18 undefined name 'base64'
+
+2020-08-24 14:41:58,398 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:41:58,398 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:54:24,490 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 14:54:24,504 [HttpRunnerManager:250] [views:run_test] [INFO]- ["D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:19:1 undefined name 'aa'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:59:12 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:61:15 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:65:14 undefined name 'b2a_hex'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:77:18 undefined name 'base64'"]
+2020-08-24 14:54:24,661 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 182, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 69, in run_by_single
+    raise SyntaxError(error_info)
+  File "<string>", line None
+SyntaxError: ["D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:19:1 undefined name 'aa'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:59:12 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:61:15 undefined name 'AES'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:65:14 undefined name 'b2a_hex'", "D:\\Python\\auto-project\\HrunManagerCloudwalk\\suite\\like&2020-08-24-14-54-24-489\\轻舟测试项目1\\debugtalk.py:77:18 undefined name 'base64'"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": sy,"error_info":"debugtalk.py 语法有误，请检查文件"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 904, in render_annotated
+    return self.render(context)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\defaulttags.py", line 165, in render
+    values = list(values)
+TypeError: 'SyntaxError' object is not iterable
+2020-08-24 14:56:40,678 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:56:40,679 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:56:42,529 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 14:56:42,545 [HttpRunnerManager:250] [views:run_test] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-24-14-56-42-528\轻舟测试项目1\debugtalk.py:77:18 undefined name 'base64'
+2020-08-24 14:56:42,666 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(err)
+  File "<string>", line None
+SyntaxError: D:\Python\auto-project\HrunManagerCloudwalk\suite\like&2020-08-24-14-56-42-528\轻舟测试项目1\debugtalk.py:77:18 undefined name 'base64'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": list(sy),"error_info":"debugtalk.py 语法有误，请检查文件"})
+TypeError: 'SyntaxError' object is not iterable
+2020-08-24 14:58:06,175 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:58:06,176 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:58:08,121 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 14:58:08,136 [HttpRunnerManager:250] [views:run_test] [INFO]- ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+2020-08-24 14:58:08,234 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": list(sy),"error_info":"debugtalk.py 语法有误，请检查文件"})
+TypeError: 'SyntaxError' object is not iterable
+2020-08-24 14:59:26,583 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 14:59:26,584 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 14:59:31,601 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 14:59:31,715 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 250, in run_test
+    logger.info("SyntaxError的报错信息是：{}，\n 返回值的type是：{}".format(sy,type(sy)))
+TypeError: 'str' object is not callable
+2020-08-24 15:00:22,878 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:00:22,878 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:00:24,407 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:00:24,513 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type_request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 250, in run_test
+    logger.info("SyntaxError的报错信息是：{}，\n 返回值的type是：{}".format(sy,type(sy)))
+UnboundLocalError: local variable 'type' referenced before assignment
+2020-08-24 15:00:52,611 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:00:52,611 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:00:54,458 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:00:54,474 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'SyntaxError'>
+2020-08-24 15:00:54,570 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type_request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": list(sy),"error_info":"debugtalk.py 语法有误，请检查文件"})
+TypeError: 'SyntaxError' object is not iterable
+2020-08-24 15:01:24,072 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:01:24,072 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:01:25,731 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:01:25,840 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type_request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 250, in run_test
+    logger.info("SyntaxError的报错信息是：{}，\n 返回值的type是：{}".format(sy,type(eval(sy))))
+TypeError: eval() arg 1 must be a string, bytes or code object
+2020-08-24 15:02:02,850 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:02:02,851 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:02:04,247 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:02:04,263 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 15:02:04,413 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type_request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": list(sy),"error_info":"debugtalk.py 语法有误，请检查文件"})
+TypeError: 'SyntaxError' object is not iterable
+2020-08-24 15:02:23,047 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:02:23,047 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:02:24,869 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:02:24,883 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 15:04:43,658 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:04:43,659 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:04:45,545 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:04:45,562 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 15:05:58,945 [HttpRunnerManager:388] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 15:05:59,232 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:05:59,233 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:07:23,753 [HttpRunnerManager:388] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 15:07:24,075 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:07:24,075 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:07:56,788 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:07:56,799 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 15:09:38,267 [HttpRunnerManager:388] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 15:09:38,619 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:09:38,620 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:12:39,884 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:12:39,885 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:14:56,458 [HttpRunnerManager:388] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 15:14:56,683 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 15:14:56,684 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 15:14:59,245 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 15:14:59,257 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 15:14:59,315 [django.request:228] [log:log_response] [ERROR]- Internal Server Error: /api/run_test/
+Traceback (most recent call last):
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 246, in run_test
+    run_test_by_type(id, base_url, testcase_dir_path, type_request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 185, in run_test_by_type
+    run_by_single(id, base_url, path)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 72, in run_by_single
+    raise SyntaxError(errors)
+  File "<string>", line None
+SyntaxError: ["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\HttpRunnerManager\activator.py", line 15, in process
+    result = fun(request, index) if index else fun(request)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 40, in wrapper
+    return func(request, *args, **kwargs)
+  File "D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py", line 251, in run_test
+    return render_to_response("error_info.html",{"debug_error": eval(str(sy)),"error_info":"debugtalk.py 语法有误，请检查文件"})
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\shortcuts.py", line 27, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loaders\base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\Python\Python36\lib\site-packages\django-2.2.12-py3.6.egg\django\template\base.py", line 534, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 36: 'endblock'. Did you forget to register or load this tag?
+2020-08-24 16:12:31,737 [HttpRunnerManager:56] [views:login] [INFO]- like 登录成功
+2020-08-24 16:12:34,920 [HttpRunnerManager:388] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-08-24 16:12:35,148 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:12:35,149 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:12:41,114 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:12:41,126 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:13:07,908 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:13:07,908 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:13:09,946 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:13:09,957 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:13:28,659 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:13:28,659 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:13:30,881 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:13:30,892 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:14:05,219 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:14:05,220 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:14:06,987 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:14:06,999 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:14:32,037 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:14:32,038 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:14:33,659 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:14:33,670 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:15:13,468 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:15:13,468 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-08-24 16:15:16,073 [HttpRunnerManager:230] [views:run_test] [INFO]- request.session:{'id': ['29'], 'env_name': ['http://10.128.138.240:80']}
+2020-08-24 16:15:16,085 [HttpRunnerManager:250] [views:run_test] [INFO]- SyntaxError的报错信息是：["debugtalk.py:19:1 undefined name 'aa'\n", "debugtalk.py:59:12 undefined name 'AES'\n", "debugtalk.py:61:15 undefined name 'AES'\n", "debugtalk.py:65:14 undefined name 'b2a_hex'\n", "debugtalk.py:77:18 undefined name 'base64'\n"]，
+ 返回值的type是：<class 'list'>
+2020-08-24 16:16:16,797 [HttpRunnerManager:186] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-08-24 16:16:16,797 [HttpRunnerManager:235] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}

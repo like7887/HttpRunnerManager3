@@ -227,27 +227,40 @@ def run_test(request):
     account = request.session["now_account"]
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
     testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=account))
+    logger.info("request.session:{}".format(dict(request.POST)))
 
     if request.is_ajax():
         kwargs = json.loads(request.body.decode('utf-8'))
         id = kwargs.pop('id')
         base_url = kwargs.pop('env_name')
-        type = kwargs.pop('type')
-        run_test_by_type(id, base_url, testcase_dir_path, type)
+        request_type = kwargs.pop('type')
+        try:
+            run_test_by_type(id, base_url, testcase_dir_path, request_type)
+        except SyntaxError as sy:
+            logger.info("SyntaxError的报错信息是：{}".format(sy))
+            return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
+                                                          "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
+        except Exception as e:
+            logger.info("用例--{}--转换文件异常：{}".format(testcase_dir_path, str(e)))
+            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置"})
         report_name = kwargs.get('report_name', None)
         main_hrun.delay(testcase_dir_path, report_name)
         return HttpResponse('用例执行中，请稍后查看报告即可,默认时间戳命名报告')
     else:
         id = request.POST.get('id')
         base_url = request.POST.get('env_name')
-        type = request.POST.get('type', 'test')
+        type_request = request.POST.get('type', 'test')
         try:
-            run_test_by_type(id, base_url, testcase_dir_path, type)
-            #获取文件夹下所有的yml测试文件
+            run_test_by_type(id, base_url, testcase_dir_path, type_request)
+            # 获取文件夹下所有的yml测试文件
             summary = main_run_cases(testcase_dir_path)
+        except SyntaxError as sy:
+            logger.info("SyntaxError的报错信息是：{}".format(sy))
+            return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
+                                                          "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
-            logger.info("用例--{}--执行异常：{}".format(testcase_dir_path,str(e)))
-            return HttpResponse('用例执行异常，请检查用例配置')
+            logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
+            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置"})
         return render_to_response('report_template.html', summary)
 
 
@@ -269,10 +282,16 @@ def run_batch_test(request):
         test_list = kwargs.pop('id')
         base_url = kwargs.pop('env_name')
         type = kwargs.pop('type')
-        logger.info("当前运行的用例类型为：{}".format(type))
-        logger.info("-" * 30)
         report_name = kwargs.get('report_name', None)
-        run_by_batch(test_list, base_url, testcase_dir_path, type=type)
+        try:
+            run_by_batch(test_list, base_url, testcase_dir_path, type=type)
+        except SyntaxError as sy:
+            logger.info("SyntaxError的报错信息是：{}".format(sy))
+            return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
+                                                          "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
+        except Exception as e:
+            logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
+            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置"})
         main_hrun.delay(testcase_dir_path, report_name)
         return HttpResponse('用例执行中，请稍后查看报告即可,默认时间戳命名报告')
     else:
@@ -284,11 +303,14 @@ def run_batch_test(request):
                 run_by_batch(test_list, base_url, testcase_dir_path, type=type, mode=True)
             else:
                 run_by_batch(test_list, base_url, testcase_dir_path)
-
             summary = main_run_cases(testcase_dir_path)
+        except SyntaxError as sy:
+            logger.info("SyntaxError的报错信息是：{}".format(sy))
+            return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
+                                                          "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
-            logger.info("批量用例--{}--执行异常：{}".format(test_list,str(e)))
-            return HttpResponse('用例执行异常，请检查测试用例配置')
+            logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
+            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置"})
         return render_to_response('report_template.html', summary)
 
 
