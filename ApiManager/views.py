@@ -24,7 +24,7 @@ from ApiManager.utils.operation import env_data_logic, del_module_data, del_proj
 from ApiManager.utils.pagination import get_pager_info
 from ApiManager.utils.runner import run_by_batch, run_test_by_type, main_run_cases
 from ApiManager.utils.task_opt import delete_task, change_task_status
-from ApiManager.utils.testcase import get_time_stamp
+from ApiManager.utils.testcase import get_time_stamp, AnalysisError
 from django.contrib import messages
 
 logger = logging.getLogger('HttpRunnerManager')
@@ -236,6 +236,8 @@ def run_test(request):
         request_type = kwargs.pop('type')
         try:
             run_test_by_type(id, base_url, testcase_dir_path, request_type)
+        except AnalysisError as e:
+            return render_to_response("error_info.html", {"error_info": str(e)})
         except SyntaxError as sy:
             logger.info("SyntaxError的报错信息是：{}".format(sy))
             return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
@@ -254,13 +256,15 @@ def run_test(request):
             run_test_by_type(id, base_url, testcase_dir_path, type_request)
             # 获取文件夹下所有的yml测试文件
             summary = main_run_cases(testcase_dir_path)
+        except AnalysisError as e:
+            return render_to_response("error_info.html", {"error_info": str(e)})
         except SyntaxError as sy:
             logger.info("SyntaxError的报错信息是：{}".format(sy))
             return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
             logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
-            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置"})
+            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置 \n" + str(e)})
         return render_to_response('report_template.html', summary)
 
 
@@ -285,6 +289,8 @@ def run_batch_test(request):
         report_name = kwargs.get('report_name', None)
         try:
             run_by_batch(test_list, base_url, testcase_dir_path, type=type)
+        except AnalysisError as e:
+            return render_to_response("error_info.html", {"error_info": str(e)})
         except SyntaxError as sy:
             logger.info("SyntaxError的报错信息是：{}".format(sy))
             return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
@@ -304,6 +310,8 @@ def run_batch_test(request):
             else:
                 run_by_batch(test_list, base_url, testcase_dir_path)
             summary = main_run_cases(testcase_dir_path)
+        except AnalysisError as e:
+            return render_to_response("error_info.html", {"error_info": str(e)})
         except SyntaxError as sy:
             logger.info("SyntaxError的报错信息是：{}".format(sy))
             return render_to_response("error_info.html", {"debug_error": eval(str(sy)),

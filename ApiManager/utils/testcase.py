@@ -75,6 +75,9 @@ def fail_request_handle(fail_datas,error_info):
         result_datas.append(result)
     return result_datas
 
+class AnalysisError(Exception):
+    pass
+
 if __name__ == '__main__':
     import MySQLdb as Database
     version = Database.version_info

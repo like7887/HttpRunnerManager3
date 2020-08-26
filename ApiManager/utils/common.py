@@ -326,6 +326,7 @@ def config_info_logic(type=True, **kwargs):
     :return: ok or tips
     """
     config = kwargs.pop('config')
+    logger.info("config:{}".format(config))
     '''
         动态展示模块
     '''
@@ -352,8 +353,9 @@ def config_info_logic(type=True, **kwargs):
         config.setdefault('config_info', name)
 
         request_data = config.get('request').pop('request_data')
+        logger.info("request_data:{}".format(request_data))
         data_type = config.get('request').pop('type')
-        if request_data and data_type:
+        if data_type:
             if data_type == 'json':
                 config.get('request').setdefault(data_type, request_data)
             else:
@@ -372,7 +374,6 @@ def config_info_logic(type=True, **kwargs):
             if not isinstance(variables_list, list):
                 return variables_list
             config.setdefault('variables', variables_list)
-        logger.info("config的值：{}".format(config))
         validate = config.pop('validate')
         if validate:
             validate_list = key_value_list('validate', **validate)
@@ -686,6 +687,7 @@ def getAllYml(path,dic):
     获取文件夹下所有.yml的文件，并放入到dic中
     """
     get_dir = os.listdir(path)
+    get_dir = sorted(get_dir, key=lambda x: os.path.getmtime(os.path.join(path, x)))
     for i in get_dir:
         sub_dir = os.path.join(path,i)
         if os.path.isdir(sub_dir):
