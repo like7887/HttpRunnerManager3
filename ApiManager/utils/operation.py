@@ -621,7 +621,7 @@ def add_robot_data(type, project_name,test_user,user_account,upload_obj):
         if robot_project.get_robot_name(project_name,user_account) < 1:
             try:
                 upload_path = os.path.dirname(os.path.dirname(
-                    os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))) + separator + 'upload' + separator
+                    os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))) + separator + 'robot_upload' + separator
                 if not os.path.exists(upload_path):
                     os.mkdir(upload_path)
                 file_path = upload_path + project_name

@@ -985,7 +985,7 @@ def run_robot(request):
     logger.info("project_name:{}".format(project_name))
     project_path = robot_info[0].project_path
     report_root = os.path.dirname(os.path.dirname(
-        os.path.split(os.path.realpath(__file__))[0])) + separator + 'report' + separator
+        os.path.split(os.path.realpath(__file__))[0])) + separator + 'robot_report' + separator
     if not os.path.exists(report_root):
         os.mkdir(report_root)
     report_path = report_root  + project_name + str(int(time.time())) + separator

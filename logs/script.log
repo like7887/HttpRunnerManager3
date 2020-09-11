@@ -11153,3 +11153,69 @@ IndexError: list index out of range
 2020-09-09 18:20:19,719 [HttpRunnerManager:982] [views:run_robot] [INFO]- 传进来的id:141
 2020-09-09 18:20:19,725 [HttpRunnerManager:985] [views:run_robot] [INFO]- project_name:机场项目
 2020-09-09 18:20:19,728 [HttpRunnerManager:994] [views:run_robot] [INFO]- project_path:D:\Python\auto-project\upload\机场项目
+2020-09-10 16:07:46,471 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'login'}
+2020-09-10 16:07:49,024 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'login'}
+2020-09-10 16:07:49,033 [HttpRunnerManager:59] [views:login] [INFO]- like 登录成功
+2020-09-10 16:07:49,045 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'index'}
+2020-09-10 16:07:49,046 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function index at 0x000001E0B3EE4B70>
+2020-09-10 16:07:50,506 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-09-10 16:07:50,507 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001E0B3ED8598>
+2020-09-10 16:07:50,514 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-09-10 16:07:50,531 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['86', '单例-获取人员属性']}, {'config': ['13', '单例-查询人员']}]
+2020-09-10 16:07:50,537 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['11', '单例-获取验证码']}, {'config': ['12', '单例-登陆']}, {'config': ['13', '单例-查询人员']}]
+2020-09-10 16:07:50,544 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-10 16:07:50,546 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['86', '单例-获取人员属性']}]
+2020-09-10 16:07:50,550 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['11', '验证码配置']}]
+2020-09-10 16:07:50,556 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-10 16:07:50,558 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[['15', '登陆-正例']]
+2020-09-10 16:07:50,562 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-10 16:07:50,692 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-09-10 16:07:50,692 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001E0B3EE4EA0>
+2020-09-10 16:07:50,701 [HttpRunnerManager:189] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-09-10 16:07:50,702 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-09-10 16:07:52,546 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'robot_case_list', 'id': '1'}
+2020-09-10 16:07:52,546 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function robot_case_list at 0x000001E0B3EE5BF8>
+2020-09-10 16:07:52,555 [HttpRunnerManager:907] [views:robot_case_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-09-10 16:08:13,210 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_robot', 'id': '141'}
+2020-09-10 16:08:13,211 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function edit_robot at 0x000001E0B3EE5D08>
+2020-09-10 16:08:13,218 [HttpRunnerManager:931] [views:edit_robot] [INFO]- 当前登录账号为：like
+2020-09-10 16:08:15,115 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_robot', 'id': '141', 'file': 'airport_resource.txt'}
+2020-09-10 16:08:15,115 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function edit_robot at 0x000001E0B3EE5D08>
+2020-09-10 16:08:15,124 [HttpRunnerManager:931] [views:edit_robot] [INFO]- 当前登录账号为：like
+2020-09-10 16:08:25,257 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'robot_case_list', 'id': '1'}
+2020-09-10 16:08:25,257 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function robot_case_list at 0x000001E0B3EE5BF8>
+2020-09-10 16:08:25,266 [HttpRunnerManager:907] [views:robot_case_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-09-11 10:58:06,561 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_robot', 'id': '141'}
+2020-09-11 10:58:06,563 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function edit_robot at 0x000001E0B3EE5D08>
+2020-09-11 10:58:06,568 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'login'}
+2020-09-11 10:58:07,789 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'login'}
+2020-09-11 10:58:07,800 [HttpRunnerManager:59] [views:login] [INFO]- like 登录成功
+2020-09-11 10:58:07,811 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'index'}
+2020-09-11 10:58:07,812 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function index at 0x000001E0B3EE4B70>
+2020-09-11 10:58:09,261 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-09-11 10:58:09,261 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001E0B3ED8598>
+2020-09-11 10:58:09,270 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-09-11 10:58:09,281 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['86', '单例-获取人员属性']}, {'config': ['13', '单例-查询人员']}]
+2020-09-11 10:58:09,286 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['11', '单例-获取验证码']}, {'config': ['12', '单例-登陆']}, {'config': ['13', '单例-查询人员']}]
+2020-09-11 10:58:09,295 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-11 10:58:09,297 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['86', '单例-获取人员属性']}]
+2020-09-11 10:58:09,302 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['11', '验证码配置']}]
+2020-09-11 10:58:09,306 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-11 10:58:09,308 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[['15', '登陆-正例']]
+2020-09-11 10:58:09,313 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[]
+2020-09-11 10:58:09,438 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-09-11 10:58:09,438 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001E0B3EE4EA0>
+2020-09-11 10:58:09,446 [HttpRunnerManager:189] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-09-11 10:58:09,447 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-09-11 10:58:10,934 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'robot_case_list', 'id': '1'}
+2020-09-11 10:58:10,934 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function robot_case_list at 0x000001E0B3EE5BF8>
+2020-09-11 10:58:10,942 [HttpRunnerManager:907] [views:robot_case_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-09-11 10:58:12,405 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_robot', 'id': '141'}
+2020-09-11 10:58:12,405 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function edit_robot at 0x000001E0B3EE5D08>
+2020-09-11 10:58:12,416 [HttpRunnerManager:931] [views:edit_robot] [INFO]- 当前登录账号为：like
+2020-09-11 10:58:17,477 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_robot', 'id': '141', 'file': '__init__.txt'}
+2020-09-11 10:58:17,478 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function edit_robot at 0x000001E0B3EE5D08>
+2020-09-11 10:58:17,486 [HttpRunnerManager:931] [views:edit_robot] [INFO]- 当前登录账号为：like
+2020-09-11 10:58:20,887 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'robot_case_list', 'id': '1'}
+2020-09-11 10:58:20,888 [HttpRunnerManager:40] [views:wrapper] [INFO]- func的值为：<function robot_case_list at 0x000001E0B3EE5BF8>
+2020-09-11 10:58:20,896 [HttpRunnerManager:907] [views:robot_case_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}

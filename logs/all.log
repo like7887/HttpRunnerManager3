@@ -3916,3 +3916,37 @@ IndexError: list index out of range
 2020-09-09 18:20:17,807 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/favicon.ico HTTP/1.1" 200 67646
 2020-09-09 18:20:20,678 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/run_robot/ HTTP/1.1" 200 238014
 2020-09-10 16:07:40,505 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-09-10 16:07:47,727 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-09-10 16:07:47,795 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/style.css HTTP/1.1" 304 0
+2020-09-10 16:07:47,796 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/bg.jpg HTTP/1.1" 304 0
+2020-09-10 16:07:47,796 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/img/main_bg.png HTTP/1.1" 304 0
+2020-09-10 16:07:47,836 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/iconfont/fonts/icomoon.ttf?u4m6fy HTTP/1.1" 304 0
+2020-09-10 16:07:49,042 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-09-10 16:07:49,142 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18397
+2020-09-10 16:07:49,168 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/common.css HTTP/1.1" 304 0
+2020-09-10 16:07:49,169 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-09-10 16:07:49,172 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/ext-language_tools.js HTTP/1.1" 304 0
+2020-09-10 16:07:49,173 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/app.js HTTP/1.1" 304 0
+2020-09-10 16:07:49,174 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-09-10 16:07:50,566 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 50520
+2020-09-10 16:07:50,706 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-09-10 16:07:52,650 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/robot_case_list/1/ HTTP/1.1" 200 27049
+2020-09-10 16:08:13,228 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_robot/141/ HTTP/1.1" 200 33005
+2020-09-10 16:08:15,205 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_robot/141/airport_resource.txt/ HTTP/1.1" 200 34398
+2020-09-10 16:08:25,274 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/robot_case_list/1/ HTTP/1.1" 200 27049
+2020-09-11 10:58:06,565 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_robot/141/ HTTP/1.1" 302 0
+2020-09-11 10:58:06,572 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/login/ HTTP/1.1" 200 3891
+2020-09-11 10:58:07,809 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/login/ HTTP/1.1" 302 0
+2020-09-11 10:58:07,879 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/index/ HTTP/1.1" 200 18397
+2020-09-11 10:58:07,900 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/js/commons.js HTTP/1.1" 304 0
+2020-09-11 10:58:07,900 [django.server:154] [basehttp:log_message] [INFO]- "GET /static/assets/css/admin.css HTTP/1.1" 304 0
+2020-09-11 10:58:09,316 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/test_list/1/ HTTP/1.1" 200 50520
+2020-09-11 10:58:09,454 [django.server:154] [basehttp:log_message] [INFO]- "POST /api/add_case/ HTTP/1.1" 200 0
+2020-09-11 10:58:10,951 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/robot_case_list/1/ HTTP/1.1" 200 27049
+2020-09-11 10:58:12,425 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_robot/141/ HTTP/1.1" 200 33005
+2020-09-11 10:58:17,508 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/edit_robot/141/__init__.txt/ HTTP/1.1" 200 33240
+2020-09-11 10:58:20,905 [django.server:154] [basehttp:log_message] [INFO]- "GET /api/robot_case_list/1/ HTTP/1.1" 200 27049
+2020-09-11 11:01:50,051 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\views.py changed, reloading.
+2020-09-11 11:01:51,145 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
+2020-09-11 11:02:15,198 [django.utils.autoreload:217] [autoreload:trigger_reload] [INFO]- D:\Python\auto-project\HrunManagerCloudwalk\ApiManager\utils\operation.py changed, reloading.
+2020-09-11 11:02:16,168 [django.utils.autoreload:597] [autoreload:run_with_reloader] [INFO]- Watching for file changes with StatReloader
