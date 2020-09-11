@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}新增Robot项目用例{% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+    <div class=" admin-content">
+        {% if error %}
+            <canvas id="canvas" width="200" height="100"></canvas>
+            <input type="text" class="form-control" id="error_info" name="error_info" value="{{ error }}">
+        {% endif %}
+
+        <div class="admin-biaogelist">
+            <div class="listbiaoti am-cf">
+                <ul class="am-icon-flag on"> 新增robot项目</ul>
+                <dl class="am-icon-home" style="float: right;"> 当前位置： 测试用例 > <a href="#">新增Robot项目用例</a></dl>
+            </div>
+            <div class="fbneirong">
+                <form class="form-horizontal" action="/api/add_robot/" enctype="multipart/form-data" method="post">
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="project_name">项目名称：</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="project_name"
+                                   aria-describedby="inputSuccess3Status" name="project_name" placeholder="请输入项目名称"
+                                   value="">
+                            <span class="glyphicon glyphicon-th-large form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="test_user">测试负责人：</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="test_user" name="test_user"
+                                   aria-describedby="inputSuccess3Status" placeholder="请指定项目负责人" value="">
+                            <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group  has-feedback">
+                        <label class="control-label col-md-1 text-primary" for="responsible_name">导入robot文件：(仅支持.zip文件)</label>
+                            <!--<input name="upload" id="uploadfile" type="file" class="file" placeholder="仅支持.zip文件" multiple/>-->
+                        <div class="col-md-5">
+                            <input type="file" class="file-upload" name="file" id="file" accept="application/zip" />
+                        </div>
+                    </div>
+
+
+                    <div class="am-form-group am-cf">
+                        <div class="you" style="margin-left: 8%;">
+                            <button type="submit" class="am-btn am-btn-success am-radius" id="add_robot">点 击 提 交
+                            </button>
+                            <a type="submit" href="/api/robot_case_list/1/" class="am-btn am-btn-secondary am-radius">取消</a>
+
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var error_info = $("#error_info").val()
+        if(canvas.getContext){
+            alert(error_info)
+        }
+    </script>
+{% endblock %}

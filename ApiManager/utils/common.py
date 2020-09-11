@@ -3,7 +3,7 @@ import io
 import json
 import logging
 import os
-import platform
+import shutil
 from json import JSONDecodeError
 
 
@@ -11,12 +11,10 @@ import yaml
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Sum
 from djcelery.models import PeriodicTask
-from jinja2 import Template,escape
-from base64 import b64encode
 
 from ApiManager.models import ModuleInfo, TestCaseInfo, TestReports, TestSuite
 from ApiManager.utils.operation import add_project_data, add_module_data, add_case_data, add_config_data, \
-    add_register_data
+    add_register_data, add_robot_data
 from ApiManager.utils.task_opt import create_task
 
 
@@ -613,6 +611,7 @@ def get_total_values(user_account):
 
 
 def update_include(include):
+    logger.info("include:{}".format(include))
     for i in range(0, len(include)):
         if isinstance(include[i], dict):
             id = include[i]['config'][0]
@@ -696,4 +695,23 @@ def getAllYml(path,dic):
             dic.append(sub_dir)
     return dic
 
+
+
+def robot_project_logic(project_name,test_user,account,upload_obj,type=True):
+    """
+    项目信息逻辑处理
+    :param type: boolean:True 默认新增项目
+    :param kwargs: dict: 项目信息
+    :return:
+    """
+    if project_name is '':
+        return '项目名称不能为空'
+    if test_user is '':
+        return '测试负责人不能为空'
+    if account is '':
+        return '登陆人员不能为空'
+    if upload_obj is None:
+        return '上传文件不能为空'
+
+    return add_robot_data(type, project_name,test_user,account,upload_obj)
 

@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Robot项目用例详情{% endblock %}
+{% load staticfiles %}
+{% load custom_tags %}
+{% block content %}
+    <div class="admin-biaogelist">
+        <div class="listbiaoti am-cf">
+            <ul class="am-icon-flag on"> Robot 项目用例详情</ul>
+            <dl class="am-icon-home" style="float: right;"> 当前位置： 用例管理 > <a href="#">Robot项目用例</a></dl>
+        </div>
+
+        <form class="am-btn-toolbars am-btn-toolbar am-kg am-cf">
+            <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
+                <tr>
+                    <td>
+                        <div style="float: left">
+                            <div style="float: left">
+                                <a id="co{{ info.id }}" class="am-icon-plus-square-o"
+                                                   style="display: block; cursor: pointer"
+                                                   onclick="coolspo({{ info.id }})"> {{ info.project_name }}</a>
+                                <a id="cc{{ info.id }}" class="am-icon-minus-square-o"
+                                                   style="display: none; cursor: pointer"
+                                                   onclick="coolspc({{ info.id }})"> {{ info.project_name }}</a>
+                            </div><br>
+                            <div style="float: left">
+                                <nav>
+                                    <ul id="pre_robot{{ info.id }}" class="am-nav am-collapse">
+                                        {% for index,file in files|enumerate %}
+                                            {% if file|data_type != 'str' %}
+                                                {% for f,names in file.items %}
+                                                   <li>
+                                                   <a id="co{{ index }}" class="am-icon-plus-square-o"
+                                                   style="display: block; cursor: pointer"
+                                                   onclick="coolspo_child({{ index }})" > {{ f }}</a>
+                                                    <a id="cc{{ index }}" class="am-icon-minus-square-o"
+                                                   style="display: none; cursor: pointer"
+                                                   onclick="coolspc_child({{ index }})"> {{ f }}</a>
+                                                    </li>
+                                                       <nav>
+                                                            <ul id="child_robot{{ index }}" class="am-nav am-collapse">
+                                                                {% for num,name in names|enumerate %}
+                                                                    <li id="{{ num }}">
+                                                                        <a href="/api/edit_robot/{{ info.id }}/{{ name }}/" id="{{ num }}"
+                                                                       style="color:cadetblue">{{ name }}</a>
+                                                                    </li><br>
+                                                                {% endfor %}
+                                                            </ul>
+                                                        </nav>
+                                                {% endfor %}
+                                            {% else %}
+                                                <li id="{{ index }}">
+                                                    <a href="/api/edit_robot/{{ info.id }}/{{ file }}/"
+                                                                       id="{{ index }}"
+                                                                       style="color:cadetblue">{{ file }}</a>
+                                                </li><br>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </nav>
+                            </div>
+
+                        </div>
+                    </td>
+                    {% if robot_details != "" %}
+                        <td width="75%" height="500">
+                            <textarea rows="35" cols="170">{{ robot_details }}</textarea>
+                        </td>
+                    {% endif %}
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function coolspo(id) {
+            $('#co' + id).css('display', 'none');
+            $('#cc' + id).css('display', 'block');
+            $('#pre_robot' + id).collapse('open');
+        }
+        function coolspo_child(id) {
+            $('#co' + id).css('display', 'none');
+            $('#cc' + id).css('display', 'block');
+            $('#child_robot' + id).collapse('open');
+        }
+
+        function coolspc(id) {
+            $('#co' + id).css('display', 'block');
+            $('#cc' + id).css('display', 'none');
+            $('#pre_robot' + id).collapse('close');
+        }
+
+        function coolspc_child(id) {
+            $('#co' + id).css('display', 'block');
+            $('#cc' + id).css('display', 'none');
+            $('#child_robot' + id).collapse('close');
+        }
+    </script>
+
+{% endblock %}

@@ -3,8 +3,8 @@ import io
 import json
 import logging
 import os
-import sys
-from sys import version_info
+import shutil
+import zipfile
 from typing import Iterable
 from jinja2 import Template,escape
 from base64 import b64encode
@@ -14,7 +14,8 @@ from django.db import DataError
 from httprunner import __version__
 from ApiManager import separator
 from ApiManager.models import ProjectInfo, ModuleInfo, TestCaseInfo, UserInfo, EnvInfo, TestReports, DebugTalk, \
-    TestSuite
+    TestSuite, RobotTestCase
+from ApiManager.utils.testcase import load_dir_list
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -426,6 +427,45 @@ def copy_test_data(id, name):
     return 'ok'
 
 
+def del_robot_data(id):
+    """
+    根据Robot索引删除数据
+    :param id: str or int: test or config index
+    :return: ok or tips
+    """
+    try:
+        robot_info = RobotTestCase.objects.get(id=id)
+
+        robot_info.delete()
+    except ObjectDoesNotExist:
+        return '删除异常，请重试'
+    logging.info('Robot项目用例已删除')
+    return 'ok'
+
+
+def edit_robot_data(**kwargs):
+    id = kwargs.pop('id')
+    project_name = kwargs.pop('project_name')
+    test_user = kwargs.get('test_user')
+
+    robot_obj = RobotTestCase.objects.get(id=id)
+    old_project_path = robot_obj.project_path
+    new_project_path = old_project_path.replace(robot_obj.project_name,project_name)
+    try:
+        if project_name != robot_obj.project_name and \
+                RobotTestCase.objects.filter(project_name=project_name).count() > 0:
+            return 'Robot项目已存在, 请重新命名'
+        os.renames(old_project_path,new_project_path)
+        robot_obj.project_path = new_project_path
+        robot_obj.project_name = project_name
+        robot_obj.test_user = test_user
+        robot_obj.save()
+        logging.info('Robot项目更新成功: {kwargs}'.format(kwargs=kwargs))
+    except Exception:
+        return 'Robot项目添加异常，请重试'
+    return 'ok'
+
+
 def copy_suite_data(id, name):
     """
     复制suite信息，默认插入到当前项目、莫夸
@@ -502,7 +542,7 @@ def make_html_report(summaryDict, html_report_name = None, html_report_template 
     logger.info("Start to render Html report ...")
     logger.debug("render data: {}".format(summaryDict))
 
-    report_dir_path = os.path.join(os.path.dirname(os.path.dirname(os.path.split(os.path.realpath(__file__))[0])), "reports")
+    report_dir_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))), "reports")
     start_at_timestamp = int(summaryDict["time"]["start_at"])
     summaryDict["time"]["start_at_iso_format"] = datetime.datetime.fromtimestamp(start_at_timestamp).strftime('%Y-%m-%d %H:%M:%S')
     if html_report_name:
@@ -566,3 +606,45 @@ def stringify_data(meta_data, request_or_response):
 
         meta_data[request_or_response][key] = value
 
+
+def add_robot_data(type, project_name,test_user,user_account,upload_obj):
+    """
+    robot 项目测试用例
+    :param type: true: 新增， false: 更新
+    :param kwargs: dict
+    :return: ok or tips
+    """
+    robot_project = RobotTestCase.objects
+    kwargs = {"project_name": project_name, "test_user": test_user, "project_path":"","files": "", "last_run_time": None,
+              "user_account": user_account}
+    if type:
+        if robot_project.get_robot_name(project_name,user_account) < 1:
+            try:
+                upload_path = os.path.dirname(os.path.dirname(
+                    os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))) + separator + 'upload' + separator
+                if not os.path.exists(upload_path):
+                    os.mkdir(upload_path)
+                file_path = upload_path + project_name
+                if os.path.exists(file_path):
+                    return "项目文件夹已存在，请重新编辑"
+                os.mkdir(file_path)
+                zfile = zipfile.ZipFile(upload_obj, "r")
+                for zf in zfile.namelist():
+                    zfile.extract(zf, file_path)
+                files_include = load_dir_list(file_path)
+                kwargs['files'] = str(files_include)
+                kwargs['project_path'] = str(file_path)
+                robot_project.insert_robot(**kwargs)
+                zfile.close()
+            except DataError:
+                return '项目信息过长'
+            except ValueError:
+                logging.error('项目添加异常：{kwargs}'.format(kwargs=kwargs))
+                return '添加失败，请重试'
+            logger.info('项目添加成功：{kwargs}'.format(kwargs=kwargs))
+        else:
+            return '该项目已存在，请重新编辑'
+    else:
+        return "暂不支持此模式"
+
+    return 'ok'

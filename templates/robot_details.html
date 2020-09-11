@@ -1,0 +1,56 @@
+{% extends "edit_robot.html" %}
+{% block title %}错误提示{% endblock %}
+{% load staticfiles %}
+{% load custom_tags %}
+{% block file_txt %}
+<!--代码输入框（注意请务必设置高度，否则无法显示）-->
+<pre id="code" class="ace_editor" style="margin-top: 0px; margin-bottom: 0px">
+<textarea>
+{{ robot_details }}
+</textarea>
+</pre>
+
+<div id="login_click" style="margin-top: 0px">
+    <button id="push">点击提交</button>
+    <a href="/api/index/">返回首页</a>
+</div>
+
+
+<script>
+    //初始化对象
+    editor = ace.edit("code");
+    init_acs('python', 'monokai', editor);
+    $(function () {
+        var height = (window.screen.height - 180) + 'px';
+        $('#code').css('min-height', height);
+    });
+
+    function post(url, params) {
+        var temp = document.createElement("form");
+        temp.action = url;
+        temp.method = "post";
+        temp.style.display = "none";
+        for (var x in params) {
+            var opt = document.createElement("input");
+            opt.name = x;
+            opt.value = params[x];
+            temp.appendChild(opt);
+        }
+        document.body.appendChild(temp);
+        temp.submit();
+        return temp;
+    }
+
+
+    $('#push').click(function () {
+        content = editor.session.getValue();
+        str = '';
+        content.trim().split('\n').forEach(function (v, i) {
+            str = str + v +'new_line';
+        });
+        post('/api/debugtalk/', {'debugtalk': str, 'id': {{ id }}});
+    });
+
+</script>
+
+{% endblock %}

@@ -1,10 +1,13 @@
 import io
 import json
+import logging
+import os
+import shutil
 import time
 
 import yaml
 
-
+logger = logging.getLogger('HttpRunnerManager')
 def get_time_stamp(user_account=None):
     ct = time.time()
     local_time = time.localtime(ct)
@@ -66,6 +69,37 @@ def dump_yaml_to_dict(yaml_file_name_path,param=None):
     finally:
         stream.close()
     return yaml_data
+
+def load_dir_list(path):
+    get_dir = os.listdir(path)
+    logger.info("{}下的文件包含：{}".format(path,get_dir))
+    tmp_path = os.path.join(path, get_dir[0])
+    if len(get_dir) == 1 and os.path.isdir(tmp_path):
+        dirs = os.listdir(tmp_path)
+        logger.info("dirs：{}".format(dirs))
+        for d in dirs:
+            old_file = os.path.join(tmp_path, d)
+            new_file = os.path.join(path, d)
+            shutil.move(old_file, new_file)
+        shutil.rmtree(tmp_path)
+    file_include = get_file_list(path)
+    return file_include
+
+def get_file_list(path):
+    """
+    获取文件夹下的所有文件，返回list
+    :param path:
+    :return:
+    """
+    file_paths = []
+    get_dir = os.listdir(path)
+    for dir in get_dir:
+        tmp_path = os.path.join(path,dir)
+        if os.path.isdir(tmp_path):
+            file_paths.append({str(dir):get_file_list(tmp_path)})
+        else:
+            file_paths.append(dir)
+    return file_paths
 
 def fail_request_handle(fail_datas,error_info):
     result_datas = []

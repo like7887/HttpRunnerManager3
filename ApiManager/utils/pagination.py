@@ -115,6 +115,10 @@ def get_pager_info(Model, filter_query, url, id,user_account, per_items=12):
         obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \
             else obj.filter(responsible_name__contains=user)
 
+    elif url == '/api/robot_case_list/':
+        obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \
+            else obj.filter(test_user__contains=user)
+
     elif url == '/api/module_list/':
 
         if belong_project != 'All':

@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import shutil
+import time
 
 import paramiko
 from django.contrib.sessions.models import Session
@@ -14,17 +15,18 @@ from dwebsocket import accept_websocket
 
 from ApiManager import separator
 from ApiManager.models import ProjectInfo, ModuleInfo, TestCaseInfo, UserInfo, EnvInfo, TestReports, DebugTalk, \
-    TestSuite
+    TestSuite, RobotTestCase
 from ApiManager.tasks import main_hrun
 from ApiManager.utils.common import module_info_logic, project_info_logic, case_info_logic, config_info_logic, \
     set_filter_session, get_ajax_msg, register_info_logic, task_logic, load_modules, upload_file_logic, \
-    init_filter_session, get_total_values
+    init_filter_session, get_total_values, robot_project_logic
 from ApiManager.utils.operation import env_data_logic, del_module_data, del_project_data, del_test_data, copy_test_data, \
-    del_report_data, add_suite_data, copy_suite_data, del_suite_data, edit_suite_data
+    del_report_data, add_suite_data, copy_suite_data, del_suite_data, edit_suite_data, del_robot_data, edit_robot_data
 from ApiManager.utils.pagination import get_pager_info
 from ApiManager.utils.runner import run_by_batch, run_test_by_type, main_run_cases
 from ApiManager.utils.task_opt import delete_task, change_task_status
 from ApiManager.utils.testcase import get_time_stamp, AnalysisError
+from robot import run_cli
 from django.contrib import messages
 
 logger = logging.getLogger('HttpRunnerManager')
@@ -35,6 +37,7 @@ logger = logging.getLogger('HttpRunnerManager')
 
 def login_check(func):
     def wrapper(request, *args, **kwargs):
+        logger.info("func的值为：{}".format(func))
         if not request.session.get('login_status'):
             return HttpResponseRedirect('/api/login/')
         return func(request, *args, **kwargs)
@@ -243,8 +246,8 @@ def run_test(request):
             return render_to_response("error_info.html", {"debug_error": eval(str(sy)),
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
-            logger.info("用例--{}--转换文件异常：{}".format(testcase_dir_path, str(e)))
-            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置"})
+            logger.info("用例--{}--转换文件异常： {}".format(testcase_dir_path, str(e)))
+            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置 <br>" + str(e)})
         report_name = kwargs.get('report_name', None)
         main_hrun.delay(testcase_dir_path, report_name)
         return HttpResponse('用例执行中，请稍后查看报告即可,默认时间戳命名报告')
@@ -264,7 +267,7 @@ def run_test(request):
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
             logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
-            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置 \n" + str(e)})
+            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置 <br>" + str(e)})
         return render_to_response('report_template.html', summary)
 
 
@@ -297,7 +300,7 @@ def run_batch_test(request):
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
             logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
-            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置"})
+            return render_to_response("error_info.html", {"error_info": "用例转换执行文件异常，请检查用例配置 <br>" + str(e)})
         main_hrun.delay(testcase_dir_path, report_name)
         return HttpResponse('用例执行中，请稍后查看报告即可,默认时间戳命名报告')
     else:
@@ -318,7 +321,7 @@ def run_batch_test(request):
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
             logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
-            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置"})
+            return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置 <br>" + str(e)})
         return render_to_response('report_template.html', summary)
 
 
@@ -465,7 +468,6 @@ def edit_case(request, id=None):
     """
 
     account = request.session["now_account"]
-    logger.info("当前登录账号为：{}".format(account))
     if request.is_ajax():
         testcase_lists = json.loads(request.body.decode('utf-8'))
         testcase_lists['user_account'] = account
@@ -855,3 +857,148 @@ def echo(request):
             for i, line in enumerate(stdout):
                 request.websocket.send(bytes(line, encoding='utf8'))
             client.close()
+
+
+@login_check
+def add_robot(request):
+    """
+    新增用例
+    :param request:
+    :return:
+    """
+    account = request.session["now_account"]
+    if request.method == "POST":
+        upload_obj = request.FILES.get("file")
+        test_user = request.POST.get("test_user")
+        project_name = request.POST.get("project_name")
+        msg = robot_project_logic(project_name, test_user, account,upload_obj)
+        if msg == "ok":
+            return HttpResponseRedirect('/api/robot_case_list/1')
+        return render_to_response('add_robot.html',{"error":msg})
+    elif request.method == 'GET':
+        manage_info = {
+            'account': account
+        }
+        return render_to_response('add_robot.html', manage_info)
+
+
+
+@login_check
+def robot_case_list(request, id):
+    """
+    robot 项目用例列表
+    :param request:
+    :param id: str or int：当前页
+    :return:
+    """
+
+    account = request.session["now_account"]
+    if request.is_ajax():
+        robot_info = json.loads(request.body.decode('utf-8'))
+        if robot_info.get('mode') == 'del':
+            msg = del_robot_data(robot_info.pop('id'))
+        elif robot_info.get('mode') == 'copy':
+            msg = copy_test_data(robot_info.get('data').pop('index'), robot_info.get('data').pop('name'))
+
+        return HttpResponse(get_ajax_msg(msg, 'ok'))
+
+    else:
+        filter_query = set_filter_session(request)
+        logger.info("filter_query:{}".format(filter_query))
+        test_list = get_pager_info(
+            RobotTestCase, filter_query, '/api/robot_case_list/', id,account)
+        manage_info = {
+            'account': account,
+            'test': test_list[1],
+            'page_list': test_list[0],
+            'info': filter_query,
+            'env': EnvInfo.objects.get_env_info(account).order_by('-create_time'),
+            'project': RobotTestCase.objects.get_robot_info(account,type=False).order_by('-update_time')
+        }
+        return render_to_response('robot_case_list.html', manage_info)
+
+
+@login_check
+def edit_robot(request, id=None,file=None):
+    """
+    编辑用例
+    :param request:
+    :param id:
+    :return:
+    """
+
+    account = request.session["now_account"]
+    logger.info("当前登录账号为：{}".format(account))
+    if request.is_ajax():
+        kwargs = json.loads(request.body.decode('utf-8'))
+        edit_robot_data['user_account'] = account
+        msg = edit_robot_data(**kwargs)
+        return HttpResponse(get_ajax_msg(msg, '/api/robot_case_list/1/'))
+    robot_info = RobotTestCase.objects.get_robot_by_id(id,account)
+    files = eval(robot_info[0].files)
+    info = robot_info[0].__dict__
+    file_content,file_path ="",""
+    upload_path = info['project_path']
+    for file_name in files:
+        if isinstance(file_name, str) and file == file_name:
+            file_path = os.path.join(upload_path, file)
+        elif isinstance(file_name, dict):
+            for key, values in file_name.items():
+                for value in values:
+                    if isinstance(value, str) and file == value:
+                        file_path = os.path.join(os.path.join(upload_path, key), file)
+    if file_path:
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                for context in f.readlines():
+                    file_content +=context
+        except UnicodeDecodeError:
+            with open(file_path, "r", encoding="gbk") as f:
+                for context in f.readlines():
+                    file_content += context
+        except Exception as e:
+            logger.info("文件打开出错：{}".format(str(e)))
+            file_content = """文件打开出错：
+                    %s
+                    """.format(str(e))
+    manage_info = {
+        'account': account,
+        'info': info,
+        'files': files,
+        "robot_details": file_content
+    }
+    return render_to_response('edit_robot.html', manage_info)
+
+
+@login_check
+def run_robot(request):
+
+    account = request.session["now_account"]
+    if request.is_ajax():
+        kwargs = json.loads(request.body.decode('utf-8'))
+        id = kwargs.pop('id',None)
+    else:
+        id = request.POST.get('id')
+    logger.info("传进来的id:{}".format(id))
+    robot_info = RobotTestCase.objects.get_robot_by_id(id,account)
+    project_name = robot_info[0].project_name
+    logger.info("project_name:{}".format(project_name))
+    project_path = robot_info[0].project_path
+    report_root = os.path.dirname(os.path.dirname(
+        os.path.split(os.path.realpath(__file__))[0])) + separator + 'report' + separator
+    if not os.path.exists(report_root):
+        os.mkdir(report_root)
+    report_path = report_root  + project_name + str(int(time.time())) + separator
+    if not os.path.exists(report_path):
+        os.mkdir(report_path)
+    logger.info("project_path:{}".format(project_path))
+    try:
+        rc = run_cli(["--extension=robot:txt", "--report=%sreport.html" % report_path,
+         "--outputdir=%s" % report_path,"--log=%slog.html" % report_path,"--loglevel=error",project_path],exit=False)
+    except Exception as e:
+        logger.info("robot用例执行异常： {}".format(str(e)))
+        return render_to_response("error_info.html", {"error_info": "robot用例执行异常： <br>" + str(e)})
+    with open(os.path.join(report_path,"report.html"), encoding='utf-8') as stream:
+        reports = stream.read()
+    return render_to_response("robot_report.html",{"reports": mark_safe(reports)})
+
