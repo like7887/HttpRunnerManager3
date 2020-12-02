@@ -27,7 +27,6 @@ from ApiManager.utils.runner import run_by_batch, run_test_by_type, main_run_cas
 from ApiManager.utils.task_opt import delete_task, change_task_status
 from ApiManager.utils.testcase import get_time_stamp, AnalysisError
 from robot import run_cli
-from django.contrib import messages
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -267,6 +266,7 @@ def run_test(request):
                                                           "error_info": "debugtalk.py文件语法有误，请修改正确后再重新执行用例，错误信息如下："})
         except Exception as e:
             logger.info("用例--{}--执行异常：{}".format(testcase_dir_path, str(e)))
+            raise e
             return render_to_response("error_info.html", {"error_info": "用例执行异常，请检查用例配置 <br>" + str(e)})
         return render_to_response('report_template.html', summary)
 
@@ -1002,3 +1002,46 @@ def run_robot(request):
         reports = stream.read()
     return render_to_response("robot_report.html",{"reports": mark_safe(reports)})
 
+
+@login_check
+def robot_details(request):
+    account = request.session["now_account"]
+    logger.info("当前登录账号为：{}".format(account))
+    if request.is_ajax():
+        kwargs = json.loads(request.body.decode('utf-8'))
+        id = kwargs.pop('id',None)
+        file = kwargs.pop('file_name',None)
+        robot_info = RobotTestCase.objects.get_robot_by_id(id, account)
+        files = eval(robot_info[0].files)
+        info = robot_info[0].__dict__
+        file_content, file_path = "", ""
+        upload_path = info['project_path']
+        for file_name in files:
+            if isinstance(file_name, str) and file == file_name:
+                file_path = os.path.join(upload_path, file)
+            elif isinstance(file_name, dict):
+                for key, values in file_name.items():
+                    for value in values:
+                        if isinstance(value, str) and file == value:
+                            file_path = os.path.join(os.path.join(upload_path, key), file)
+        if file_path:
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    for context in f.readlines():
+                        file_content += context
+            except UnicodeDecodeError:
+                with open(file_path, "r", encoding="gbk") as f:
+                    for context in f.readlines():
+                        file_content += context
+            except Exception as e:
+                logger.info("文件打开出错：{}".format(str(e)))
+                file_content = """文件打开出错：
+                            %s
+                            """.format(str(e))
+        manage_info = {
+            'account': account,
+            'info': info,
+            'files': files,
+            "robot_details": file_content
+        }
+        return HttpResponse(file_content)

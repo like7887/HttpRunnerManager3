@@ -11,7 +11,7 @@
 
         <form class="am-btn-toolbars am-btn-toolbar am-kg am-cf">
             <table width="100%" class="am-table am-table-bordered am-table-radius am-table-striped">
-                <tr>
+                <tr id="myContent" style="border: solid">
                     <td>
                         <div style="float: left">
                             <div style="float: left">
@@ -40,8 +40,7 @@
                                                             <ul id="child_robot{{ index }}" class="am-nav am-collapse">
                                                                 {% for num,name in names|enumerate %}
                                                                     <li id="{{ num }}">
-                                                                        <a href="/api/edit_robot/{{ info.id }}/{{ name }}/" id="{{ num }}"
-                                                                       style="color:cadetblue">{{ name }}</a>
+                                                                        <a id="{{ name }}{{ info.id }}"  onclick="run_detail('{{ info.id }}','{{ name }}')">  {{ name }}</a>
                                                                     </li><br>
                                                                 {% endfor %}
                                                             </ul>
@@ -49,9 +48,7 @@
                                                 {% endfor %}
                                             {% else %}
                                                 <li id="{{ index }}">
-                                                    <a href="/api/edit_robot/{{ info.id }}/{{ file }}/"
-                                                                       id="{{ index }}"
-                                                                       style="color:cadetblue">{{ file }}</a>
+                                                    <a id="{{ file }}{{ info.id }}"  onclick="run_detail('{{ info.id }}','{{ file }}')">{{ file }}</a>
                                                 </li><br>
                                             {% endif %}
                                         {% endfor %}
@@ -61,11 +58,8 @@
 
                         </div>
                     </td>
-                    {% if robot_details != "" %}
-                        <td width="75%" height="500">
-                            <textarea rows="35" cols="170">{{ robot_details }}</textarea>
-                        </td>
-                    {% endif %}
+                    <td width="75%" height="500" id="robot_details">
+                    </td>
                 </tr>
             </table>
         </form>
@@ -93,6 +87,66 @@
             $('#cc' + id).css('display', 'none');
             $('#child_robot' + id).collapse('close');
         }
+
+        function run_detail(id,name) {
+            const config = {'id':id,'file_name':name}
+            $.ajax({
+                type: 'post',
+                url: '/api/robot_details/',
+                data: JSON.stringify(config),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data === 'session invalid') {
+                        window.location.href = "/api/login/";
+                    } else {
+                        if (data) {
+                            show_details('robot_details',data);
+                        } else {
+                            myAlert(data);
+                        }
+                    }
+                },
+                error: function () {
+                    myAlert('Sorry，服务器可能开小差啦, 请重试!');
+                }
+            })
+        }
+        function show_details(id,data_details) {
+            var CellObj = document.getElementById(id)
+            var cellValue = "<textarea id='detail' rows=\"35\" cols=\"170\" class='textArea'>" + data_details +"</textarea>"
+            CellObj.innerHTML = cellValue
+        }
+        $(document).ready(function () {
+            $("ul li").click(function () {
+                $(' li').removeClass("cur")
+                $(this).addClass("cur")
+            })
+        })
     </script>
+    <style>
+        li a{
+            color: #52a3d2;
+            padding: 0px 0px 0px 20px;
+            border: none;
+            cursor: pointer;
+            }
+        li a:hover{
+            background: #5b6e84;
+            color: #52a3d2;
+        }
+        .cur{
+            background: #DDE1E4;
+        }
+        .textArea{
+            font-style: italic;
+            font-size: 15px;
+            color: #f8675e;
+        }
+        #robot_details:focus{
+            border-style: ridge;
+            border-color: #52a3d2;
+        }
+
+    </style>
 
 {% endblock %}

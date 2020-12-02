@@ -102,7 +102,7 @@
     </div>
 
     <div class="admin-biaogelist">
-        <div class="listbiaoti am-cf">
+        <div class="listbiaoti am-cf" style="color: #cc0000">
             <ul class="am-icon-flag on"> 项目列表</ul>
             <dl class="am-icon-home" style="float: right;"> 当前位置： 用例管理 > <a href="#">Robot项目用例</a></dl>
             <dl>
@@ -239,15 +239,20 @@
             }
         });
 
-        function run_robot(mode, url) {
+        function run_robot(mode) {
             if (mode === 'batch') {
                 if ($("input:checked").size() === 0) {
                     myAlert("请至少选择一个项目运行！");
                     return;
                 }
             }
+            var data = {"id": $("#project_list").serializeJSON()};
+            if (mode !== 'batch') {
+                data["id"] = mode;
+            }
+            post('/api/run_robot/', data);
 
-            $('#select_env').modal({
+            /**$('#select_env').modal({
                 relatedTarget: this,
                 onConfirm: function () {
                     var data = {
@@ -272,7 +277,7 @@
                 },
                 onCancel: function () {
                 }
-            });
+            });**/
         }
 
         $('#select_all').click(function () {

@@ -120,7 +120,7 @@ if DEBUG:
             'NAME': 'HttpRunner',  # 新建数据库名
             'USER': 'root',  # 数据库登录名
             'PASSWORD': 'asdf1@34',  # 数据库登录密码
-            'HOST': '10.128.138.186',  # 数据库所在服务器ip地址
+            'HOST': 'localhost',  # 数据库所在服务器ip地址
             'PORT': '3306',  # 监听端口 默认3306即可
         }
     }
@@ -134,7 +134,7 @@ else:
             'NAME': 'HttpRunner',  # 新建数据库名
             'USER': 'root',  # 数据库登录名
             'PASSWORD': 'asdf1@34',  # 数据库登录密码
-            'HOST': '10.128.138.186',  # 数据库所在服务器ip地址
+            'HOST': 'localhost',  # 数据库所在服务器ip地址
             'PORT': '3306',  # 监听端口 默认3306即可
         }
     }

@@ -62,6 +62,7 @@ def run_by_single(index, base_url, path):
     #检查debugtakl.py 代码是否有异常，如果有抛出异常
     debugtalk_dir = os.path.join(testcase_dir_path, 'debugtalk.py')
     check_result = checkPath(debugtalk_dir)
+    logger.info("check_result的值为:{}".format(check_result))
     if isinstance(check_result,int) and check_result == 1:
         shutil.rmtree(testcase_dir_path)
         raise AnalysisError("python文件解析异常，请检查debugtalk.py文件信息")
