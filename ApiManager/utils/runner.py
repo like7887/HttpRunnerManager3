@@ -6,10 +6,13 @@ from sys import version_info
 
 from django.core.exceptions import ObjectDoesNotExist
 from httprunner import HttpRunner, __version__
+
 from ApiManager.models import TestCaseInfo, ModuleInfo, ProjectInfo, DebugTalk, TestSuite
 from ApiManager.utils.common import getAllYml, timestamp_to_datetime
-from ApiManager.utils.testcase import dump_python_file, dump_yaml_file, modify_validate, dump_yaml_to_dict, \
-    fail_request_handle
+from ApiManager.utils.testcase import dump_python_file, dump_yaml_file, modify_validate, AnalysisError, \
+    dump_yaml_to_dict, fail_request_handle
+from ApiManager import separator
+from pyflakes.api import checkPath
 
 logger = logging.getLogger('HttpRunnerManager')
 
@@ -30,7 +33,6 @@ def run_by_single(index, base_url, path):
     }
     testcase_list['teststeps'] = []
 
-
     try:
         obj = TestCaseInfo.objects.get(id=index)
     except ObjectDoesNotExist:
@@ -41,25 +43,39 @@ def run_by_single(index, base_url, path):
     name = obj.name
     project = obj.belong_project
     module = obj.belong_module.module_name
-
+    #替换当前用例的端口
+    if 'base_url' in request['request'] and request['request']['base_url']:
+        testcase_list['config']['base_url'] = request['request']['base_url']
     testcase_list['config']['name'] = name
-
     testcase_dir_path = os.path.join(path, project)
     #加载全局变量
     if request['request']['url'] == '' and "variables" in request.keys():
         testcase_list['config']['variables'] = request['variables']
     if not os.path.exists(testcase_dir_path):
         os.makedirs(testcase_dir_path)
-
         try:
             debugtalk = DebugTalk.objects.get(belong_project__project_name=project).debugtalk
         except ObjectDoesNotExist:
             debugtalk = ''
-
         dump_python_file(os.path.join(testcase_dir_path, 'debugtalk.py'), debugtalk)
 
-    testcase_dir_path = os.path.join(testcase_dir_path, module)
+    #检查debugtakl.py 代码是否有异常，如果有抛出异常
+    debugtalk_dir = os.path.join(testcase_dir_path, 'debugtalk.py')
+    check_result = checkPath(debugtalk_dir)
+    logger.info("check_result的值为:{}".format(check_result))
+    if isinstance(check_result,int) and check_result == 1:
+        shutil.rmtree(testcase_dir_path)
+        raise AnalysisError("python文件解析异常，请检查debugtalk.py文件信息")
+    else:
+        msg = check_result[0]
+        if msg > 0:
+            errors = []
+            for err in check_result[1]:
+                errors.append(str(err.split(separator)[-1]) + "\n")
+            shutil.rmtree(testcase_dir_path)
+            raise SyntaxError(errors)
 
+    testcase_dir_path = os.path.join(testcase_dir_path, module)
     if not os.path.exists(testcase_dir_path):
         os.mkdir(testcase_dir_path)
 
@@ -68,8 +84,6 @@ def run_by_single(index, base_url, path):
             if isinstance(test_info, dict):
                 config_id = test_info.pop('config')[0]
                 config_request = eval(TestCaseInfo.objects.get(id=config_id).request)['config']
-                #config_request.get('config').get('request').setdefault('base_url', base_url)
-                #config_request['config']['name'] = name
                 testcase_list['teststeps'].append(modify_validate(config_request))
             else:
                 id = test_info[0]
@@ -91,6 +105,7 @@ def run_by_suite(index, base_url, path):
     include = eval(obj.include)
 
     for val in include:
+        logger.info("当前生成用例的路径：{},生成的用例名称：{}".format(path,val[0]))
         run_by_single(val[0], base_url, path)
 
 
@@ -182,7 +197,10 @@ def main_run_cases(testset_path):
     :return: summary （dict运行结果）
     """
     runner = HttpRunner()
+    runner.with_variables({})  #清楚原runner中的缓存variables
     test_dic, error_requests, sum_temps = [], [], []
+    account_list = testset_path.split(separator)[-1].split('&')
+    user_account = account_list[0] if len(account_list) > 1 else ""
     getAllYml(testset_path, test_dic)
     start_time = time.time()
     for test_case_dir in test_dic:
@@ -198,7 +216,7 @@ def main_run_cases(testset_path):
         if sum_temp.success:
             sum_temp = timestamp_to_datetime(sum_temp)
             sum_temps += sum_temp
-        logger.info("{} 文件执行完之后生成的结果为：{}".format(test_case_dir, sum_temp))
+        #logger.info("{} 文件执行完之后生成的结果为：{}".format(test_case_dir, sum_temp))
     end_time = time.time()
     duration = end_time - start_time
     shutil.rmtree(testset_path)
@@ -209,10 +227,11 @@ def main_run_cases(testset_path):
     summary['step_datas'] += sum_temps
     summary['step_datas'] += error_requests
 
-    logger.info("生成报告前的summary：{}".format(summary))
     summary = timestamp_to_datetime(summary, type=False)
     summary['case_id'] = str(len(summary['step_datas']))
     hrun_version = __version__
     python_version = str(version_info.major) + "." + str(version_info.minor) + "." + str(version_info.micro)
     summary['platform'] = {'httprunner_version': hrun_version, 'python_version': python_version}
+    summary['user_account'] = user_account
+    logger.info("生成报告前的summary：{}".format(summary))
     return summary

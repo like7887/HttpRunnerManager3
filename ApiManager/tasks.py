@@ -2,9 +2,6 @@
 from __future__ import absolute_import, unicode_literals
 
 import os
-import shutil
-import sys
-import time
 
 from celery import shared_task
 from django.core.exceptions import ObjectDoesNotExist
@@ -34,7 +31,7 @@ def main_hrun(testset_path, report_name):
 
 
 @shared_task
-def project_hrun(name, base_url, project, receiver):
+def project_hrun(name, base_url, project, receiver,create_user):
     """
     异步运行整个项目
     :param env_name: str: 环境地址
@@ -45,7 +42,7 @@ def project_hrun(name, base_url, project, receiver):
     id = ProjectInfo.objects.get(project_name=project).id
 
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
-    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
+    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=create_user))
 
     run_by_project(id, base_url, testcase_dir_path)
 
@@ -59,7 +56,7 @@ def project_hrun(name, base_url, project, receiver):
 
 
 @shared_task
-def module_hrun(name, base_url, module, receiver):
+def module_hrun(name, base_url, module, receiver,create_user):
     """
     异步运行模块
     :param env_name: str: 环境地址
@@ -71,7 +68,7 @@ def module_hrun(name, base_url, module, receiver):
     module = list(module)
 
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
-    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
+    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=create_user))
 
     try:
         for value in module:
@@ -90,7 +87,7 @@ def module_hrun(name, base_url, module, receiver):
 
 
 @shared_task
-def suite_hrun(name, base_url, suite, receiver):
+def suite_hrun(name, base_url, suite, receiver,create_user):
     """
     异步运行模块
     :param env_name: str: 环境地址
@@ -103,7 +100,7 @@ def suite_hrun(name, base_url, suite, receiver):
     suite = list(suite)
 
     testcase_dir_path = os.path.join(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]), "suite")
-    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp())
+    testcase_dir_path = os.path.join(testcase_dir_path, get_time_stamp(user_account=create_user))
 
     try:
         for value in suite:

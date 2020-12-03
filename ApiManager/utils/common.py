@@ -3,7 +3,7 @@ import io
 import json
 import logging
 import os
-import platform
+import shutil
 from json import JSONDecodeError
 
 
@@ -11,12 +11,10 @@ import yaml
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Sum
 from djcelery.models import PeriodicTask
-from jinja2 import Template,escape
-from base64 import b64encode
 
 from ApiManager.models import ModuleInfo, TestCaseInfo, TestReports, TestSuite
 from ApiManager.utils.operation import add_project_data, add_module_data, add_case_data, add_config_data, \
-    add_register_data
+    add_register_data, add_robot_data
 from ApiManager.utils.task_opt import create_task
 
 
@@ -232,6 +230,7 @@ def case_info_logic(type=True, **kwargs):
     :return: str: ok or tips
     """
     test = kwargs.pop('test')
+    logger.info("common 中的 test:{}".format(test))
     '''
         动态展示模块
     '''
@@ -325,6 +324,7 @@ def config_info_logic(type=True, **kwargs):
     :return: ok or tips
     """
     config = kwargs.pop('config')
+    logger.info("config:{}".format(config))
     '''
         动态展示模块
     '''
@@ -351,8 +351,9 @@ def config_info_logic(type=True, **kwargs):
         config.setdefault('config_info', name)
 
         request_data = config.get('request').pop('request_data')
+        logger.info("request_data:{}".format(request_data))
         data_type = config.get('request').pop('type')
-        if request_data and data_type:
+        if data_type:
             if data_type == 'json':
                 config.get('request').setdefault(data_type, request_data)
             else:
@@ -371,7 +372,6 @@ def config_info_logic(type=True, **kwargs):
             if not isinstance(variables_list, list):
                 return variables_list
             config.setdefault('variables', variables_list)
-        logger.info("config的值：{}".format(config))
         validate = config.pop('validate')
         if validate:
             validate_list = key_value_list('validate', **validate)
@@ -611,6 +611,7 @@ def get_total_values(user_account):
 
 
 def update_include(include):
+    logger.info("include:{}".format(include))
     for i in range(0, len(include)):
         if isinstance(include[i], dict):
             id = include[i]['config'][0]
@@ -648,11 +649,13 @@ def timestamp_to_datetime(summary, type=True):
         summary["html_report_name"] = summary["time"]["start_at_iso_format"]
         successes, failures, errors, skipped = 0, 0, 0, 0
         for step_data in summary["step_datas"]:
-            if 'validators' not in step_data['data']:
-                if step_data["success"]:
+            if 'validators' not in step_data['data'] or 'validate_extractor' not in step_data['data']['validators']:
+                if step_data["success"] and step_data['data']['req_resps'][0]['response']['status_code'] == 200:
                     successes += 1
                 else:
                     failures += 1
+                    step_data['success'] = False
+                    summary['success'] = False
             else:
                 failure = False
                 for validator in step_data['data']['validators']['validate_extractor']:
@@ -672,7 +675,7 @@ def timestamp_to_datetime(summary, type=True):
             result.append(summary['step_datas'][0])
         else:
             for summ in summary['step_datas']:
-                summ['name'] = summary['name'] + ":" + summ['name']
+                summ['name'] = summary['name'] + " : " + summ['name']
                 result.append(summ)
         return result
     return summary
@@ -683,6 +686,7 @@ def getAllYml(path,dic):
     获取文件夹下所有.yml的文件，并放入到dic中
     """
     get_dir = os.listdir(path)
+    get_dir = sorted(get_dir, key=lambda x: os.path.getmtime(os.path.join(path, x)))
     for i in get_dir:
         sub_dir = os.path.join(path,i)
         if os.path.isdir(sub_dir):
@@ -691,4 +695,23 @@ def getAllYml(path,dic):
             dic.append(sub_dir)
     return dic
 
+
+
+def robot_project_logic(project_name,test_user,account,upload_obj,type=True):
+    """
+    项目信息逻辑处理
+    :param type: boolean:True 默认新增项目
+    :param kwargs: dict: 项目信息
+    :return:
+    """
+    if project_name is '':
+        return '项目名称不能为空'
+    if test_user is '':
+        return '测试负责人不能为空'
+    if account is '':
+        return '登陆人员不能为空'
+    if upload_obj is None:
+        return '上传文件不能为空'
+
+    return add_robot_data(type, project_name,test_user,account,upload_obj)
 

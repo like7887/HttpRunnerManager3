@@ -92,6 +92,11 @@ class ModuleInfoManager(models.Manager):
             return self.filter(id=index,user_account=user_account).all()
         else:
             return self.get(id=index,user_account=user_account).name
+    def get_mod_info(self,user_account,type=True):
+        if type:
+            return self.filter(user_account=user_account).all()
+        else:
+            return self.filter(user_account=user_account).all().values('module_name')
 
 
 
@@ -144,7 +149,7 @@ class TestCaseInfoManager(models.Manager):
             return self.filter(id=index,user_account=user_account).all()
         else:
             return self.get(id=index,user_account=user_account).name
-    def get_case_by_moduleId(self,user_account,module_id,type=1,is_all=True):
+    def get_case_by_moduleId(self,module_id,user_account,type=1,is_all=True):
         if is_all:
             return self.filter(belong_module=module_id,user_account=user_account).filter(type=type).all()
         else:
@@ -172,3 +177,44 @@ class EnvInfoManager(models.Manager):
 
     def delete_env(self,index,user_account):
         self.get(id=index,user_account=user_account).delete()
+
+    def get_env_info(self,user_account,type=True):
+        if type:
+            return self.filter(user_account=user_account).all()
+        else:
+            return self.filter(user_account=user_account).all().values('env_name')
+
+
+"""robot case项目管理"""
+class RobotTestCaseManager(models.Manager):
+    def insert_robot(self, **kwargs):
+        self.create(**kwargs)
+
+    def update_robot(self, id,user_account, **kwargs):  # 如此update_time才会自动更新！！
+        obj = self.get(id=id,user_account=user_account)
+        obj.project_name = kwargs.get('project_name')
+        obj.test_user = kwargs.get('test_user')
+        obj.files = kwargs.get('files')
+        obj.project_path = kwargs.get('project_path')
+        obj.user_account = user_account
+        obj.save()
+
+    def get_robot_name(self, pro_name,user_account, type=True, id=None):
+        if type:
+            return self.filter(project_name__exact=pro_name,user_account=user_account).count()
+        else:
+            if id is not None:
+                return self.get(id=id,user_account=user_account).project_name
+            return self.get(project_name__exact=pro_name,user_account=user_account)
+
+    def get_robot_info(self,user_account, type=True):
+        if type:
+            return self.filter(user_account=user_account).all().values('project_name')
+        else:
+            return self.filter(user_account=user_account).all()
+
+    def get_robot_by_id(self,index,user_account, type=True):
+        if type:
+            return self.filter(id=index,user_account=user_account).all()
+        else:
+            return self.get(id=index,user_account=user_account).name

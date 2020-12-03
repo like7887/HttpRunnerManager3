@@ -79,9 +79,9 @@
         <div class="am-tabs am-margin">
             <ul class="am-tabs-nav am-nav am-nav-tabs" id="tab-test">
                 <li><a href="javascript:;" data-target="#tab1">messages</a></li>
-                <li><a href="javascript:;" data-target="#tab3">request</a></li>
-                <li><a href="javascript:;" data-target="#tab4">extract/validate</a></li>
-                <li><a href="javascript:;" data-target="#tab2">variables/parameters/hooks</a></li>
+                <li><a href="javascript:;" data-target="#tab2">request</a></li>
+                <li><a href="javascript:;" data-target="#tab3">extract/validate/variables</a></li>
+                <!--<li><a href="javascript:;" data-target="#tab2">variables</a></li>-->
             </ul>
 
             <div class="am-tabs-bd">
@@ -111,17 +111,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!--<div class="form-group">
                                 <div class="input-group col-md-10 col-md-offset-1">
                                     <div class="input-group-addon" style="color: #0a628f">可选用例</div>
                                     <select id="belong_case_id" name="include" class="form-control">
                                     </select>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div class="form-group">
                                 <div class="input-group col-md-10 col-md-offset-1">
-                                    <div class="input-group-addon" style="color: #0a628f">可选配置</div>
+                                    <div class="input-group-addon" style="color: #0a628f">可选接口</div>
                                     <select id="config" name="config" class="form-control">
                                     </select>
                                 </div>
@@ -131,12 +131,12 @@
                     <div style="float: right; width: 50%;margin-right: 1%;">
                          <div class="form-group">
                                 <div class="input-group col-md-10 ">
-                                    <div class="input-group-addon" id="close_collapse" style="color: #0a628f">用例列表</div>
+                                    <div class="input-group-addon" id="close_collapse" style="color: #0a628f">接口配置列表</div>
 
                                     <a class="am-btn am-btn-primary am-radius am-btn-block" href="#" id="pre_collapse"
                                        style="font-size: 16px; background-color: #fff; color: #555; text-align: left"
                                        data-am-collapse="{target: '#pre_case'}">
-                                        用 例 执 行 顺 序
+                                        接 口 执 行 顺 序
                                     </a>
                                     <nav>
                                         <ul id="pre_case" class="am-nav">
@@ -148,7 +148,7 @@
                     </div>
                 </div>
 
-                <div class="am-tab-panel" id="tab2">
+                <!--<div class="am-tab-panel" id="tab2">
                     <button class="btn btn-info" value="添 加" onclick="add_row('variables')">add variables</button>
                     <button class="btn btn-danger" value="删 除" onclick="del_row('variables')">del variables</button>
                     <button class="btn btn-info" value="添 加" onclick="add_params('params')">add param</button>
@@ -202,10 +202,16 @@
                         </table>
                     </form>
 
-                </div>
+                </div>-->
 
-                <div class="am-tab-panel" id="tab3">
+                <div class="am-tab-panel" id="tab2">
                     <div class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">baseUrl</div>
+                                <input type="text" class="form-control" id="base_url" name="base_url" placeholder="api baseUrl">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <div class="input-group-addon">URL</div>
@@ -275,13 +281,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="am-tab-panel" id="tab4">
-                    <button class="btn btn-info" value="添 加" onclick="add_row('extract')">add extract
-                    </button>
-                    <button class="btn btn-danger" value="删 除" onclick="del_row('extract')">del extract
-                    </button>
+                <div class="am-tab-panel" id="tab3">
+                    <button class="btn btn-info" value="添 加" onclick="add_row('extract')">add extract</button>
+                    <button class="btn btn-danger" value="删 除" onclick="del_row('extract')">del extract</button>
                     <button class="btn btn-info" value="添 加" onclick="add_row('validate')">add validate</button>
                     <button class="btn btn-danger" value="删 除" onclick="del_row('validate')">del validate</button>
+                    <button class="btn btn-info" value="添 加" onclick="add_row('variables')">add variables</button>
+                    <button class="btn btn-danger" value="删 除" onclick="del_row('variables')">del variables</button>
                     <form id="form_extract">
                         <table class="table table-hover table-condensed table-bordered table-striped" id="extract">
                             <caption>extract:</caption>
@@ -307,6 +313,21 @@
                                 <th width="10%" align="center">Comparator</th>
                                 <th width="8%" align="center">Type</th>
                                 <th width="48%" align="center">Expected</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </form>
+                    <form id="form_variables">
+                        <table class="table table-hover table-condensed table-bordered table-striped" id="variables">
+                            <caption>Variables:</caption>
+                            <thead>
+                            <tr class="active text-success">
+                                <th width="5%" align="center">Option</th>
+                                <th width="30%" align="center">Key</th>
+                                <th width="10%" align="center">Type</th>
+                                <th width="55%" align="center">Value</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -387,14 +408,23 @@
             $("#pre_case").disableSelection();
         });
 
-        $('#config').on('change', function () {
+        /*$('#config').on('change', function () {
             if ($('#config').val() !== '请选择') {
                 var case_id = $('#config').val();
                 var case_name = $('#config option:selected').text();
                 var href = "<li disbaled id=" + case_id + " name='pre_config'><a style='color: cadetblue' href='/api/edit_config/" + case_id + "/' id = " + case_id + ">" + case_name + "" +
                     "</a><i class=\"js-remove\" onclick=remove_self('#" + case_id + "')>✖</i></li>";
-                $("li[name='pre_config']").remove();
                 $("#pre_case").prepend(href);
+                $('#config_pre').val("{'config': ['" + case_id + "', '" + case_name + "']}");
+            }
+        });*/
+        $('#config').on('change', function () {
+            if ($('#config').val() !== '请选择') {
+                var case_id = $('#config').val();
+                var case_name = $('#config option:selected').text();
+                var href = "<li disbaled id=" + case_id + "><a style='color: cadetblue' href='/api/edit_config/" + case_id + "/' id = " + case_id + ">" + case_name + "" +
+                    "</a><i class=\"js-remove\" onclick=remove_self('#" + case_id + "')>✖</i></li>";
+                $("#pre_case").append(href)
                 $('#config_pre').val("{'config': ['" + case_id + "', '" + case_name + "']}");
             }
         });

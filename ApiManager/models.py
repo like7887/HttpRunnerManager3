@@ -1,7 +1,7 @@
 from django.db import models
 
 from ApiManager.managers import UserTypeManager, UserInfoManager, ProjectInfoManager, ModuleInfoManager, \
-    TestCaseInfoManager, EnvInfoManager
+    TestCaseInfoManager, EnvInfoManager, RobotTestCaseManager
 
 
 # Create your models here.
@@ -132,3 +132,17 @@ class TestSuite(BaseTable):
     suite_name = models.CharField(max_length=100, null=False)
     include = models.TextField(null=False)
     user_account = models.CharField('用户账号', max_length=20)
+
+class RobotTestCase(BaseTable):
+    class Meta:
+        verbose_name = "robotframework项目类测试用例"
+        db_table = "Robot_TestCase"
+
+    project_name = models.CharField(max_length=50,null=False,unique=True)
+    test_user = models.CharField(max_length=20,null=False)
+    files = models.TextField('子级目录存放文件',null=True)
+    project_path = models.CharField(max_length=1024, null=False)
+    last_run_time = models.DateTimeField(null=True)
+    user_account = models.CharField('用户账号', max_length=20)
+    objects = RobotTestCaseManager()
+

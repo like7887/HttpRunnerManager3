@@ -1,4 +1,4 @@
-由于原httpRunnerManager不再维护，该版本为适配新版httprunner3.4.1升级
+由于原httpRunnerManager不再维护，该版本为适配新版httprunner3.1.4升级
 =================
 
 Design Philosophy
@@ -103,6 +103,24 @@ Key Features
 
 12. 浏览器输入http://127.0.0.1:8000/admin/  输入步骤6设置的用户名、密码，登录后台运维管理系统，可后台管理数据
 
+13. 修改pyflakes源码：/pyflakes/api.py 76 行,修改结果如下
+    ```
+    error_info = []
+    for warning in w.messages:
+        reporter.flake(warning)
+        error_info.append(str(warning))
+    return len(w.messages),error_info
+    ```
+14. 修改ZIP源码：zipfile.py ，修改1236行，1414行，修改内容如下：
+   ```
+   fname_str = fname.decode('gbk')
+   ```
+15. 修改httprunner源码：response.py 注释270行
+    ```
+    #raise ValidationFailure(failures_string)
+    ```
+
+
 ### 生产环境uwsgi+nginx部署参考：https://www.jianshu.com/p/d6f9138fab7b
 
 新手入门手册
@@ -123,16 +141,14 @@ Key Features
 5、当前项目可以新增模块了，之后用例或者配置都会归属模块下，必须指定模块所属的项目,模块列表与项目列表类似，故不赘述
 ![新增模块](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_module01.jpg)<br>
 <br>
-6、新增用例，遵循HtttpRuunner脚本规范，可以跨项目，跨模块引用用例，支持拖拽排序，动态添加和删减，极大地方便了场景组织, HttpRunner用例编写很灵活，建议规范下编写方式
+6、新增用例，用例中可添加多个接口配置，可配置公共headers,并配置相关执行顺序，可以跨项目，跨模块引用接口配置，支持拖拽排序，动态添加和删减，极大地方便了场景组织, HttpRunner用例编写很灵活，建议规范下编写方式
 ![新增用例01](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_case01.jpg)<br>
 <br>
 ![新增用例02](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_case02.jpg)<br>
 <br>
 ![新增用例03](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_case03.jpg)<br>
 <br>
-![新增用例04](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_case04.jpg)<br>
-<br>
-7、新增配置，可定义全局变量，全局hook，公共请求参数和公共headers,一般可用于测试环境，验证环境切换配置，具体用法参考HttpRunner手册
+7、新增接口配置，接口配置用于测试用例当中，一般可用于测试环境，验证环境切换配置，具体用法参考HttpRunner手册
 ![新增配置](https://github.com/like7887/HttpRunnerManager3/blob/master/images/add_config.jpg)<br>
 <br>
 8、支持添加项目级别定时任务，模块集合的定时任务，遵循crontab表达式, 模块列表为空默认为整个项目，定时任务支持选择环境和配置

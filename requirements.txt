@@ -7,3 +7,7 @@ django-celery == 3.3.1
 flower == 0.9.5
 dwebsocket == 0.5.12
 paramiko == 2.7.1
+jinja2 == 2.11.2
+httprunner = 3.1.4
+pyflakes == 2.2.0
+robotframework == 3.2.2

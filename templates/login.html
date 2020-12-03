@@ -118,6 +118,10 @@
                 <a style="margin-left: 110px" href="/api/register/">没有账号？点击注册</a>
             </div>
             <button class="login_btn" id="login_submit" value="Login" type="submit">登 录</button>
+            {% if error_info %}
+                <div class="am-modal-bd" style="color: #cc0000">{{ error_info }}</div>
+            {% endif %}
+
         </form>
 
     </div><!--row end-->

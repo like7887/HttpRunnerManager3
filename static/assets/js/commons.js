@@ -64,6 +64,7 @@ function info_ajax(id, url) {
 
 }
 
+
 function auto_load(id, url, target, type) {
     var data = $(id).serializeJSON();
     if (id === '#form_message' || id ==='#belong_message' || id === '#pro_filter') {
@@ -183,6 +184,7 @@ function case_ajax(type, editor) {
     var dataType = $("#DataType").serializeJSON();
     var caseInfo = $("#form_message").serializeJSON();
     var variables = $("#form_variables").serializeJSON();
+    var base_url = $("#base_url").serializeJSON();
     var request_data = null;
     if (dataType.DataType === 'json') {
         try {
@@ -212,6 +214,7 @@ function case_ajax(type, editor) {
             "parameters": parameters,
             "variables": variables,
             "request": {
+                "base_url":base_url.base_url,
                 "url": url.url,
                 "method": method.method,
                 "headers": headers,

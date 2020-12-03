@@ -109,11 +109,15 @@ def get_pager_info(Model, filter_query, url, id,user_account, per_items=12):
         user = filter_query.get('user')
 
     obj = Model.objects
-    obj = obj.filter(user_account=user_account)
+    obj = obj if url == '/api/periodictask/' else obj.filter(user_account=user_account)
 
     if url == '/api/project_list/':
         obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \
             else obj.filter(responsible_name__contains=user)
+
+    elif url == '/api/robot_case_list/':
+        obj = obj.filter(project_name__contains=belong_project) if belong_project != 'All' \
+            else obj.filter(test_user__contains=user)
 
     elif url == '/api/module_list/':
 
@@ -139,15 +143,18 @@ def get_pager_info(Model, filter_query, url, id,user_account, per_items=12):
 
     elif url != '/api/env_list/' and url != '/api/debugtalk_list/':
         obj = obj.filter(type__exact=1) if url == '/api/test_list/' else obj.filter(type__exact=2)
-
         if belong_project != 'All' and belong_module != '请选择':
             obj = obj.filter(belong_project__contains=belong_project).filter(belong_module__module_name__contains=belong_module)
             if name is not '':
-                obj = obj.filter(name__contains=name)
-
+                obj = obj.filter(name__contains=name) if user is '' else obj.filter(name__contains=name).filter(author__contains=user)
         else:
             if belong_project != 'All':
                 obj = obj.filter(belong_project__contains=belong_project)
+                if name is not '':
+                    obj = obj.filter(name__contains=name) if user is '' else obj.filter(name__contains=name).filter(
+                        author__contains=user)
+                else:
+                    obj = obj.filter(author__contains=user)
             elif belong_module != '请选择':
                 obj = obj.filter(belong_module__module_name__contains=belong_module)
             else:

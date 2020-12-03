@@ -38,3 +38,8 @@ def id_del(value):
         return True
     else:
         return False
+
+
+@register.filter(name='enumerate')
+def iter_index(value):
+    return enumerate(value)

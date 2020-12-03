@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}错误提示{% endblock %}
+{% load staticfiles %}
+{% block content %}
+    <div class="admin-biaogelist" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+        <div class="listbiaoti am-cf">
+            <ul class="am-icon-flag on"> 错误提示</ul>
+        </div>
+        {% if error_info %}
+            <div style="color: #cc0000">   {{ error_info }}</div>
+        {% endif %}
+        {% if debug_error %}
+            <div >
+                {% for error in debug_error %}
+                    <div style="color: #52a3d2"> {{ error }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
