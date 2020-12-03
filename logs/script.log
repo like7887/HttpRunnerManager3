@@ -13019,3 +13019,116 @@ Traceback (most recent call last):
   File "D:\python_project\auto-project\HrunManagerCloudwalk\ApiManager\utils\runner.py", line 70, in run_by_single
     msg = check_result[0]
 IndexError: list index out of range
+2020-12-02 15:03:16,813 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:03:17,030 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:03:17,033 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:03:17,034 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:03:18,934 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'run_test'}
+2020-12-02 15:03:18,934 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function run_test at 0x000001EFDB1A46A8>
+2020-12-02 15:03:18,938 [HttpRunnerManager:232] [views:run_test] [INFO]- request.session:{'id': ['2'], 'env_name': ['https://www.zhihu.com']}
+2020-12-02 15:03:18,947 [HttpRunnerManager:65] [runner:run_by_single] [INFO]- check_result的值为:(0, [])
+2020-12-02 15:03:18,954 [HttpRunnerManager:207] [runner:main_run_cases] [INFO]- 当前运行的用例文件为：D:\python_project\auto-project\HrunManagerCloudwalk\suite\like&2020-12-02-15-03-18-938\测试项目\知乎\知乎查询用例.yml
+2020-12-02 15:03:24,703 [HttpRunnerManager:236] [runner:main_run_cases] [INFO]- 生成报告前的summary：{'name': '出入口', 'success': False, 'time': {'start_at': 1606892598.954912, 'start_at_iso_format': '2020-12-02 15:03:18', 'end_time': 1606892604.7021325, 'duration': 5.747220516204834}, 'step_datas': [{'success': False, 'name': '知乎查询', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.GET: 'GET'>, 'url': 'https://www.zhihu.com/api/v4/me/switches?include=oppose_right', 'headers': {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'HRUN-Request-ID': 'HRUN--598966'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 400, 'headers': {'Server': 'CLOUD ELB 1.0.0', 'Date': 'Wed, 02 Dec 2020 07:03:25 GMT', 'Content-Type': 'text/html', 'Vary': 'Accept-Encoding', 'Referrer-Policy': 'no-referrer-when-downgrade', 'X-SecNG-Response': '5', 'Set-Cookie': '_xsrf=de3PjQGxCqZm99A7B2wil3utHp3s9dV7; path=/; domain=zhihu.com; expires=Sun, 21-May-23 07:03:25 GMT', 'x-lb-timing': '5.002', 'x-idc-id': '2', 'Content-Length': '170', 'X-NWS-LOG-UUID': '8856396868821305756', 'Connection': 'keep-alive', 'X-Cache-Lookup': 'Cache Miss', 'x-edge-timing': '5.127', 'x-cdn-provider': 'tencent'}, 'cookies': {'_xsrf': 'de3PjQGxCqZm99A7B2wil3utHp3s9dV7'}, 'encoding': 'ISO-8859-1', 'content_type': 'text/html', 'body': '<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body bgcolor="white">\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n'}}], 'stat': {'content_size': 0, 'response_time_ms': 5725.28, 'elapsed_ms': 723.179}, 'address': {'client_ip': '192.168.4.49', 'client_port': 51186, 'server_ip': '61.128.151.48', 'server_port': 443}, 'validators': {}}, 'export_vars': {}}], 'html_report_name': '2020-12-02 15:03:18', 'count': {'successes': 0, 'failures': 1, 'errors': 0, 'skipped': 0}, 'case_id': '1', 'platform': {'httprunner_version': '3.1.4', 'python_version': '3.6.8'}, 'user_account': 'like'}
+2020-12-02 15:04:02,795 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'run_test'}
+2020-12-02 15:04:02,795 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function run_test at 0x000001EFDB1A46A8>
+2020-12-02 15:04:02,798 [HttpRunnerManager:232] [views:run_test] [INFO]- request.session:{'id': ['2'], 'env_name': ['https://www.zhihu.com']}
+2020-12-02 15:04:02,804 [HttpRunnerManager:65] [runner:run_by_single] [INFO]- check_result的值为:(0, [])
+2020-12-02 15:04:02,807 [HttpRunnerManager:207] [runner:main_run_cases] [INFO]- 当前运行的用例文件为：D:\python_project\auto-project\HrunManagerCloudwalk\suite\like&2020-12-02-15-04-02-798\测试项目\知乎\知乎查询用例.yml
+2020-12-02 15:04:07,984 [HttpRunnerManager:236] [runner:main_run_cases] [INFO]- 生成报告前的summary：{'name': '出入口', 'success': False, 'time': {'start_at': 1606892642.8072467, 'start_at_iso_format': '2020-12-02 15:04:02', 'end_time': 1606892647.9832006, 'duration': 5.1759538650512695}, 'step_datas': [{'success': False, 'name': '知乎查询', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.GET: 'GET'>, 'url': 'https://www.zhihu.com/api/v4/me/switches?include=oppose_right', 'headers': {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'HRUN-Request-ID': 'HRUN--642811'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 400, 'headers': {'Server': 'CLOUD ELB 1.0.0', 'Date': 'Wed, 02 Dec 2020 07:04:08 GMT', 'Content-Type': 'text/html', 'Vary': 'Accept-Encoding', 'Referrer-Policy': 'no-referrer-when-downgrade', 'X-SecNG-Response': '5', 'Set-Cookie': '_xsrf=068Glv2TfynslkBh2jPTvE6acLdGoiZT; path=/; domain=zhihu.com; expires=Sun, 21-May-23 07:04:08 GMT', 'x-lb-timing': '5.000', 'x-idc-id': '2', 'Content-Length': '170', 'X-NWS-LOG-UUID': '7436553973475203899', 'Connection': 'keep-alive', 'X-Cache-Lookup': 'Cache Miss', 'x-edge-timing': '5.035', 'x-cdn-provider': 'tencent'}, 'cookies': {'_xsrf': '068Glv2TfynslkBh2jPTvE6acLdGoiZT'}, 'encoding': 'ISO-8859-1', 'content_type': 'text/html', 'body': '<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body bgcolor="white">\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n'}}], 'stat': {'content_size': 0, 'response_time_ms': 5128.08, 'elapsed_ms': 127.569}, 'address': {'client_ip': '192.168.4.49', 'client_port': 51242, 'server_ip': '61.128.151.49', 'server_port': 443}, 'validators': {}}, 'export_vars': {}}], 'html_report_name': '2020-12-02 15:04:02', 'count': {'successes': 0, 'failures': 1, 'errors': 0, 'skipped': 0}, 'case_id': '1', 'platform': {'httprunner_version': '3.1.4', 'python_version': '3.6.8'}, 'user_account': 'like'}
+2020-12-02 15:04:45,603 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-12-02 15:04:45,603 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001EFDB1A4AE8>
+2020-12-02 15:04:45,606 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-12-02 15:04:45,613 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:04:45,711 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:04:45,711 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:04:45,715 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:04:45,715 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:06:37,868 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'run_test'}
+2020-12-02 15:06:37,869 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function run_test at 0x000001EFDB1A46A8>
+2020-12-02 15:06:37,871 [HttpRunnerManager:232] [views:run_test] [INFO]- request.session:{'id': ['2'], 'env_name': ['https://www.zhihu.com']}
+2020-12-02 15:06:37,877 [HttpRunnerManager:65] [runner:run_by_single] [INFO]- check_result的值为:(0, [])
+2020-12-02 15:06:37,881 [HttpRunnerManager:207] [runner:main_run_cases] [INFO]- 当前运行的用例文件为：D:\python_project\auto-project\HrunManagerCloudwalk\suite\like&2020-12-02-15-06-37-871\测试项目\知乎\知乎查询用例.yml
+2020-12-02 15:06:44,032 [HttpRunnerManager:236] [runner:main_run_cases] [INFO]- 生成报告前的summary：{'name': '出入口', 'success': False, 'time': {'start_at': 1606892797.8815675, 'start_at_iso_format': '2020-12-02 15:06:37', 'end_time': 1606892804.0316172, 'duration': 6.150049686431885}, 'step_datas': [{'success': False, 'name': '知乎查询', 'data': {'success': True, 'req_resps': [{'request': {'method': <MethodEnum.GET: 'GET'>, 'url': 'https://www.zhihu.com/api/v4/me/switches?include=oppose_right', 'headers': {'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'HRUN-Request-ID': 'HRUN--797884'}, 'cookies': {}, 'body': None}, 'response': {'status_code': 400, 'headers': {'Server': 'CLOUD ELB 1.0.0', 'Date': 'Wed, 02 Dec 2020 07:06:44 GMT', 'Content-Type': 'text/html', 'Vary': 'Accept-Encoding', 'Referrer-Policy': 'no-referrer-when-downgrade', 'X-SecNG-Response': '5', 'Set-Cookie': '_xsrf=MDygAodntPys8kD3woKRiAsql7JP3eo9; path=/; domain=zhihu.com; expires=Sun, 21-May-23 07:06:44 GMT', 'x-lb-timing': '5.001', 'x-idc-id': '2', 'Content-Length': '170', 'X-NWS-LOG-UUID': '8532536443171711906', 'Connection': 'keep-alive', 'X-Cache-Lookup': 'Cache Miss', 'x-edge-timing': '5.034', 'x-cdn-provider': 'tencent'}, 'cookies': {'_xsrf': 'MDygAodntPys8kD3woKRiAsql7JP3eo9'}, 'encoding': 'ISO-8859-1', 'content_type': 'text/html', 'body': '<html>\r\n<head><title>400 Bad Request</title></head>\r\n<body bgcolor="white">\r\n<center><h1>400 Bad Request</h1></center>\r\n<hr><center>openresty</center>\r\n</body>\r\n</html>\r\n'}}], 'stat': {'content_size': 0, 'response_time_ms': 6132.1, 'elapsed_ms': 131.174}, 'address': {'client_ip': '192.168.4.49', 'client_port': 51443, 'server_ip': '61.128.151.45', 'server_port': 443}, 'validators': {}}, 'export_vars': {}}], 'html_report_name': '2020-12-02 15:06:37', 'count': {'successes': 0, 'failures': 1, 'errors': 0, 'skipped': 0}, 'case_id': '1', 'platform': {'httprunner_version': '3.1.4', 'python_version': '3.6.8'}, 'user_account': 'like'}
+2020-12-02 15:08:21,450 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-12-02 15:08:21,450 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001EFDB1A4AE8>
+2020-12-02 15:08:21,454 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-12-02 15:08:21,461 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:08:21,553 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:08:21,553 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:08:21,557 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:08:21,557 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:09:15,180 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'config_list', 'id': '1'}
+2020-12-02 15:09:15,181 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function config_list at 0x000001EFDB1A4BF8>
+2020-12-02 15:09:15,361 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:09:15,361 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:09:15,365 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:09:15,365 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:10:36,832 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'config_list', 'id': '1'}
+2020-12-02 15:10:36,833 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function config_list at 0x000001EFDB1A4BF8>
+2020-12-02 15:10:36,920 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:10:36,921 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:10:36,924 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:10:36,925 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:10:45,628 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-12-02 15:10:45,628 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001EFDB1A4AE8>
+2020-12-02 15:10:45,632 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-12-02 15:10:45,638 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:10:45,710 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:10:45,710 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:10:45,714 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:10:45,714 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:11:52,613 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-12-02 15:11:52,614 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001EFDB1A4AE8>
+2020-12-02 15:11:52,617 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-12-02 15:11:52,624 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:11:52,702 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:11:52,702 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:11:52,706 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:11:52,707 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:12:13,419 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'config_list', 'id': '1'}
+2020-12-02 15:12:13,419 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function config_list at 0x000001EFDB1A4BF8>
+2020-12-02 15:12:13,502 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:12:13,502 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:12:13,506 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:12:13,506 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:12:24,554 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'config_list', 'id': '1'}
+2020-12-02 15:12:24,555 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function config_list at 0x000001EFDB1A4BF8>
+2020-12-02 15:12:24,643 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:12:24,643 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:12:24,646 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:12:24,646 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:12:30,779 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:12:30,780 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:12:46,124 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'test_list', 'id': '1'}
+2020-12-02 15:12:46,124 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function test_list at 0x000001EFDB1A4AE8>
+2020-12-02 15:12:46,127 [HttpRunnerManager:416] [views:test_list] [INFO]- filter_query:{'user': '', 'name': '', 'belong_project': 'All', 'belong_module': '请选择', 'report_name': ''}
+2020-12-02 15:12:46,133 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:12:46,202 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:12:46,203 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:12:46,206 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}}
+2020-12-02 15:12:46,206 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': 'All', 'name': '', 'user': ''}, 'type': 'module'}
+2020-12-02 15:12:46,885 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_case', 'id': '2'}
+2020-12-02 15:12:46,886 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function edit_case at 0x000001EFDB1A4D08>
+2020-12-02 15:12:46,930 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:13:48,343 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_case', 'id': '2'}
+2020-12-02 15:13:48,343 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function edit_case at 0x000001EFDB1A4D08>
+2020-12-02 15:13:48,358 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:14:19,115 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'edit_case', 'id': '2'}
+2020-12-02 15:14:19,116 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function edit_case at 0x000001EFDB1A4D08>
+2020-12-02 15:14:19,132 [HttpRunnerManager:614] [common:update_include] [INFO]- include:[{'config': ['1', '知乎查询']}]
+2020-12-02 15:32:18,382 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:32:18,382 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:32:20,690 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:32:20,690 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:32:20,694 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '测试项目'}, 'type': 'module'}}
+2020-12-02 15:32:20,695 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '测试项目'}, 'type': 'module'}
+2020-12-02 15:32:21,664 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:32:21,665 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_case'}
+2020-12-02 15:32:21,665 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:32:21,667 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_case at 0x000001EFDB1A4488>
+2020-12-02 15:32:21,670 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '测试项目', 'module': '1'}, 'type': 'case'}}
+2020-12-02 15:32:21,670 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '测试项目', 'module': '1'}, 'type': 'case'}
+2020-12-02 15:32:21,671 [HttpRunnerManager:188] [views:add_case] [INFO]- testcase_info:{'test': {'name': {'project': '测试项目', 'module': '1'}, 'type': 'config'}}
+2020-12-02 15:32:21,673 [HttpRunnerManager:233] [common:case_info_logic] [INFO]- common 中的 test:{'name': {'project': '测试项目', 'module': '1'}, 'type': 'config'}
+2020-12-02 15:35:18,380 [HttpRunnerManager:6] [activator:process] [INFO]- 请求详细参数kwargs：{'app': 'api', 'function': 'add_config'}
+2020-12-02 15:35:18,380 [HttpRunnerManager:39] [views:wrapper] [INFO]- func的值为：<function add_config at 0x000001EFDB1A4598>
