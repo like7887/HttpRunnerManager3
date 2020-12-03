@@ -879,6 +879,7 @@ def add_robot(request):
         manage_info = {
             'account': account
         }
+        
         return render_to_response('add_robot.html', manage_info)
 
 
